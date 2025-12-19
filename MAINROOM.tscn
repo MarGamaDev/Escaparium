@@ -1,6 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwj6a3qcbnxfa"]
+[gd_scene load_steps=5 format=3 uid="uid://dwj6a3qcbnxfa"]
+
+[ext_resource type="Texture2D" uid="uid://csyomuo27ab3u" path="res://wooffloor1.png" id="1_d32n0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0pxm"]
+albedo_texture = ExtResource("1_d32n0")
+uv1_scale = Vector3(3, 3, 3)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_x8mo5"]
+material = SubResource("StandardMaterial3D_v0pxm")
 size = Vector2(3, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wh6xe"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwj6a3qcbnxfa"]
+[gd_scene load_steps=7 format=3 uid="uid://dwj6a3qcbnxfa"]
 
 [ext_resource type="Texture2D" uid="uid://csyomuo27ab3u" path="res://Textures/BASIC/wooffloor1.png" id="1_d32n0"]
+[ext_resource type="Texture2D" uid="uid://6wnj2p22l36d" path="res://Textures/BASIC/WALL3.png" id="2_v0pxm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0pxm"]
 albedo_texture = ExtResource("1_d32n0")
@@ -8,16 +9,62 @@ uv1_scale = Vector3(3, 3, 3)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_x8mo5"]
 material = SubResource("StandardMaterial3D_v0pxm")
-size = Vector2(3, 4)
+size = Vector2(4, 4.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wh6xe"]
-size = Vector3(3, 0.1, 4)
+size = Vector3(4, 0.1, 4.5)
 
-[node name="ROOM_FLOOR" type="StaticBody3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iys6k"]
+albedo_texture = ExtResource("2_v0pxm")
+uv1_scale = Vector3(0.475, 0.475, 0.475)
+uv1_triplanar = true
+
+[node name="BEDROOM" type="StaticBody3D"]
 
 [node name="FLOOR_MESH" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00244236, 0.0034490824, 0.0009446144)
 mesh = SubResource("PlaneMesh_x8mo5")
 
 [node name="FLOOR_COLLISION" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.99999994, 0, -1.7484554e-07, 0, 1, 0, 1.7484554e-07, 0, 0.99999994, 0, -0.04845965, 0)
 shape = SubResource("BoxShape3D_wh6xe")
+
+[node name="WALLS" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1069183, 0)
+size = Vector3(4, 2.5, 4.5)
+
+[node name="WALLS_SUBTRACTION" type="CSGBox3D" parent="WALLS"]
+operation = 2
+size = Vector3(3.9, 2.6, 4.3)
+material = SubResource("StandardMaterial3D_iys6k")
+
+[node name="WINDOW_SUBTRACTION" type="CSGBox3D" parent="WALLS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34604186, 0.34574127, 2.212844)
+operation = 2
+size = Vector3(1, 0.8, 0.2)
+
+[node name="FURNITURE" type="StaticBody3D" parent="."]
+
+[node name="BED" type="CSGBox3D" parent="FURNITURE"]
+transform = Transform3D(-0.031637557, 0, 0.9994994, 0, 1, 0, -0.9994994, 0, -0.031637557, -1.4707279, 0.06585598, -1.2850045)
+size = Vector3(1.8, 1, 1)
+
+[node name="DOOR" type="CSGBox3D" parent="FURNITURE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2364438, 0.723634, -2.261932)
+size = Vector3(1.205, 2.44, 0.4)
+
+[node name="DESK" type="CSGBox3D" parent="FURNITURE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47062755, 0.26455545, 1.7575173)
+size = Vector3(1.8, 1, 0.75)
+
+[node name="AQUARIUM TABLE" type="CSGBox3D" parent="FURNITURE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5955638, 0.42107093, 0.0076375604)
+size = Vector3(0.7, 1, 1)
+
+[node name="CAT BED" type="CSGCylinder3D" parent="FURNITURE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3317584, 0.112865806, 1.6123108)
+height = 0.2
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50286686, 0.33901465, -1.9233816)
+size = Vector3(0.4, 0.7, 0.4)

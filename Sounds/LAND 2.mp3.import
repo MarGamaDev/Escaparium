@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dk60ppm2epprh"
+path="res://.godot/imported/LAND 2.mp3-290ff749e8d2404f579a73a0d1b36564.mp3str"
+
+[deps]
+
+source_file="res://Sounds/LAND 2.mp3"
+dest_files=["res://.godot/imported/LAND 2.mp3-290ff749e8d2404f579a73a0d1b36564.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

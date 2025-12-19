@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csyomuo27ab3u"
-path.s3tc="res://.godot/imported/wooffloor1.png-627d5268596a7a339f6a6c313ef3e6ed.s3tc.ctex"
+path.s3tc="res://.godot/imported/wooffloor1.png-4c97591043f8bfda65086e40d52722f0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://wooffloor1.png"
-dest_files=["res://.godot/imported/wooffloor1.png-627d5268596a7a339f6a6c313ef3e6ed.s3tc.ctex"]
+source_file="res://Textures/BASIC/wooffloor1.png"
+dest_files=["res://.godot/imported/wooffloor1.png-4c97591043f8bfda65086e40d52722f0.s3tc.ctex"]
 
 [params]
 

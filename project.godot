@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Escaparium"
+run/main_scene="uid://ccgfl0nfuq3qv"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -18,6 +19,10 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=320
 window/size/viewport_height=240
+window/size/borderless=true
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
 [input]

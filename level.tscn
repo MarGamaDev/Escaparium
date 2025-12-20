@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccgfl0nfuq3qv"]
+
+[ext_resource type="PackedScene" uid="uid://dwj6a3qcbnxfa" path="res://MAINROOM.tscn" id="1_vonw3"]
+[ext_resource type="PackedScene" uid="uid://b2ujabrjwy4s2" path="res://Player/Player.tscn" id="2_oi3di"]
+
+[node name="Level" type="Node3D"]
+
+[node name="BEDROOM" parent="." instance=ExtResource("1_vonw3")]
+
+[node name="Player" parent="." instance=ExtResource("2_oi3di")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98145926, 0)

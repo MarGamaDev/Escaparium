@@ -1,5 +1,5 @@
 class_name PlayerController
-extends Node3D
+extends CharacterBody3D
 
 @export var horizontalSpeed: float = 1;
 @export var sprintMultiplier: float = 2;

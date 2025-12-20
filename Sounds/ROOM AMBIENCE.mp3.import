@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d16cx23gxe477"
+path="res://.godot/imported/ROOM AMBIENCE.mp3-f09e45ea4d911be9c9b101e4db2d339c.mp3str"
+
+[deps]
+
+source_file="res://Sounds/ROOM AMBIENCE.mp3"
+dest_files=["res://.godot/imported/ROOM AMBIENCE.mp3-f09e45ea4d911be9c9b101e4db2d339c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

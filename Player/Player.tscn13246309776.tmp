@@ -1,37 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2ujabrjwy4s2"]
+[gd_scene load_steps=5 format=3 uid="uid://b2ujabrjwy4s2"]
 
 [ext_resource type="Script" uid="uid://cqussxt5r6bd7" path="res://Player/player.gd" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://dsusc3gks1v4d" path="res://Player/ThirdPersonCamera.gd" id="2_q3lat"]
 [ext_resource type="PackedScene" uid="uid://bbuvg32q4q2o4" path="res://Player/FISHTOPHER_Animations.glb" id="2_tok1r"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ddoul"]
-margin = 0.01
-points = PackedVector3Array(0.1, 0, 0.05, 0.07, -0.205, 0.05, -0.05, -0.24, 0.05, -0.12, 0, 0.05, -0.02, 0.205, 0.05, 0.04, 0.205, 0.05, 0.1, 0, -0.04, 0.07, -0.205, -0.04, -0.05, -0.24, -0.04, -0.12, 0, -0.04, -0.02, 0.205, -0.04, 0.04, 0.205, -0.04)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_tok1r"]
-margin = 0.01
-radius = 0.05
+points = PackedVector3Array(0.45, 0.06, 0.4, 0.235, -1.135, 0.4, -0.29, -1.09, 0.4, -0.525, 0, 0.4, -0.135, 1.055, 0.4, 0.225, 1.02, 0.4, 0.45, 0.06, -0.1, 0.235, -1.135, -0.1, -0.29, -1.09, -0.1, -0.525, 0, -0.1, -0.135, 1.055, -0.1, 0.225, 1.02, -0.1)
 
 [node name="Player" type="CharacterBody3D"]
-collision_layer = 2
 script = ExtResource("1_3qydi")
-flop_force = 8.0
-jump_force = 8.0
+flop_force = 300.0
 air_control_multiplier = 1.0
-fish_mass = 2.0
-fish_drag = 0.8
 
 [node name="FISHTOPHER_Animations" parent="." instance=ExtResource("2_tok1r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03824368, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+transform = Transform3D(0.205, 0, 0, 0, -8.960835e-09, -0.205, 0, 0.205, -8.960835e-09, 0, 0.031754613, -0.012762451)
 shape = SubResource("ConvexPolygonShape3D_ddoul")
 
 [node name="Camera Arm" type="SpringArm3D" parent="."]
-shape = SubResource("SphereShape3D_tok1r")
-spring_length = 2.5
-margin = 0.1
+spring_length = 4.0
 script = ExtResource("2_q3lat")
 mouse_sensitivity = 0.01
 min_vertical_angle = -1.2999999999999972

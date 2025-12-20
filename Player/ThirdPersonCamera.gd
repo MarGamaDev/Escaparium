@@ -6,7 +6,7 @@ extends SpringArm3D
 @export_range(0.0, 90.0, 0.1, "radiens_as_degrees") var max_vertical_angle: float = PI/4;
 
 func _ready() -> void:
-	Input.mouse_mode =Input.MOUSE_MODE_CAPTURED;
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

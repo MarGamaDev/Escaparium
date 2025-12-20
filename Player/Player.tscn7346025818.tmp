@@ -17,7 +17,7 @@ collision_layer = 2
 script = ExtResource("1_3qydi")
 flop_force = 8.0
 jump_force = 8.0
-max_speed = 4.0
+air_control_multiplier = 1.0
 fish_mass = 2.0
 fish_drag = 0.8
 

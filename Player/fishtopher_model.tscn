@@ -33,11 +33,9 @@ node_connections = [&"output", 0, &"Jump Oneshot", &"Move Blend", 0, &"Anime Sti
 [node name="Fishtopher Model" instance=ExtResource("1_4wtfm")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(-0.012774321, -0.00084895414, -0.098251715)
-bones/0/rotation = Quaternion(-0.060751244, -0.007435147, 0.009556577, 0.99807954)
-bones/1/position = Vector3(-0.012774322, -0.00084895024, -0.098251715)
-bones/1/rotation = Quaternion(0.73402894, 0.0874888, 0.6701801, -0.06637771)
-bones/2/rotation = Quaternion(0.04784817, 0.00057479966, 0.048300974, 0.9976859)
+bones/0/rotation = Quaternion(0, 0, 0, 1)
+bones/1/rotation = Quaternion(0.7359046, 0.07347681, 0.6682046, -0.08092118)
+bones/2/rotation = Quaternion(0.04649608, -2.7369333e-08, -0.0018748125, 0.99891675)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = SubResource("AnimationNodeBlendTree_4wtfm")

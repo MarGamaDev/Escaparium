@@ -5,7 +5,7 @@ extends CharacterBody3D
 @export var sprint_multiplier: float = 2;
 @export var flop_force: float = 1;
 @export var jump_force: float = 2;
-@export var air_control_multiplier: float = 0.1;
+@export var max_speed: float = 0.1;
 @export var fish_mass: float = 1;
 @export var fish_drag: float = 1;
 
@@ -16,18 +16,14 @@ extends CharacterBody3D
 @onready var collider: CollisionShape3D = $CollisionShape3D
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity");
-
+var flop_percent: float  = 0;
 var input_vector := Vector2.ZERO;
 var is_sprinting := false;
 
-func _process(_delta: float) -> void:
-	_take_input()
+func _process(delta: float) -> void:
+	_take_input();
 	
-	if is_on_floor():
-		if velocity.x + velocity.y != 0:
-			animation_tree.set("parameters/Move Blend/blend_amount", 1);
-		else:
-			animation_tree.set("parameters/Move Blend/blend_amount", 0);
+	_animate(delta);
 	
 	if Input.is_action_just_pressed("Jump"):
 		if is_on_floor():
@@ -47,11 +43,24 @@ func _physics_process(delta: float) -> void:
 	if velocity.x + velocity.z != 0:
 		_rotate_model_to_forward()
 		
+	
+	velocity = velocity.clamp(Vector3(-max_speed, -1000, -max_speed), Vector3(max_speed, 1000, max_speed));
 	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		_do_camera(event);
+
+func _animate(delta: float) -> void:
+	if is_on_floor():
+		var horizontal_velocity: float = Vector2(velocity.x, velocity.z).length();
+		if  horizontal_velocity > 0.5 :
+			animation_tree.set("parameters/Move Blend/blend_amount", 1);
+			flop_percent = 1;
+		else:
+			flop_percent -= 2 * delta;
+			flop_percent = clamp(flop_percent, 0, 1);
+			animation_tree.set("parameters/Move Blend/blend_amount", flop_percent);
 
 func _do_camera(event: InputEvent) -> void:
 	camera_arm.do_vertical_rotation(event);
@@ -79,11 +88,10 @@ func _apply_movement(delta: float) -> void:
 	var rotated_movement = move_vector.rotated(Vector3.UP, forward_angle);
 	
 	rotated_movement *= flop_force * delta;
-	if !is_on_floor():
-		rotated_movement *= air_control_multiplier;
 	
 	if is_sprinting:
 		rotated_movement *= sprint_multiplier;
+	
 	
 	#apply movement
 	velocity += Vector3(rotated_movement.x, 0, rotated_movement.z);

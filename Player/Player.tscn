@@ -2,20 +2,21 @@
 
 [ext_resource type="Script" uid="uid://cqussxt5r6bd7" path="res://Player/player.gd" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://dsusc3gks1v4d" path="res://Player/ThirdPersonCamera.gd" id="2_q3lat"]
+[ext_resource type="PackedScene" uid="uid://bbuvg32q4q2o4" path="res://Player/FISHTOPHER_Animations.glb" id="2_tok1r"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_3qydi"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_q3lat"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ddoul"]
+points = PackedVector3Array(0.45, 0.06, 0.4, 0.235, -1.135, 0.4, -0.29, -1.09, 0.4, -0.525, 0, 0.4, -0.135, 1.055, 0.4, 0.225, 1.02, 0.4, 0.45, 0.06, -0.1, 0.235, -1.135, -0.1, -0.29, -1.09, -0.1, -0.525, 0, -0.1, -0.135, 1.055, -0.1, 0.225, 1.02, -0.1)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_3qydi")
 flop_force = 50.0
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_3qydi")
+[node name="FISHTOPHER_Animations" parent="." instance=ExtResource("2_tok1r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03824368, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_q3lat")
+transform = Transform3D(0.205, 0, 0, 0, -8.960835e-09, -0.205, 0, 0.205, -8.960835e-09, 0, 0.031754613, -0.012762451)
+shape = SubResource("ConvexPolygonShape3D_ddoul")
 
 [node name="Camera Arm" type="SpringArm3D" parent="."]
 spring_length = 4.0

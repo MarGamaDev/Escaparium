@@ -32,14 +32,12 @@ func _check_ground() -> void:
 
 func _apply_movement(delta: float) -> void:
 	var cam_translated_forward := Vector3(camera.global_position.x - global_position.x, 0, camera.global_position.z - global_position.z).normalized();
-	#var move_direction: Vector3 = input_vector.ro
+	var move_vector: Vector3;
 	
-	if input_vector == Vector2.ZERO:
-		return;
-	#if input_vector != Vector2.ZERO:
-	velocity.x = input_vector.x;
-	velocity.y = input_vector.y;
+	if input_vector != Vector2.ZERO:
+		move_vector.x = input_vector.x;
+		move_vector.z = input_vector.y;
 	print(velocity);
 	#apply gravity
 	#apply jump
-	move_and_slide()
+	

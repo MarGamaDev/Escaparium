@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fx11gjlkr16x"
-path.s3tc="res://.godot/imported/PC_TOWER_AAAAAAAAAAAA.png-8cb30076e0952e5a19afd83c4d00decc.s3tc.ctex"
+uid="uid://bkfw053blfq1w"
+path.s3tc="res://.godot/imported/PC_TOWER_AAAAAAAAAAAA.png-e550cc930785116033afc42b273bf5ea.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://ITEM_MODELS/PC_TOWER_AAAAAAAAAAAA.png"
-dest_files=["res://.godot/imported/PC_TOWER_AAAAAAAAAAAA.png-8cb30076e0952e5a19afd83c4d00decc.s3tc.ctex"]
+source_file="res://ITEM_MODELS/PC Tower/PC_TOWER_AAAAAAAAAAAA.png"
+dest_files=["res://.godot/imported/PC_TOWER_AAAAAAAAAAAA.png-e550cc930785116033afc42b273bf5ea.s3tc.ctex"]
 
 [params]
 

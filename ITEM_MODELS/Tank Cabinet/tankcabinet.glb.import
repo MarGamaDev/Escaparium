@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dn2fu2yk2clwg"
-path="res://.godot/imported/PC_TOWER.glb-09618f828300a2021d04917c6ec914ca.scn"
+uid="uid://x2xokvyo84wj"
+path="res://.godot/imported/tankcabinet.glb-b7a8aa3c97f3d3877ebaedd09d2f443c.scn"
 
 [deps]
 
-source_file="res://ITEM_MODELS/PC_TOWER.glb"
-dest_files=["res://.godot/imported/PC_TOWER.glb-09618f828300a2021d04917c6ec914ca.scn"]
+source_file="res://ITEM_MODELS/Tank Cabinet/tankcabinet.glb"
+dest_files=["res://.godot/imported/tankcabinet.glb-b7a8aa3c97f3d3877ebaedd09d2f443c.scn"]
 
 [params]
 
@@ -17,7 +17,7 @@ nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
-nodes/root_scale=6.0
+nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
@@ -36,7 +36,7 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 materials/extract=0
 materials/extract_format=0
-materials/extract_path="res://"
+materials/extract_path=""
 _subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

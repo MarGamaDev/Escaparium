@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://csyomuo27ab3u" path="res://Textures/BASIC/wooffloor1.png" id="1_d32n0"]
 [ext_resource type="Texture2D" uid="uid://6wnj2p22l36d" path="res://Textures/BASIC/WALL3.png" id="2_v0pxm"]
-[ext_resource type="PackedScene" uid="uid://dn2fu2yk2clwg" path="res://ITEM_MODELS/PC_TOWER.glb" id="3_iys6k"]
+[ext_resource type="PackedScene" uid="uid://cfyrpvba8rypx" path="res://ITEM_MODELS/PC Tower/Pc Tower.tscn" id="3_iys6k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0pxm"]
 albedo_texture = ExtResource("1_d32n0")
@@ -13,7 +13,7 @@ material = SubResource("StandardMaterial3D_v0pxm")
 size = Vector2(4, 4.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wh6xe"]
-size = Vector3(4, 0.1, 4.5)
+size = Vector3(28, 0.1, 31.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iys6k"]
 albedo_texture = ExtResource("2_v0pxm")
@@ -21,68 +21,80 @@ uv1_scale = Vector3(0.475, 0.475, 0.475)
 uv1_triplanar = true
 
 [node name="BEDROOM" type="StaticBody3D"]
-transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0)
 
 [node name="FLOOR_MESH" type="MeshInstance3D" parent="."]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0)
 mesh = SubResource("PlaneMesh_x8mo5")
 
 [node name="FLOOR_COLLISION" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.99999994, 0, -1.7484554e-07, 0, 1, 0, 1.7484554e-07, 0, 0.99999994, 0, 0, 0)
+transform = Transform3D(0.99999994, 0, -1.7484554e-07, 0, 1, 0, 1.7484554e-07, 0, 0.99999994, 0, -0.05, 0)
 shape = SubResource("BoxShape3D_wh6xe")
 
 [node name="WALLS" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1069183, 0)
-size = Vector3(4, 2.5, 4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.749, 0)
+size = Vector3(28, 17.5, 31.5)
 
 [node name="WALLS_SUBTRACTION" type="CSGBox3D" parent="WALLS"]
 operation = 2
-size = Vector3(3.9, 2.6, 4.3)
+size = Vector3(27.3, 18.2, 30.1)
 material = SubResource("StandardMaterial3D_iys6k")
 
 [node name="WINDOW_SUBTRACTION" type="CSGBox3D" parent="WALLS"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34604186, 0.34574127, 2.212844)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.422, 2.422, 15.491)
 operation = 2
-size = Vector3(1, 0.8, 0.2)
+size = Vector3(7, 5.6, 1.4)
 
 [node name="FURNITURE" type="Node3D" parent="."]
 
 [node name="BED" type="CSGBox3D" parent="FURNITURE"]
-transform = Transform3D(-0.031637557, 0, 0.9994994, 0, 1, 0, -0.9994994, 0, -0.031637557, -1.4707279, 0.06585598, -1.2850045)
+transform = Transform3D(-0.031637557, 0, 0.9994994, 0, 1, 0, -0.9994994, 0, -0.031637557, -10.297, 0.462, -8.995)
 use_collision = true
-size = Vector3(1.8, 1, 1)
+collision_mask = 3
+size = Vector3(12.6, 7, 7)
 
 [node name="DOOR" type="CSGBox3D" parent="FURNITURE"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2364438, 0.723634, -2.261932)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.652, 5.068, -15.834)
 use_collision = true
-size = Vector3(1.205, 2.44, 0.4)
+collision_mask = 3
+size = Vector3(8.435, 17.08, 2.8)
 
 [node name="DESK" type="CSGBox3D" parent="FURNITURE"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8861155, 0.26455545, 1.7779932)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.202, 1.855, 12.446)
 use_collision = true
-size = Vector3(2, 1, 0.75)
+collision_mask = 3
+size = Vector3(14, 7, 5.25)
 
 [node name="AQUARIUM TABLE" type="CSGBox3D" parent="FURNITURE"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.596, 0.5, 0.008)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.172, 3.5, 0.056)
 use_collision = true
-size = Vector3(0.7, 1, 1)
+collision_mask = 3
+size = Vector3(4.9, 7, 7)
 
 [node name="CAT BED" type="CSGCylinder3D" parent="FURNITURE"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3317584, 0.112865806, 1.6123108)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.324, 0.791, 11.284)
 use_collision = true
-height = 0.2
+collision_mask = 3
+radius = 3.5
+height = 1.4
 
 [node name="NIGHTSTAND" type="CSGBox3D" parent="FURNITURE"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50286686, 0.33901465, -1.9233816)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.521, 2.373, -13.461)
 use_collision = true
-size = Vector3(0.4, 0.7, 0.4)
+collision_mask = 3
+size = Vector3(2.8, 4.9, 2.8)
 
 [node name="SHELF_A" type="CSGBox3D" parent="FURNITURE"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.806697, 1.8987482, 0.81532025)
-size = Vector3(0.3, 0.1, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.649, 13.293, 5.705)
+use_collision = true
+collision_mask = 3
+size = Vector3(2.1, 0.7, 7)
 
 [node name="SHELF_B" type="CSGBox3D" parent="FURNITURE"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.806697, 1.2804797, -0.07576448)
-size = Vector3(0.3, 0.1, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.649, 8.96, -0.532)
+use_collision = true
+collision_mask = 3
+size = Vector3(2.1, 0.7, 7)
 
-[node name="PC_TOWER" parent="." instance=ExtResource("3_iys6k")]
-transform = Transform3D(-1.4, 0, -2.1139412e-07, 0, 1.4, 0, 2.1139412e-07, 0, -1.4, -1.6060109, 0.6638018, 1.8537744)
+[node name="PcTower" parent="FURNITURE" instance=ExtResource("3_iys6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.788999, 0, 3.8583326)
+collision_mask = 3

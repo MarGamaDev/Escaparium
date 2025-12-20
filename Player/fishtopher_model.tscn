@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7y1hj8l0gylp"]
+
+[ext_resource type="PackedScene" uid="uid://bbuvg32q4q2o4" path="res://Player/FISHTOPHER_Animations.glb" id="1_4wtfm"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_frkjv"]
+animation = &"FISH_JUMP"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rf1gl"]
+animation = &"FISH MOVING"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4wtfm"]
+animation = &"FISH_STILL"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_kex1o"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_rf1gl"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_4wtfm"]
+graph_offset = Vector2(-422.80588, 10.43988)
+nodes/output/position = Vector2(480, 140)
+"nodes/Anim Move/node" = SubResource("AnimationNodeAnimation_rf1gl")
+"nodes/Anim Move/position" = Vector2(-500, 360)
+"nodes/Anime Still/node" = SubResource("AnimationNodeAnimation_4wtfm")
+"nodes/Anime Still/position" = Vector2(-540, 140)
+"nodes/Move Blend/node" = SubResource("AnimationNodeBlend2_rf1gl")
+"nodes/Move Blend/position" = Vector2(-240, 120)
+"nodes/Jump Oneshot/node" = SubResource("AnimationNodeOneShot_kex1o")
+"nodes/Jump Oneshot/position" = Vector2(160, 120)
+"nodes/Anim Jumo/node" = SubResource("AnimationNodeAnimation_frkjv")
+"nodes/Anim Jumo/position" = Vector2(-120, 380)
+node_connections = [&"output", 0, &"Jump Oneshot", &"Move Blend", 0, &"Anime Still", &"Move Blend", 1, &"Anim Move", &"Jump Oneshot", 0, &"Move Blend", &"Jump Oneshot", 1, &"Anim Jumo"]
+
+[node name="Fishtopher Model" instance=ExtResource("1_4wtfm")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(-0.012774321, -0.00084895414, -0.098251715)
+bones/0/rotation = Quaternion(-0.060751244, -0.007435147, 0.009556577, 0.99807954)
+bones/1/position = Vector3(-0.012774322, -0.00084895024, -0.098251715)
+bones/1/rotation = Quaternion(0.73402894, 0.0874888, 0.6701801, -0.06637771)
+bones/2/rotation = Quaternion(0.04784817, 0.00057479966, 0.048300974, 0.9976859)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeBlendTree_4wtfm")
+anim_player = NodePath("../AnimationPlayer")
+"parameters/Move Blend/blend_amount" = 0.21071511111088836
+"parameters/Jump Oneshot/active" = false
+"parameters/Jump Oneshot/internal_active" = false
+"parameters/Jump Oneshot/request" = 0

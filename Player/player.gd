@@ -9,33 +9,62 @@ extends CharacterBody3D
 @export var fish_mass: float = 1;
 @export var fish_drag: float = 1;
 
-@onready var camera: Camera3D = $"Camera Arm/Camera3D";
+@onready var camera_arm: ThirdPersonCamera =$"Camera Pivot";
+@onready var camera: Camera3D = $"Camera Pivot/Camera Arm/Camera3D";
+@onready var animation_tree: AnimationTree = $"Fishtopher Model/AnimationTree";
+@onready var model: Node3D = $"Fishtopher Model";
+@onready var collider: CollisionShape3D = $CollisionShape3D
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity");
 
 var input_vector := Vector2.ZERO;
 var is_sprinting := false;
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_take_input()
-	_check_ground()
+	
+	if is_on_floor():
+		if velocity.x + velocity.y != 0:
+			animation_tree.set("parameters/Move Blend/blend_amount", 1);
+		else:
+			animation_tree.set("parameters/Move Blend/blend_amount", 0);
+	
 	if Input.is_action_just_pressed("Jump"):
 		if is_on_floor():
 			velocity.y = jump_force;
-			print("jumping")
+			animation_tree.set("parameters/Jump Oneshot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE);
 
 func _physics_process(delta: float) -> void:
+	_apply_movement(delta)
 	#apply gravity
 	velocity.y -= gravity * fish_mass * delta;
-	_apply_movement(delta)
+	
+	#apply floor drag
+	if is_on_floor():
+		velocity *= fish_drag
+	
+	
+	if velocity.x + velocity.z != 0:
+		_rotate_model_to_forward()
+		
+	move_and_slide()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		_do_camera(event);
+
+func _do_camera(event: InputEvent) -> void:
+	camera_arm.do_vertical_rotation(event);
+	camera_arm.do_horizontal_rotation(event);
+
+func _rotate_model_to_forward() -> void:
+	model.rotation.y = camera_arm.rotation.y + deg_to_rad(180);
+	collider.rotation.y = camera_arm.rotation.y + deg_to_rad(180);
 
 func _take_input() -> void:
 	input_vector = Input.get_vector("Move_Right","Move_Left","Move_Back","Move_Forward");
 	
 	is_sprinting = Input.is_action_pressed("Sprint");
-
-func _check_ground() -> void:
-	return
 
 func _apply_movement(delta: float) -> void:
 	var cam_translated_forward := Vector3(camera.global_position.x - global_position.x, 0, camera.global_position.z - global_position.z).normalized();
@@ -58,9 +87,3 @@ func _apply_movement(delta: float) -> void:
 	
 	#apply movement
 	velocity += Vector3(rotated_movement.x, 0, rotated_movement.z);
-	
-	#apply floor drag
-	if is_on_floor():
-		velocity *= fish_drag
-	
-	move_and_slide()

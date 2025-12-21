@@ -34,7 +34,7 @@ stream = ExtResource("5_f2txt")
 volume_db = 3.636
 autoplay = true
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_1ainy")
 volume_db = -20.363
 autoplay = true

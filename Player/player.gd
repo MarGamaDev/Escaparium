@@ -72,7 +72,6 @@ func _physics_process(delta: float) -> void:
 	for i in get_slide_collision_count():
 		var item = get_slide_collision(i);
 		if item.get_collider() is RigidBody3D:
-			print(item.get_normal())
 			(item.get_collider() as RigidBody3D).apply_central_impulse(-(1 * delta * item.get_normal()));
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -139,9 +138,7 @@ func _on_body_exited(body: Node3D) -> void:
 		interactables.erase(body);
 
 func _try_interact() -> void:
-	print("attempting interact");
 	if interactables.is_empty():
-		print("no interactables in list");
 		return;
 	
 	var closest_distance: float = INF;
@@ -151,6 +148,9 @@ func _try_interact() -> void:
 			if position.distance_to(item.position) < closest_distance:
 				closest_distance = item.position.length();
 				closest_interactable = item as Interactable;
+	
+	if closest_interactable == null:
+		return;
 	
 	if closest_interactable.can_interact(interact_prerequisites):
 		closest_interactable._interact();

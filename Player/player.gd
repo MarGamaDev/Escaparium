@@ -15,14 +15,15 @@ extends CharacterBody3D
 @onready var model: Node3D = $"Fishtopher Model";
 @onready var collider: CollisionShape3D = $CollisionShape3D;
 @onready var held_item_point: Node3D = $"Held Item Point";
-@onready var jump_sfx: FishSoundMachine = $"Jump Sounds"
-@onready var step_sfx: FishSoundMachine = $"Step Sounds"
-@onready var land_sfx: FishSoundMachine = $"Land Sounds"
+@onready var jump_sfx: SmartSoundArrayPlayer = $"Jump Sounds"
+@onready var step_sfx: SmartSoundArrayPlayer = $"Step Sounds"
+@onready var land_sfx: SmartSoundArrayPlayer = $"Land Sounds"
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity");
 var flop_percent: float  = 0;
 var input_vector := Vector2.ZERO;
 var is_sprinting := false;
+var is_aerial := true;
 
 var interactables: Array[Node3D];
 var interact_prerequisites: Array[String] = ["stinky"];
@@ -43,6 +44,12 @@ func _process(delta: float) -> void:
 		_try_interact()
 
 func _physics_process(delta: float) -> void:
+	if is_aerial:
+		if is_on_floor():
+			land_sfx.play_random_from_array();
+	
+	is_aerial = ! is_on_floor();
+	
 	_apply_movement(delta)
 	#apply gravity
 	velocity.y -= gravity * fish_mass * delta;
@@ -51,7 +58,6 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		velocity *= fish_drag
 	
-	
 	if velocity.x + velocity.z != 0:
 		_rotate_model_to_forward()
 		if is_on_floor() && !step_sfx.playing:
@@ -59,7 +65,6 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = velocity.clamp(Vector3(-max_speed, -INF, -max_speed), Vector3(max_speed, INF, max_speed));
 	move_and_slide()
-	
 	
 	for i in get_slide_collision_count():
 		var item = get_slide_collision(i);

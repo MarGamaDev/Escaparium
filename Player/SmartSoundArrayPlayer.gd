@@ -1,4 +1,4 @@
-class_name FishSoundMachine
+class_name SmartSoundArrayPlayer
 extends AudioStreamPlayer3D
 
 @export var sound_array: Array[AudioStream] = [];

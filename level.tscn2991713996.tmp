@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccgfl0nfuq3qv"]
+[gd_scene load_steps=6 format=3 uid="uid://ccgfl0nfuq3qv"]
 
 [ext_resource type="PackedScene" uid="uid://dwj6a3qcbnxfa" path="res://MAINROOM.tscn" id="1_vonw3"]
 [ext_resource type="PackedScene" uid="uid://b2ujabrjwy4s2" path="res://Player/Player.tscn" id="2_oi3di"]
 [ext_resource type="PackedScene" uid="uid://ddjov2hg4femu" path="res://ITEM_MODELS/Small Items/Screwdriver/Screwdriver.tscn" id="3_oi3di"]
 [ext_resource type="PackedScene" uid="uid://bqc0nv6tmwjo" path="res://Cat/CATPLEASEWORKWALK.glb" id="4_0b4ue"]
 [ext_resource type="AudioStream" uid="uid://d16cx23gxe477" path="res://Sounds/ROOM AMBIENCE.mp3" id="5_f2txt"]
-[ext_resource type="AudioStream" uid="uid://ch6b6g4ychi2y" path="res://Sounds/LOOP.mp3" id="6_1ainy"]
 
 [node name="Level" type="Node3D"]
 
@@ -29,12 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8491845, 1.571989, 2.03376
 [node name="CATPLEASEWORKWALK" parent="." instance=ExtResource("4_0b4ue")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.33814, 0.06161053, 4.6734734)
 
-[node name="Ambiance" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_f2txt")
-volume_db = 3.636
-autoplay = true
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_1ainy")
-volume_db = -20.363
-autoplay = true

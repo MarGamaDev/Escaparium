@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cqussxt5r6bd7" path="res://Player/Player.gd" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://dsusc3gks1v4d" path="res://Player/ThirdPersonCamera.gd" id="2_q3lat"]
 [ext_resource type="PackedScene" uid="uid://b7y1hj8l0gylp" path="res://Player/fishtopher_model.tscn" id="3_tok1r"]
-[ext_resource type="Script" uid="uid://ctc0gkf64cmms" path="res://Player/FishSoundMachine.gd" id="4_ddoul"]
+[ext_resource type="Script" uid="uid://ctc0gkf64cmms" path="res://Player/SmartSoundArrayPlayer.gd" id="4_ddoul"]
 [ext_resource type="AudioStream" uid="uid://x6t2gkfj3d6o" path="res://Sounds/STEP 1.mp3" id="5_5wa8t"]
 [ext_resource type="AudioStream" uid="uid://lgpjg1ibnvd7" path="res://Sounds/STEP 2.mp3" id="6_p7tob"]
 [ext_resource type="AudioStream" uid="uid://d2gr7y0caacpa" path="res://Sounds/STEP 3.mp3" id="7_dm7nj"]
@@ -69,17 +69,25 @@ shape = SubResource("SphereShape3D_8g4oa")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60093176, 0)
 
 [node name="Step Sounds" type="AudioStreamPlayer3D" parent="."]
+volume_db = -9.343
 script = ExtResource("4_ddoul")
 sound_array = Array[AudioStream]([ExtResource("5_5wa8t"), ExtResource("6_p7tob"), ExtResource("7_dm7nj"), ExtResource("8_3mea3"), ExtResource("9_7v5gs"), ExtResource("10_8sa4y"), ExtResource("11_3nb2p"), ExtResource("12_d7xyo")])
 
 [node name="Jump Sounds" type="AudioStreamPlayer3D" parent="."]
-volume_db = -6.926
+volume_db = -8.094
 script = ExtResource("4_ddoul")
 sound_array = Array[AudioStream]([ExtResource("13_3mea3"), ExtResource("14_7v5gs"), ExtResource("15_8sa4y")])
 
 [node name="Land Sounds" type="AudioStreamPlayer3D" parent="."]
+volume_db = -7.007
 script = ExtResource("4_ddoul")
 sound_array = Array[AudioStream]([ExtResource("16_3nb2p"), ExtResource("17_d7xyo"), ExtResource("18_evw08")])
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="."]
 
 [connection signal="body_entered" from="Interact" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="Interact" to="." method="_on_body_exited"]

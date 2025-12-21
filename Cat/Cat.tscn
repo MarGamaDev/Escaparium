@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgap7qbn8g6qd"]
+
+[ext_resource type="PackedScene" uid="uid://bqc0nv6tmwjo" path="res://Cat/CATPLEASEWORKWALK.glb" id="1_n7t1t"]
+
+[node name="Cat" instance=ExtResource("1_n7t1t")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(0.001707551, 1.4221426, 0.42085472)
+bones/0/rotation = Quaternion(0.5953916, 0.1835311, 0.15933077, 0.765793)
+bones/1/position = Vector3(0.0017075938, 1.4221424, 0.42085472)
+bones/1/rotation = Quaternion(0.7025831, -0.66263133, 0.08892018, -0.24370062)
+bones/2/rotation = Quaternion(0.270656, -0.5406975, -0.44242454, 0.6623081)
+bones/3/rotation = Quaternion(0.11316145, 0.00240018, -0.014986013, 0.9934607)
+bones/4/position = Vector3(0.68879837, 0.7433941, -0.34516758)
+bones/5/position = Vector3(-0.7612846, 0.7527967, -0.37189195)
+bones/5/rotation = Quaternion(0.37083682, -0.041947022, 0.92774725, -0.0023696697)
+bones/6/position = Vector3(-0.6649908, 0.7368727, -2.5771194)
+bones/7/position = Vector3(-0.664991, 0.73687273, -2.5771194)
+bones/7/rotation = Quaternion(0.2670158, -0.08482119, 0.95928746, 0.035715226)
+bones/8/position = Vector3(-0.7612846, 0.7527966, -0.371892)
+bones/9/position = Vector3(0.68879837, 0.7433942, -0.34516755)
+bones/9/rotation = Quaternion(-0.048838872, -0.045132335, 0.99777806, -0.00411674)
+bones/10/position = Vector3(0.70883554, 0.704056, -2.5647326)
+bones/11/position = Vector3(0.7088357, 0.7040562, -2.5647326)
+bones/11/rotation = Quaternion(0.53400856, 0.06139621, 0.8431696, -0.011415617)

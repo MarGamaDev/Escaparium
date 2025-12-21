@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwj6a3qcbnxfa"]
+[gd_scene load_steps=10 format=3 uid="uid://dwj6a3qcbnxfa"]
 
 [ext_resource type="Texture2D" uid="uid://csyomuo27ab3u" path="res://Textures/BASIC/wooffloor1.png" id="1_d32n0"]
 [ext_resource type="Texture2D" uid="uid://6wnj2p22l36d" path="res://Textures/BASIC/WALL3.png" id="2_v0pxm"]
 [ext_resource type="PackedScene" uid="uid://cfyrpvba8rypx" path="res://ITEM_MODELS/PC Tower/Pc Tower.tscn" id="3_iys6k"]
-[ext_resource type="PackedScene" uid="uid://bn8kclnisxtl0" path="res://ITEM_MODELS/Desk/desk.glb" id="4_bfnok"]
+[ext_resource type="PackedScene" uid="uid://b0n8t6otihgki" path="res://ITEM_MODELS/Desk/desk.tscn" id="4_bfnok"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0pxm"]
 albedo_texture = ExtResource("1_d32n0")
@@ -18,8 +18,11 @@ size = Vector3(28, 0.1, 31.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iys6k"]
 albedo_texture = ExtResource("2_v0pxm")
-uv1_scale = Vector3(0.475, 0.475, 0.475)
+uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bfnok"]
+size = Vector3(1, 17.408142, 31.492)
 
 [node name="BEDROOM" type="StaticBody3D"]
 
@@ -45,6 +48,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.422, 2.422, 15.491)
 operation = 2
 size = Vector3(7, 5.6, 1.4)
 
+[node name="Wall Collision" type="StaticBody3D" parent="WALLS"]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WALLS/Wall Collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.13726, -0.075286865, 0.068)
+shape = SubResource("BoxShape3D_bfnok")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="WALLS/Wall Collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.131203, -0.15057373, 0.136)
+shape = SubResource("BoxShape3D_bfnok")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="WALLS/Wall Collision"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.07894516, -0.2258606, -15.511903)
+shape = SubResource("BoxShape3D_bfnok")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="WALLS/Wall Collision"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.29442978, -0.30114746, 15.52738)
+shape = SubResource("BoxShape3D_bfnok")
+
 [node name="FURNITURE" type="Node3D" parent="."]
 
 [node name="BED" type="CSGBox3D" parent="FURNITURE"]
@@ -58,12 +80,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.652, 5.068, -15.834)
 use_collision = true
 collision_mask = 3
 size = Vector3(8.435, 17.08, 2.8)
-
-[node name="DESK" type="CSGBox3D" parent="FURNITURE"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.202, 1.855, 12.446)
-use_collision = true
-collision_mask = 3
-size = Vector3(14, 7, 5.25)
 
 [node name="AQUARIUM TABLE" type="CSGBox3D" parent="FURNITURE"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.172, 3.5, 0.056)
@@ -97,8 +113,8 @@ collision_mask = 3
 size = Vector3(2.1, 0.7, 7)
 
 [node name="PcTower" parent="FURNITURE" instance=ExtResource("3_iys6k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.788999, 0, 3.8583326)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.984297, 4.290952, 12.826541)
 collision_mask = 3
 
-[node name="desk2" parent="." instance=ExtResource("4_bfnok")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42645937, 0.40251952, -8.652317)
+[node name="Desk" parent="FURNITURE" instance=ExtResource("4_bfnok")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.529857, 1.1175871e-08, 16.86696)

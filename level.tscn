@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dwj6a3qcbnxfa" path="res://MAINROOM.tscn" id="1_vonw3"]
 [ext_resource type="PackedScene" uid="uid://b2ujabrjwy4s2" path="res://Player/Player.tscn" id="2_oi3di"]
-[ext_resource type="PackedScene" uid="uid://dmwky4xv2axyc" path="res://ITEM_MODELS/Small Items/SCREWDRIVER.glb" id="3_oi3di"]
+[ext_resource type="PackedScene" uid="uid://ddjov2hg4femu" path="res://ITEM_MODELS/Small Items/Screwdriver/Screwdriver.tscn" id="3_oi3di"]
 
 [node name="Level" type="Node3D"]
 
@@ -11,5 +11,5 @@
 [node name="Player" parent="." instance=ExtResource("2_oi3di")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98145926, 0)
 
-[node name="SCREWDRIVER" parent="." instance=ExtResource("3_oi3di")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.043905, 1.899898e-07, 5.044469)
+[node name="RigidBody3D" parent="." instance=ExtResource("3_oi3di")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2629749, 0.39299726, 3.6766212)

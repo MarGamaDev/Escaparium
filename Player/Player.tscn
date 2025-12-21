@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2ujabrjwy4s2"]
+[gd_scene load_steps=7 format=3 uid="uid://b2ujabrjwy4s2"]
 
 [ext_resource type="Script" uid="uid://cqussxt5r6bd7" path="res://Player/Player.gd" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://dsusc3gks1v4d" path="res://Player/ThirdPersonCamera.gd" id="2_q3lat"]
@@ -11,6 +11,8 @@ radius = 0.05
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ddoul"]
 margin = 0.01
 points = PackedVector3Array(0.1, 0, 0, 0.07, -0.205, 0, -0.05, -0.24, 0, -0.12, 0, 0, -0.02, 0.205, 0, 0.04, 0.205, 0, 0.1, 0, -0.1, 0.07, -0.205, -0.1, -0.05, -0.24, -0.1, -0.12, 0, -0.1, -0.02, 0.205, -0.1, 0.04, 0.205, -0.1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8g4oa"]
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
@@ -40,3 +42,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_ddoul")
+
+[node name="Interact" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interact"]
+shape = SubResource("SphereShape3D_8g4oa")
+
+[connection signal="body_entered" from="Interact" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Interact" to="." method="_on_body_exited"]

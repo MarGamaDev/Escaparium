@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dmwky4xv2axyc"
-path="res://.godot/imported/SCREWDRIVER.glb-2aa4c0c536079b9ee38d40cae1ef17db.scn"
+path="res://.godot/imported/SCREWDRIVER.glb-10ecf32393f560173d54b0ab442c09d2.scn"
 
 [deps]
 
-source_file="res://ITEM_MODELS/Small Items/SCREWDRIVER.glb"
-dest_files=["res://.godot/imported/SCREWDRIVER.glb-2aa4c0c536079b9ee38d40cae1ef17db.scn"]
+source_file="res://ITEM_MODELS/Small Items/Screwdriver/SCREWDRIVER.glb"
+dest_files=["res://.godot/imported/SCREWDRIVER.glb-10ecf32393f560173d54b0ab442c09d2.scn"]
 
 [params]
 

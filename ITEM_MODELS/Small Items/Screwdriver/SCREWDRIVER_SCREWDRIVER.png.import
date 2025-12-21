@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bd3qjdtoq4hqe"
-path.s3tc="res://.godot/imported/SCREWDRIVER_SCREWDRIVER.png-739c98ddf22e879806e8d98a35c935ad.s3tc.ctex"
+path.s3tc="res://.godot/imported/SCREWDRIVER_SCREWDRIVER.png-fa90c7aa699b5ac0bfc3871b3f4f60ea.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://ITEM_MODELS/Small Items/SCREWDRIVER_SCREWDRIVER.png"
-dest_files=["res://.godot/imported/SCREWDRIVER_SCREWDRIVER.png-739c98ddf22e879806e8d98a35c935ad.s3tc.ctex"]
+source_file="res://ITEM_MODELS/Small Items/Screwdriver/SCREWDRIVER_SCREWDRIVER.png"
+dest_files=["res://.godot/imported/SCREWDRIVER_SCREWDRIVER.png-fa90c7aa699b5ac0bfc3871b3f4f60ea.s3tc.ctex"]
 
 [params]
 

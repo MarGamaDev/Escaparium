@@ -20,6 +20,9 @@ var flop_percent: float  = 0;
 var input_vector := Vector2.ZERO;
 var is_sprinting := false;
 
+var interactables: Array[Node3D];
+var interact_prerequisites: Array[String] = ["stinky"];
+
 func _process(delta: float) -> void:
 	_take_input();
 	
@@ -29,6 +32,9 @@ func _process(delta: float) -> void:
 		if is_on_floor():
 			velocity.y = jump_force;
 			animation_tree.set("parameters/Jump Oneshot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE);
+	
+	if Input.is_action_just_pressed("Interact"):
+		_try_interact()
 
 func _physics_process(delta: float) -> void:
 	_apply_movement(delta)
@@ -44,8 +50,14 @@ func _physics_process(delta: float) -> void:
 		_rotate_model_to_forward()
 		
 	
-	velocity = velocity.clamp(Vector3(-max_speed, -1000, -max_speed), Vector3(max_speed, 1000, max_speed));
+	velocity = velocity.clamp(Vector3(-max_speed, -INF, -max_speed), Vector3(max_speed, INF, max_speed));
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var item = get_slide_collision(i);
+		if item.get_collider() is RigidBody3D:
+			print(item.get_normal())
+			(item.get_collider() as RigidBody3D).apply_central_impulse(-(1 * delta * item.get_normal()));
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -97,3 +109,31 @@ func _apply_movement(delta: float) -> void:
 	
 	#apply movement
 	velocity += Vector3(rotated_movement.x, 0, rotated_movement.z);
+
+func _on_body_entered(body: Node3D) -> void:
+	print(body);
+	if interactables.has(body):
+		return;
+	if body is Interactable:
+		interactables.append(body);
+
+func _on_body_exited(body: Node3D) -> void:
+	print(body);
+	if interactables.has(body):
+		interactables.erase(body);
+
+func _try_interact() -> void:
+	print("attempting interact");
+	if interactables.is_empty():
+		print("no interactables in list");
+		return;
+	
+	var closest_distance = INF;
+	var closest_interactable: Interactable;
+	for item in interactables:
+		if position.distance_to(item.position) < closest_distance:
+			closest_distance = item.position;
+			closest_interactable = item as Interactable;
+	
+	if closest_interactable.can_interact(interact_prerequisites):
+		closest_interactable._interact();

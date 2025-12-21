@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dwj6a3qcbnxfa"]
+[gd_scene load_steps=11 format=3 uid="uid://dwj6a3qcbnxfa"]
 
 [ext_resource type="Texture2D" uid="uid://csyomuo27ab3u" path="res://Textures/BASIC/wooffloor1.png" id="1_d32n0"]
 [ext_resource type="Texture2D" uid="uid://6wnj2p22l36d" path="res://Textures/BASIC/WALL3.png" id="2_v0pxm"]
 [ext_resource type="PackedScene" uid="uid://cfyrpvba8rypx" path="res://ITEM_MODELS/PC Tower/Pc Tower.tscn" id="3_iys6k"]
 [ext_resource type="PackedScene" uid="uid://b0n8t6otihgki" path="res://ITEM_MODELS/Desk/desk.tscn" id="4_bfnok"]
+[ext_resource type="PackedScene" uid="uid://chj024exmu62m" path="res://ITEM_MODELS/Fishtank/FishTank.tscn" id="5_ejtpv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0pxm"]
 albedo_texture = ExtResource("1_d32n0")
@@ -118,3 +119,6 @@ collision_mask = 3
 
 [node name="Desk" parent="FURNITURE" instance=ExtResource("4_bfnok")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.529857, 1.1175871e-08, 16.86696)
+
+[node name="Fishtank" parent="." instance=ExtResource("5_ejtpv")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.053997, 7.0313435, -0.32104588)

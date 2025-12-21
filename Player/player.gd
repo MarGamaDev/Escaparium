@@ -29,6 +29,9 @@ var interactables: Array[Node3D];
 var interact_prerequisites: Array[String] = ["stinky"];
 var held_item: Node3D;
 
+func _ready() -> void:
+	camera.make_current();
+
 func _process(delta: float) -> void:
 	_take_input();
 	

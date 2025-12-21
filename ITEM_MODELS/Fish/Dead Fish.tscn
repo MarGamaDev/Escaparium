@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhyo4ay5myd40"]
+
+[ext_resource type="PackedScene" uid="uid://ctqryb6cltbbx" path="res://Player/fishtopher_no_animations.glb" id="1_qjk8w"]
+
+[node name="Dead Fish" type="Node3D"]
+
+[node name="fishtopher_no_animations" parent="." instance=ExtResource("1_qjk8w")]

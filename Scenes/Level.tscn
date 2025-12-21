@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccgfl0nfuq3qv"]
+[gd_scene load_steps=6 format=3 uid="uid://ccgfl0nfuq3qv"]
 
 [ext_resource type="PackedScene" uid="uid://dwj6a3qcbnxfa" path="res://MAINROOM.tscn" id="1_vonw3"]
-[ext_resource type="PackedScene" uid="uid://b2ujabrjwy4s2" path="res://Player/Player.tscn" id="2_oi3di"]
 [ext_resource type="PackedScene" uid="uid://ddjov2hg4femu" path="res://ITEM_MODELS/Small Items/Screwdriver/Screwdriver.tscn" id="3_oi3di"]
 [ext_resource type="PackedScene" uid="uid://bqc0nv6tmwjo" path="res://Cat/CATPLEASEWORKWALK.glb" id="4_0b4ue"]
 [ext_resource type="AudioStream" uid="uid://d16cx23gxe477" path="res://Sounds/ROOM AMBIENCE.mp3" id="5_f2txt"]
@@ -10,9 +9,6 @@
 [node name="Level" type="Node3D"]
 
 [node name="BEDROOM" parent="." instance=ExtResource("1_vonw3")]
-
-[node name="Player" parent="." instance=ExtResource("2_oi3di")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98145926, 0)
 
 [node name="Screwdriver" parent="." instance=ExtResource("3_oi3di")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2629749, 0.39299726, 3.6766212)
@@ -38,3 +34,6 @@ autoplay = true
 stream = ExtResource("6_1ainy")
 volume_db = -20.363
 autoplay = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.632435, 0.20232542, -0.74772346, 1.1417209e-08, 0.96528596, 0.26119533, 0.77461344, 0.16518906, -0.61048067, 3.2745128, 11.112975, -2.8340611)

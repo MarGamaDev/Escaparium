@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://x2xokvyo84wj"
-path="res://.godot/imported/tankcabinet.glb-b7a8aa3c97f3d3877ebaedd09d2f443c.scn"
+valid=false
 
 [deps]
 
 source_file="res://ITEM_MODELS/Tank Cabinet/tankcabinet.glb"
-dest_files=["res://.godot/imported/tankcabinet.glb-b7a8aa3c97f3d3877ebaedd09d2f443c.scn"]
 
 [params]
 

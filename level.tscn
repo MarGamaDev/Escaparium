@@ -11,5 +11,14 @@
 [node name="Player" parent="." instance=ExtResource("2_oi3di")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98145926, 0)
 
-[node name="RigidBody3D" parent="." instance=ExtResource("3_oi3di")]
+[node name="Screwdriver" parent="." instance=ExtResource("3_oi3di")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2629749, 0.39299726, 3.6766212)
+
+[node name="Screwdriver2" parent="." instance=ExtResource("3_oi3di")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5259498, 0.7859945, 7.3532424)
+
+[node name="Screwdriver3" parent="." instance=ExtResource("3_oi3di")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7889247, 1.1789918, 11.029863)
+
+[node name="Screwdriver4" parent="." instance=ExtResource("3_oi3di")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8491845, 1.571989, 2.0337687)

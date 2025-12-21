@@ -130,18 +130,20 @@ func _try_interact() -> void:
 		print("no interactables in list");
 		return;
 	
-	var closest_distance = INF;
+	var closest_distance: float = INF;
 	var closest_interactable: Interactable;
 	for item in interactables:
-		if position.distance_to(item.position) < closest_distance:
-			closest_distance = item.position;
-			closest_interactable = item as Interactable;
+		if item != held_item:
+			if position.distance_to(item.position) < closest_distance:
+				closest_distance = item.position.length();
+				closest_interactable = item as Interactable;
 	
 	if closest_interactable.can_interact(interact_prerequisites):
 		closest_interactable._interact();
 	
-	if closest_interactable.can_grab():
-		grab_item(closest_interactable.grab());
+	if !held_item:
+		if closest_interactable.can_grab():
+			grab_item(closest_interactable.grab());
 
 func grab_item(item: Node3D) -> void:
 	if item is RigidBody3D:
@@ -149,6 +151,7 @@ func grab_item(item: Node3D) -> void:
 	
 	item.position = held_item_point.global_position;
 	item.reparent(held_item_point);
+	held_item = item;
 
 func drop_item() -> void:
 	if held_item is RigidBody3D:

@@ -12,11 +12,12 @@ radius = 0.14
 height = 0.68533325
 radius = 0.05
 
-[node name="RigidBody3D" type="RigidBody3D"]
+[node name="Screwdriver" type="RigidBody3D" node_paths=PackedStringArray("grab_target")]
 collision_layer = 5
 collision_mask = 5
 mass = 0.014
 script = ExtResource("3_nr8so")
+grab_target = NodePath(".")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024212599, 0.45739746, 0)

@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://dl7p0ljfocdwr"]
+
+[ext_resource type="PackedScene" uid="uid://x2xokvyo84wj" path="res://ITEM_MODELS/Tank Cabinet/tankcabinet.glb" id="1_lnowo"]
+[ext_resource type="Script" uid="uid://bfgeu48wche7y" path="res://ITEM_MODELS/Tank Cabinet/Cabinet.gd" id="2_qyyh5"]
+[ext_resource type="Script" uid="uid://7h7ka2k743gf" path="res://Scripts/Interactable.gd" id="2_w0ynt"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lnowo"]
+points = PackedVector3Array(-0.9781008, 0.12227726, 0.9715571, -0.9781008, 0.12227726, 1.0922477, -0.9781008, 2.8116546, 0.9715571, 0.9763739, 0.12227726, 0.9715571, 0.9763739, 0.12227726, 1.0922477, -0.9781008, 2.8116546, 1.0922477, 0.9763739, 2.8116546, 0.9715571, 0.9763739, 2.8116546, 1.0922477)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_t3rqb"]
+data = PackedVector3Array(1.0494, 2.8896, -0.9772, -1.0494, 2.8896, 0.9772, -1.0494, 2.8896, -0.9772, 1.0494, 2.8896, -0.9772, 1.0494, 2.8896, 0.9772, -1.0494, 2.8896, 0.9772, -1.0494, 0.0016999999, 0.9772, -1.0494, 2.8896, -0.9772, -1.0494, 2.8896, 0.9772, -1.0494, 0.0016999999, 0.9772, -1.0494, 0.0016999999, -0.9772, -1.0494, 2.8896, -0.9772, -1.0494, 0.0016999999, -0.9772, 1.0494, 0.0016999999, 0.9772, 1.0494, 0.0016999999, -0.9772, -1.0494, 0.0016999999, -0.9772, -1.0494, 0.0016999999, 0.9772, 1.0494, 0.0016999999, 0.9772, 1.0494, 0.0016999999, -0.9772, 1.0494, 2.8896, 0.9772, 1.0494, 2.8896, -0.9772, 1.0494, 0.0016999999, -0.9772, 1.0494, 0.0016999999, 0.9772, 1.0494, 2.8896, 0.9772, -1.0494, 0.0016999999, -0.9772, 1.0494, 2.8896, -0.9772, -1.0494, 2.8896, -0.9772, -1.0494, 0.0016999999, -0.9772, 1.0494, 0.0016999999, -0.9772, 1.0494, 2.8896, -0.9772, -0.9497, 0.1388, 0.9772, -1.0494, 2.8896, 0.9772, -0.9497, 2.7524998, 0.9772, -0.9497, 2.7524998, 0.9772, -1.0494, 2.8896, 0.9772, 1.0494, 2.8896, 0.9772, -0.9497, 0.1388, 0.9772, -1.0494, 0.0016999999, 0.9772, -1.0494, 2.8896, 0.9772, -0.9497, 2.7524998, 0.9772, 1.0494, 2.8896, 0.9772, 0.9497, 2.7524998, 0.9772, 0.9497, 0.1388, 0.9772, -1.0494, 0.0016999999, 0.9772, -0.9497, 0.1388, 0.9772, 0.9497, 2.7524998, 0.9772, 1.0494, 2.8896, 0.9772, 1.0494, 0.0016999999, 0.9772, 0.9497, 0.1388, 0.9772, 1.0494, 0.0016999999, 0.9772, -1.0494, 0.0016999999, 0.9772, 0.9497, 2.7524998, 0.9772, 1.0494, 0.0016999999, 0.9772, 0.9497, 0.1388, 0.9772, -1.004, 1.2664, 0.8267, -1.004, 1.444, -0.9202, -1.004, 1.444, 0.8267, -1.004, 1.2664, 0.8267, -1.004, 1.2664, -0.9202, -1.004, 1.444, -0.9202, -1.004, 1.2664, -0.9202, 1.0179, 1.444, -0.9202, -1.004, 1.444, -0.9202, -1.004, 1.2664, -0.9202, 1.0179, 1.2664, -0.9202, 1.0179, 1.444, -0.9202, 1.0179, 1.2664, -0.9202, 1.0179, 1.444, 0.8267, 1.0179, 1.444, -0.9202, 1.0179, 1.2664, -0.9202, 1.0179, 1.2664, 0.8267, 1.0179, 1.444, 0.8267, 1.0179, 1.2664, 0.8267, -1.004, 1.444, 0.8267, 1.0179, 1.444, 0.8267, 1.0179, 1.2664, 0.8267, -1.004, 1.2664, 0.8267, -1.004, 1.444, 0.8267, -1.004, 1.2664, -0.9202, 1.0179, 1.2664, 0.8267, 1.0179, 1.2664, -0.9202, -1.004, 1.2664, -0.9202, -1.004, 1.2664, 0.8267, 1.0179, 1.2664, 0.8267, 1.0179, 1.444, -0.9202, -1.004, 1.444, 0.8267, -1.004, 1.444, -0.9202, 1.0179, 1.444, -0.9202, 1.0179, 1.444, 0.8267, -1.004, 1.444, 0.8267)
+
+[sub_resource type="Animation" id="Animation_qyyh5"]
+resource_name = "open"
+length = 4.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CABINET/CABINET DOOR")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 4, 1, 0.583102, 0, 2.2820165)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CABINET/CABINET DOOR")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 4, 1, 0, 0.8732965, 0, 0.48718908)
+
+[sub_resource type="Animation" id="Animation_8ypbo"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CABINET/CABINET DOOR")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r36rl"]
+_data = {
+&"RESET": SubResource("Animation_8ypbo"),
+&"open": SubResource("Animation_qyyh5")
+}
+
+[node name="Cabinet" instance=ExtResource("1_lnowo")]
+script = ExtResource("2_qyyh5")
+
+[node name="CABINET DOOR" parent="CABINET" index="0"]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+visible = false
+
+[node name="RigidBody3D" type="RigidBody3D" parent="CABINET/CABINET DOOR" index="0"]
+script = ExtResource("2_w0ynt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CABINET/CABINET DOOR/RigidBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_lnowo")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CABINET" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CABINET/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_t3rqb")
+
+[node name="Hinge" type="Node3D" parent="CABINET" index="2"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_r36rl")
+}

@@ -2,6 +2,7 @@ class_name Interactable
 extends Node3D
 
 @export var prerequisite_strings: Array[String] = [];
+@export var grab_target: Node3D;
 signal interact_triggered;
 
 func _interact() -> void:
@@ -15,3 +16,9 @@ func can_interact(prerequisites: Array[String]) -> bool:
 			return false
 	print("pull the lever kronk")
 	return true;
+
+func can_grab() -> bool:
+	return !grab_target == null;
+
+func grab() -> Node3D:
+	return grab_target;

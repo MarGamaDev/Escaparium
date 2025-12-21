@@ -13,7 +13,8 @@ extends CharacterBody3D
 @onready var camera: Camera3D = $"Camera Pivot/Camera Arm/Camera3D";
 @onready var animation_tree: AnimationTree = $"Fishtopher Model/AnimationTree";
 @onready var model: Node3D = $"Fishtopher Model";
-@onready var collider: CollisionShape3D = $CollisionShape3D
+@onready var collider: CollisionShape3D = $CollisionShape3D;
+@onready var held_item_point: Node3D = $"Held Item Point";
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity");
 var flop_percent: float  = 0;
@@ -22,6 +23,7 @@ var is_sprinting := false;
 
 var interactables: Array[Node3D];
 var interact_prerequisites: Array[String] = ["stinky"];
+var held_item: Node3D;
 
 func _process(delta: float) -> void:
 	_take_input();
@@ -137,3 +139,25 @@ func _try_interact() -> void:
 	
 	if closest_interactable.can_interact(interact_prerequisites):
 		closest_interactable._interact();
+	
+	if closest_interactable.can_grab():
+		grab_item(closest_interactable.grab());
+
+func grab_item(item: Node3D) -> void:
+	if item is RigidBody3D:
+		(item as RigidBody3D).freeze = true;
+	
+	item.position = held_item_point.global_position;
+	item.reparent(held_item_point);
+
+func drop_item() -> void:
+	if held_item is RigidBody3D:
+		(held_item as RigidBody3D).freeze = false;
+	
+	held_item.reparent(get_tree().root)
+
+func add_prerequisites(preqs: Array[String]) -> void:
+	pass
+
+func remove_prerequisites(preqs: Array[String]) -> void:
+	pass

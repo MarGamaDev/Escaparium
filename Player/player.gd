@@ -52,15 +52,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		_do_camera(event);
 
 func _animate(delta: float) -> void:
-	if is_on_floor():
-		var horizontal_velocity: float = Vector2(velocity.x, velocity.z).length();
-		if  horizontal_velocity > 0.5 :
-			animation_tree.set("parameters/Move Blend/blend_amount", 1);
-			flop_percent = 1;
-		else:
-			flop_percent -= 2 * delta;
-			flop_percent = clamp(flop_percent, 0, 1);
-			animation_tree.set("parameters/Move Blend/blend_amount", flop_percent);
+	if !is_on_floor():
+		return
+	
+	var horizontal_velocity: float = Vector2(velocity.x, velocity.z).length();
+	if  horizontal_velocity > 0.4 :
+		animation_tree.set("parameters/Move Blend/blend_amount", 1);
+		flop_percent = 1;
+	else:
+		flop_percent -= 2 * delta;
+		flop_percent = clamp(flop_percent, 0, 1);
+		animation_tree.set("parameters/Move Blend/blend_amount", flop_percent);
 
 func _do_camera(event: InputEvent) -> void:
 	camera_arm.do_vertical_rotation(event);

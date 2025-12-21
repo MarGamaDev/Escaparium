@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0n8t6otihgki"]
+
+[ext_resource type="PackedScene" uid="uid://bn8kclnisxtl0" path="res://ITEM_MODELS/Desk/desk.glb" id="1_1hmrd"]
+
+[node name="Desk" instance=ExtResource("1_1hmrd")]
+
+[node name="desk" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013219476, -0.44323325)
+
+[node name="cabinet" parent="desk" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005158305, -0.0014907569, 0.02688551)
+
+[node name="BOTTOMDRAWER" parent="desk/cabinet" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021084547, -0.22289889, -0.010228634)
+
+[node name="TOPDRAWER" parent="desk/cabinet" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0011496544, 0.22342478, -0.01320982)

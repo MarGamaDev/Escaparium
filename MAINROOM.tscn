@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwj6a3qcbnxfa"]
+[gd_scene load_steps=9 format=3 uid="uid://dwj6a3qcbnxfa"]
 
 [ext_resource type="Texture2D" uid="uid://csyomuo27ab3u" path="res://Textures/BASIC/wooffloor1.png" id="1_d32n0"]
 [ext_resource type="Texture2D" uid="uid://6wnj2p22l36d" path="res://Textures/BASIC/WALL3.png" id="2_v0pxm"]
 [ext_resource type="PackedScene" uid="uid://cfyrpvba8rypx" path="res://ITEM_MODELS/PC Tower/Pc Tower.tscn" id="3_iys6k"]
+[ext_resource type="PackedScene" uid="uid://bn8kclnisxtl0" path="res://ITEM_MODELS/Desk/desk.glb" id="4_bfnok"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0pxm"]
 albedo_texture = ExtResource("1_d32n0")
@@ -98,3 +99,6 @@ size = Vector3(2.1, 0.7, 7)
 [node name="PcTower" parent="FURNITURE" instance=ExtResource("3_iys6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.788999, 0, 3.8583326)
 collision_mask = 3
+
+[node name="desk2" parent="." instance=ExtResource("4_bfnok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42645937, 0.40251952, -8.652317)

@@ -15,6 +15,9 @@ extends CharacterBody3D
 @onready var model: Node3D = $"Fishtopher Model";
 @onready var collider: CollisionShape3D = $CollisionShape3D;
 @onready var held_item_point: Node3D = $"Held Item Point";
+@onready var jump_sfx: FishSoundMachine = $"Jump Sounds"
+@onready var step_sfx: FishSoundMachine = $"Step Sounds"
+@onready var land_sfx: FishSoundMachine = $"Land Sounds"
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity");
 var flop_percent: float  = 0;
@@ -33,6 +36,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Jump"):
 		if is_on_floor():
 			velocity.y = jump_force;
+			jump_sfx.play_random_from_array();
 			animation_tree.set("parameters/Jump Oneshot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE);
 	
 	if Input.is_action_just_pressed("Interact"):
@@ -50,10 +54,12 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity.x + velocity.z != 0:
 		_rotate_model_to_forward()
-		
+		if is_on_floor() && !step_sfx.playing:
+			step_sfx.play_random_from_array();
 	
 	velocity = velocity.clamp(Vector3(-max_speed, -INF, -max_speed), Vector3(max_speed, INF, max_speed));
 	move_and_slide()
+	
 	
 	for i in get_slide_collision_count():
 		var item = get_slide_collision(i);

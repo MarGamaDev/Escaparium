@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dua5jf8k4h2fm"]
+
+[ext_resource type="PackedScene" uid="uid://mlc47sy2f20g" path="res://ITEM_MODELS/PC Monitor/ComputerMonitor.glb" id="1_yk5sp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7m6qy"]
+size = Vector3(3.0715332, 3.472229, 3.1953735)
+
+[node name="Computer Monitor" type="AnimatableBody3D"]
+
+[node name="ComputerMonitor" parent="." instance=ExtResource("1_yk5sp")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00012207031, 1.5071716, -0.18057251)
+shape = SubResource("BoxShape3D_7m6qy")

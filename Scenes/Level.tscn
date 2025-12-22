@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ccgfl0nfuq3qv"]
+[gd_scene load_steps=13 format=3 uid="uid://ccgfl0nfuq3qv"]
 
 [ext_resource type="Script" uid="uid://4dk0o0fcc8o5" path="res://Scenes/GameManager.gd" id="1_or7tv"]
 [ext_resource type="PackedScene" uid="uid://dwj6a3qcbnxfa" path="res://MAINROOM.tscn" id="1_vonw3"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://chj024exmu62m" path="res://ITEM_MODELS/Fishtank/FishTank.tscn" id="6_tj5wv"]
 [ext_resource type="PackedScene" uid="uid://b0n8t6otihgki" path="res://ITEM_MODELS/Desk/desk.tscn" id="7_or7tv"]
 [ext_resource type="PackedScene" uid="uid://dnj5dml3k3kyj" path="res://ITEM_MODELS/Tank Cabinet/Tank Cabinet.tscn" id="10_133si"]
+[ext_resource type="PackedScene" uid="uid://dua5jf8k4h2fm" path="res://ITEM_MODELS/PC Monitor/ComputerMonitor.tscn" id="11_b10nm"]
 [ext_resource type="PackedScene" uid="uid://bgqd2kekjo8bh" path="res://Scenes/HUD.tscn" id="11_esopp"]
 
 [node name="Level" type="Node3D"]
@@ -60,6 +61,9 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10.9
 
 [node name="Tank Cabinet" parent="Furniture" instance=ExtResource("10_133si")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11.136, 0.01, 0)
+
+[node name="Computer Monitor" parent="Furniture" instance=ExtResource("11_b10nm")]
+transform = Transform3D(-0.7242559, 0, -0.68953097, 0, 1, 0, 0.68953097, 0, -0.7242559, -2.6106548, 4.521897, 13.129073)
 
 [node name="Player Spawn Point" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.584384, 0, 0)

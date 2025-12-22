@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bycrl8t5qtlud" path="res://ITEM_MODELS/Fishtank/fishtank.glb" id="7_artvx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ejtpv"]
-size = Vector3(2.0015564, 2.0104752, 2.8098145)
+size = Vector3(3.2184067, 3.2192268, 4.4992065)
 
 [sub_resource type="Animation" id="Animation_20i7j"]
 length = 0.001
@@ -85,7 +85,7 @@ script = ExtResource("1_6nntu")
 metadata/_custom_type_script = "uid://bcm6jr3slbvka"
 
 [node name="Cube Collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000869751, 1.0086708, 0.017700195)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0041160583, 1.6130466, 0.18771362)
 shape = SubResource("BoxShape3D_ejtpv")
 
 [node name="Dead Fish" parent="." instance=ExtResource("1_qmsf3")]
@@ -102,4 +102,4 @@ sound_array = Array[AudioStream]([ExtResource("3_20i7j"), ExtResource("4_6nntu")
 metadata/_custom_type_script = "uid://ctc0gkf64cmms"
 
 [node name="fishtank" parent="." instance=ExtResource("7_artvx")]
-transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0, -0.018704563, -0.27675152)
+transform = Transform3D(-6.9938224e-08, 0, -1.6, 0, 1.6, 0, 1.6, 0, -6.9938224e-08, 0, -0.018704563, -0.27675152)

@@ -43,7 +43,7 @@ volume_db = -20.363
 autoplay = true
 
 [node name="Spawn Cam" type="Camera3D" parent="."]
-transform = Transform3D(-0.632435, 0.20232542, -0.74772346, 1.1417209e-08, 0.96528596, 0.26119533, 0.77461344, 0.16518906, -0.61048067, 3.2745128, 11.112975, -2.8340611)
+transform = Transform3D(-3.61241e-08, 0.56305003, -0.8264228, 2.4611692e-08, 0.8264228, 0.56305003, 1, 1.0658141e-14, -4.3711395e-08, 4.5827017, 11.772966, -0.15250003)
 
 [node name="Furniture" type="Node3D" parent="."]
 
@@ -55,10 +55,10 @@ collision_mask = 3
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.529857, 1.1175871e-08, 16.86696)
 
 [node name="Fishtank" parent="Furniture" instance=ExtResource("6_tj5wv")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10.960291, 7.2635617, -0.0113453865)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10.960291, 7.2427654, -0.0113453865)
 
 [node name="Tank Cabinet" parent="Furniture" instance=ExtResource("10_133si")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11.135965, 0.045506, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11.136, 0.01, 0)
 
 [node name="Player Spawn Point" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.584384, 0, 0)

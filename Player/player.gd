@@ -26,7 +26,7 @@ var is_sprinting := false;
 var is_aerial := true;
 
 var interactables: Array[Node3D];
-var interact_prerequisites: Array[String] = ["stinky"];
+var interact_flags: Array[String] = ["stinky"];
 var held_item: Node3D;
 
 func _ready() -> void:
@@ -152,7 +152,7 @@ func _try_interact() -> void:
 	if closest_interactable == null:
 		return;
 	
-	if closest_interactable.can_interact(interact_prerequisites):
+	if closest_interactable.can_interact(interact_flags):
 		closest_interactable._interact();
 	
 	if !held_item:
@@ -173,8 +173,9 @@ func drop_item() -> void:
 	
 	held_item.reparent(get_tree().root)
 
-func add_prerequisites(preqs: Array[String]) -> void:
-	pass
+func add_flags(flags: Array[String]) -> void:
+	interact_flags.append_array(flags)
 
-func remove_prerequisites(preqs: Array[String]) -> void:
-	pass
+func remove_flags(flags: Array[String]) -> void:
+	for item in flags:
+		interact_flags.erase(item);

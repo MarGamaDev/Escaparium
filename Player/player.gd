@@ -28,7 +28,7 @@ var is_aerial := true;
 
 var interactables: Array[Node3D];
 var interact_flags: Array[String] = ["stinky"];
-var held_item: Node3D;
+var held_item: Node3D = null;
 
 func _ready() -> void:
 	camera.make_current();
@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 			animation_tree.set("parameters/Jump Oneshot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE);
 	
 	if Input.is_action_just_pressed("Interact"):
-		if held_item != null:
+		if !held_item:
 			_try_interact();
 		else:
 			_throw_item();
@@ -176,8 +176,9 @@ func _throw_item() -> void:
 		(held_item as RigidBody3D).freeze = false;
 	
 	held_item.reparent(get_tree().root)
-	#var yeet_vector: Vector3 = yeet_force * camera.
-	#(held_item as RigidBody3D).apply_central_impulse()
+	var yeet_vector: Vector3 = yeet_force * -camera.global_transform.basis.z;
+	(held_item as RigidBody3D).apply_central_impulse(yeet_vector);
+	held_item = null;
 
 func add_flags(flags: Array[String]) -> void:
 	interact_flags.append_array(flags)

@@ -26,7 +26,7 @@ enum EndState {
 var current_game_state: GameState = GameState.FISHTANK;
 var global_flags: Array[String];
 
-var dead_fish_scene = preload("res://ITEM_MODELS/Fish/Dead Fish.tscn");
+var dead_fish_scene = preload("res://Props/Dead Fish.tscn");
 var player_scene = preload("res://Player/Player.tscn");
 var player: PlayerController;
 

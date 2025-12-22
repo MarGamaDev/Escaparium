@@ -91,15 +91,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.521, 2.373, -13.461)
 use_collision = true
 collision_mask = 3
 size = Vector3(2.8, 4.9, 2.8)
-
-[node name="SHELF_A" type="CSGBox3D" parent="FURNITURE"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.649, 13.293, 5.705)
-use_collision = true
-collision_mask = 3
-size = Vector3(2.1, 0.7, 7)
-
-[node name="SHELF_B" type="CSGBox3D" parent="FURNITURE"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.649, 8.96, -0.532)
-use_collision = true
-collision_mask = 3
-size = Vector3(2.1, 0.7, 7)

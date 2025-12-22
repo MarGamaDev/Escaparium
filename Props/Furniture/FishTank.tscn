@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://chj024exmu62m"]
 
 [ext_resource type="Script" uid="uid://bcm6jr3slbvka" path="res://ITEM_MODELS/Fishtank/FishTank.gd" id="1_6nntu"]
-[ext_resource type="PackedScene" uid="uid://bhyo4ay5myd40" path="res://ITEM_MODELS/Fish/Dead Fish.tscn" id="1_qmsf3"]
+[ext_resource type="PackedScene" uid="uid://bhyo4ay5myd40" path="res://Props/Dead Fish.tscn" id="1_qmsf3"]
 [ext_resource type="Script" uid="uid://ctc0gkf64cmms" path="res://Player/SmartSoundArrayPlayer.gd" id="2_78bak"]
 [ext_resource type="AudioStream" uid="uid://doocxxlsgprh5" path="res://Sounds/LAND 1.mp3" id="3_20i7j"]
 [ext_resource type="AudioStream" uid="uid://dk60ppm2epprh" path="res://Sounds/LAND 2.mp3" id="4_6nntu"]

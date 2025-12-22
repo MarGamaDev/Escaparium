@@ -1,17 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://ccgfl0nfuq3qv"]
+[gd_scene load_steps=14 format=3 uid="uid://ccgfl0nfuq3qv"]
 
 [ext_resource type="Script" uid="uid://4dk0o0fcc8o5" path="res://Scenes/GameManager.gd" id="1_or7tv"]
 [ext_resource type="PackedScene" uid="uid://dwj6a3qcbnxfa" path="res://MAINROOM.tscn" id="1_vonw3"]
-[ext_resource type="PackedScene" uid="uid://ddjov2hg4femu" path="res://ITEM_MODELS/Small Items/Screwdriver/Screwdriver.tscn" id="3_oi3di"]
+[ext_resource type="PackedScene" uid="uid://ddjov2hg4femu" path="res://Props/Screwdriver.tscn" id="3_oi3di"]
 [ext_resource type="PackedScene" uid="uid://bqc0nv6tmwjo" path="res://Cat/CATPLEASEWORKWALK.glb" id="4_0b4ue"]
 [ext_resource type="AudioStream" uid="uid://d16cx23gxe477" path="res://Sounds/ROOM AMBIENCE.mp3" id="5_f2txt"]
 [ext_resource type="AudioStream" uid="uid://ch6b6g4ychi2y" path="res://Sounds/LOOP.mp3" id="6_1ainy"]
-[ext_resource type="PackedScene" uid="uid://cfyrpvba8rypx" path="res://ITEM_MODELS/PC Tower/Pc Tower.tscn" id="6_5rrr5"]
-[ext_resource type="PackedScene" uid="uid://chj024exmu62m" path="res://ITEM_MODELS/Fishtank/FishTank.tscn" id="6_tj5wv"]
-[ext_resource type="PackedScene" uid="uid://b0n8t6otihgki" path="res://ITEM_MODELS/Desk/desk.tscn" id="7_or7tv"]
-[ext_resource type="PackedScene" uid="uid://dnj5dml3k3kyj" path="res://ITEM_MODELS/Tank Cabinet/Tank Cabinet.tscn" id="10_133si"]
-[ext_resource type="PackedScene" uid="uid://dua5jf8k4h2fm" path="res://ITEM_MODELS/PC Monitor/ComputerMonitor.tscn" id="11_b10nm"]
+[ext_resource type="PackedScene" uid="uid://cfyrpvba8rypx" path="res://Props/Furniture/Pc Tower.tscn" id="6_5rrr5"]
+[ext_resource type="PackedScene" uid="uid://chj024exmu62m" path="res://Props/Furniture/FishTank.tscn" id="6_tj5wv"]
+[ext_resource type="PackedScene" uid="uid://b0n8t6otihgki" path="res://Props/Furniture/desk.tscn" id="7_or7tv"]
+[ext_resource type="PackedScene" uid="uid://dnj5dml3k3kyj" path="res://Props/Furniture/Tank Cabinet.tscn" id="10_133si"]
+[ext_resource type="PackedScene" uid="uid://dua5jf8k4h2fm" path="res://Props/Furniture/ComputerMonitor.tscn" id="11_b10nm"]
 [ext_resource type="PackedScene" uid="uid://bgqd2kekjo8bh" path="res://Scenes/HUD.tscn" id="11_esopp"]
+[ext_resource type="PackedScene" uid="uid://di34543g8ec07" path="res://Props/Furniture/Shelf.tscn" id="13_fhlu0"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_or7tv")
@@ -65,8 +66,14 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11.1
 [node name="Computer Monitor" parent="Furniture" instance=ExtResource("11_b10nm")]
 transform = Transform3D(-0.7242559, 0, -0.68953097, 0, 1, 0, 0.68953097, 0, -0.7242559, -2.6106548, 4.521897, 13.129073)
 
+[node name="Shelf" parent="Furniture" instance=ExtResource("13_fhlu0")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.629552, 8.992483, -0.5497494)
+
+[node name="Shelf2" parent="Furniture" instance=ExtResource("13_fhlu0")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.629552, 13.3520975, 5.7196636)
+
 [node name="Player Spawn Point" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.584384, 0, 0)
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 6.584384, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true

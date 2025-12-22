@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://di34543g8ec07"]
+
+[ext_resource type="PackedScene" uid="uid://1a48rhir6bfv" path="res://ITEM_MODELS/Shelf/SHELF.glb" id="1_vn0rq"]
+[ext_resource type="Texture2D" uid="uid://cdksyapcb7stk" path="res://Sprites/WALLBRACKET.png" id="2_ebcx3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ebcx3"]
+size = Vector3(6.071167, 0.34143066, 2.0073547)
+
+[node name="Shelf" type="RigidBody3D"]
+freeze = true
+
+[node name="SHELF" parent="." instance=ExtResource("1_vn0rq")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0028686523, 0.0029907227, 0.0017852783)
+shape = SubResource("BoxShape3D_ebcx3")
+
+[node name="Left Join" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4378548, -0.49928164, 0.9855159)
+
+[node name="Joint" type="Sprite3D" parent="Left Join"]
+flip_v = true
+pixel_size = 0.003
+texture = ExtResource("2_ebcx3")
+
+[node name="Joint2" type="Sprite3D" parent="Left Join"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.32861328, -0.3238163)
+flip_v = true
+pixel_size = 0.003
+texture = ExtResource("2_ebcx3")
+
+[node name="Right Joint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3600512, -0.49928164, 0.9855159)
+
+[node name="Joint2" type="Sprite3D" parent="Right Joint"]
+flip_v = true
+pixel_size = 0.003
+texture = ExtResource("2_ebcx3")
+
+[node name="Joint3" type="Sprite3D" parent="Right Joint"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.32861328, -0.3238163)
+flip_v = true
+pixel_size = 0.003
+texture = ExtResource("2_ebcx3")

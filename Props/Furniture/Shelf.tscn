@@ -12,6 +12,7 @@ size = Vector3(6.071167, 0.34143066, 2.0073547)
 size = Vector3(1, 1, 0.86224365)
 
 [node name="Shelf" type="RigidBody3D"]
+mass = 2.0
 freeze = true
 script = ExtResource("1_pp8bi")
 

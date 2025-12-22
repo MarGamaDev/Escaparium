@@ -51,7 +51,7 @@ func _run_playing_state(delta: float) -> void:
 	breath_timer -= delta;
 	update_timer.emit(breath_timer / breath_max_time);
 	if breath_timer <= 0:
-		go_to_fishtank_state();
+		kill_player();
 
 func _switch_game_state(state: GameState) -> void:
 	current_game_state = state;
@@ -61,6 +61,7 @@ func _spawn_player() -> void:
 	player = player_scene.instantiate();
 	player.position = spawn_point.position;
 	player.add_flags(global_flags);
+	player.player_death.connect(kill_player);
 	add_child(player);
 
 func go_to_playing_state() -> void:
@@ -71,7 +72,6 @@ func go_to_playing_state() -> void:
 
 func go_to_fishtank_state() -> void:
 	_switch_game_state(GameState.FISHTANK);
-	kill_player();
 
 func  add_global_flags(flags: Array[String]) -> void:
 	global_flags.append_array(flags);
@@ -90,6 +90,7 @@ func kill_player() -> void:
 	corpse.freeze = false;
 	add_child(corpse);
 	
+	player.player_death.disconnect(kill_player);
 	remove_child(player);
 	player.queue_free();
 	player = null;
@@ -98,6 +99,8 @@ func kill_player() -> void:
 	fish_tank.update_lives(lives);
 	if lives <= 0:
 		reach_end_state(EndState.EMPTY);
+	else:
+		go_to_fishtank_state();
 
 func reach_end_state(end_state: EndState) -> void:
 	_switch_game_state(GameState.OVER);

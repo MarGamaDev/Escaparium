@@ -9,6 +9,7 @@ extends CharacterBody3D
 @export var fish_mass: float = 1;
 @export var fish_drag: float = 1;
 @export var yeet_force: float = 1;
+@export var time_to_reset: float = 3;
 
 @onready var camera_arm: ThirdPersonCamera =$"Camera Pivot";
 @onready var camera: Camera3D = $"Camera Pivot/Camera Arm/Camera3D";
@@ -20,6 +21,8 @@ extends CharacterBody3D
 @onready var step_sfx: SmartSoundArrayPlayer = $"Step Sounds"
 @onready var land_sfx: SmartSoundArrayPlayer = $"Land Sounds"
 
+signal player_death;
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity");
 var flop_percent: float  = 0;
 var input_vector := Vector2.ZERO;
@@ -27,8 +30,10 @@ var is_sprinting := false;
 var is_aerial := true;
 
 var interactables: Array[Node3D];
-var interact_flags: Array[String] = ["stinky"];
+var interact_flags: Array[String];
 var held_item: Node3D = null;
+
+var reset_timer = 0;
 
 func _ready() -> void:
 	camera.make_current();
@@ -49,6 +54,16 @@ func _process(delta: float) -> void:
 			_try_interact();
 		else:
 			_throw_item();
+	
+	if Input.is_action_pressed("Reset"):
+		reset_timer += delta;
+		
+	if Input.is_action_just_released("Reset"):
+		reset_timer = 0;
+	
+	if reset_timer >= time_to_reset:
+		reset_timer = -1000;
+		player_death.emit();
 
 func _physics_process(delta: float) -> void:
 	if is_aerial:
@@ -70,13 +85,19 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor() && !step_sfx.playing:
 			step_sfx.play_random_from_array();
 	
-	velocity = velocity.clamp(Vector3(-max_speed, -INF, -max_speed), Vector3(max_speed, INF, max_speed));
+	var min_velocity: Vector3 = Vector3(-max_speed, -INF, -max_speed);
+	var max_velocity: Vector3 = Vector3(max_speed, INF, max_speed);
+	velocity = velocity.clamp(min_velocity, max_velocity);
 	move_and_slide()
 	
 	for i in get_slide_collision_count():
 		var item = get_slide_collision(i);
 		if item.get_collider() is RigidBody3D:
-			(item.get_collider() as RigidBody3D).apply_central_impulse(-(velocity.length() * item.get_normal()));
+			var impulse: Vector3 = -(velocity.length() * item.get_normal());
+			(item.get_collider() as RigidBody3D).apply_central_impulse(impulse);
+	
+	if position.y <= -0.1:
+		position.y = 0.2;
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

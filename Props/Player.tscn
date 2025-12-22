@@ -32,6 +32,7 @@ points = PackedVector3Array(0.1, 0, 0, 0.07, -0.205, 0, -0.05, -0.24, 0, -0.12, 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
 collision_mask = 3
+safe_margin = 0.005
 script = ExtResource("1_ugq8o")
 flop_force = 8.0
 jump_force = 8.0

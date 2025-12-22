@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://di34543g8ec07"]
+[gd_scene load_steps=7 format=3 uid="uid://di34543g8ec07"]
 
+[ext_resource type="Script" uid="uid://cjhoapx5n6ar" path="res://Scripts/Props/Shelf.gd" id="1_pp8bi"]
 [ext_resource type="PackedScene" uid="uid://1a48rhir6bfv" path="res://ITEM_MODELS/Shelf/SHELF.glb" id="1_vn0rq"]
 [ext_resource type="Texture2D" uid="uid://cdksyapcb7stk" path="res://Sprites/WALLBRACKET.png" id="2_ebcx3"]
+[ext_resource type="Script" uid="uid://dgqn2dy6bqrry" path="res://Scripts/Props/Hinge.gd" id="2_ow5ay"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ebcx3"]
 size = Vector3(6.071167, 0.34143066, 2.0073547)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pp8bi"]
+size = Vector3(1, 1, 0.86224365)
+
 [node name="Shelf" type="RigidBody3D"]
 freeze = true
+script = ExtResource("1_pp8bi")
 
 [node name="SHELF" parent="." instance=ExtResource("1_vn0rq")]
 
@@ -17,6 +23,7 @@ shape = SubResource("BoxShape3D_ebcx3")
 
 [node name="Left Join" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4378548, -0.49928164, 0.9855159)
+script = ExtResource("2_ow5ay")
 
 [node name="Joint" type="Sprite3D" parent="Left Join"]
 flip_v = true
@@ -29,8 +36,15 @@ flip_v = true
 pixel_size = 0.003
 texture = ExtResource("2_ebcx3")
 
+[node name="Area3D" type="Area3D" parent="Left Join"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Left Join/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.40194702)
+shape = SubResource("BoxShape3D_pp8bi")
+
 [node name="Right Joint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3600512, -0.49928164, 0.9855159)
+script = ExtResource("2_ow5ay")
 
 [node name="Joint2" type="Sprite3D" parent="Right Joint"]
 flip_v = true
@@ -42,3 +56,14 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0
 flip_v = true
 pixel_size = 0.003
 texture = ExtResource("2_ebcx3")
+
+[node name="Area3D" type="Area3D" parent="Right Joint"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Right Joint/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.40194702)
+shape = SubResource("BoxShape3D_pp8bi")
+
+[connection signal="hinge_unscrewed" from="Left Join" to="." method="_on_hinge_unscrewed"]
+[connection signal="body_entered" from="Left Join/Area3D" to="Left Join" method="_on_area_3d_body_entered"]
+[connection signal="hinge_unscrewed" from="Right Joint" to="." method="_on_hinge_unscrewed"]
+[connection signal="body_entered" from="Right Joint/Area3D" to="Right Joint" method="_on_area_3d_body_entered"]

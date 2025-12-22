@@ -1,0 +1,95 @@
+[gd_scene load_steps=22 format=3 uid="uid://b2ujabrjwy4s2"]
+
+[ext_resource type="Script" uid="uid://cqussxt5r6bd7" path="res://Scripts/Player.gd" id="1_ugq8o"]
+[ext_resource type="PackedScene" uid="uid://b7y1hj8l0gylp" path="res://Player/fishtopher_model.tscn" id="2_0mjnl"]
+[ext_resource type="Script" uid="uid://dsusc3gks1v4d" path="res://Scripts/ThirdPersonCamera.gd" id="3_t0o3b"]
+[ext_resource type="Script" uid="uid://ctc0gkf64cmms" path="res://Scripts/SmartSoundArrayPlayer.gd" id="4_j4jnu"]
+[ext_resource type="AudioStream" uid="uid://x6t2gkfj3d6o" path="res://Sounds/STEP 1.mp3" id="5_er7tb"]
+[ext_resource type="AudioStream" uid="uid://lgpjg1ibnvd7" path="res://Sounds/STEP 2.mp3" id="6_0nil6"]
+[ext_resource type="AudioStream" uid="uid://d2gr7y0caacpa" path="res://Sounds/STEP 3.mp3" id="7_sclr1"]
+[ext_resource type="AudioStream" uid="uid://tvlfvriwbpak" path="res://Sounds/STEP 4.mp3" id="8_eg7ex"]
+[ext_resource type="AudioStream" uid="uid://4g8o16hwf2ff" path="res://Sounds/STEP 5.mp3" id="9_2kj04"]
+[ext_resource type="AudioStream" uid="uid://fy5n4a76sr3b" path="res://Sounds/STEP 6.mp3" id="10_qkxx1"]
+[ext_resource type="AudioStream" uid="uid://cpwalqv02h0gg" path="res://Sounds/STEP 7.mp3" id="11_st3eb"]
+[ext_resource type="AudioStream" uid="uid://dufmoa6jk3ai8" path="res://Sounds/STEP 8.mp3" id="12_3hro2"]
+[ext_resource type="AudioStream" uid="uid://dfg7sllxeqltm" path="res://Sounds/JUMP 1.mp3" id="13_w36n1"]
+[ext_resource type="AudioStream" uid="uid://c5t7bbb0p41it" path="res://Sounds/JUMP 2.mp3" id="14_0sq5x"]
+[ext_resource type="AudioStream" uid="uid://dbxugacey1wje" path="res://Sounds/JUMP 3.mp3" id="15_45j6n"]
+[ext_resource type="AudioStream" uid="uid://doocxxlsgprh5" path="res://Sounds/LAND 1.mp3" id="16_s82uu"]
+[ext_resource type="AudioStream" uid="uid://dk60ppm2epprh" path="res://Sounds/LAND 2.mp3" id="17_uvqks"]
+[ext_resource type="AudioStream" uid="uid://crc7oetd26tcj" path="res://Sounds/LAND 3.mp3" id="18_yfh0o"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tok1r"]
+margin = 0.01
+radius = 0.05
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ddoul"]
+margin = 0.01
+points = PackedVector3Array(0.1, 0, 0, 0.07, -0.205, 0, -0.05, -0.24, 0, -0.12, 0, 0, -0.02, 0.205, 0, 0.04, 0.205, 0, 0.1, 0, -0.1, 0.07, -0.205, -0.1, -0.05, -0.24, -0.1, -0.12, 0, -0.1, -0.02, 0.205, -0.1, 0.04, 0.205, -0.1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8g4oa"]
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_ugq8o")
+flop_force = 8.0
+jump_force = 8.0
+max_speed = 4.0
+fish_mass = 2.0
+fish_drag = 0.8
+yeet_force = 20.0
+
+[node name="Fishtopher Model" parent="." instance=ExtResource("2_0mjnl")]
+
+[node name="Camera Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19812611, 0)
+script = ExtResource("3_t0o3b")
+mouse_sensitivity = 0.01
+max_vertical_angle = 90.0
+
+[node name="Camera Arm" type="SpringArm3D" parent="Camera Pivot" groups=["fish"]]
+shape = SubResource("SphereShape3D_tok1r")
+spring_length = 2.5
+margin = 0.1
+
+[node name="Camera3D" type="Camera3D" parent="Camera Pivot/Camera Arm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_ddoul")
+
+[node name="Interact" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interact"]
+shape = SubResource("SphereShape3D_8g4oa")
+
+[node name="Held Item Point" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60093176, 0)
+
+[node name="Step Sounds" type="AudioStreamPlayer3D" parent="."]
+volume_db = -9.343
+script = ExtResource("4_j4jnu")
+sound_array = Array[AudioStream]([ExtResource("5_er7tb"), ExtResource("6_0nil6"), ExtResource("7_sclr1"), ExtResource("8_eg7ex"), ExtResource("9_2kj04"), ExtResource("10_qkxx1"), ExtResource("11_st3eb"), ExtResource("12_3hro2")])
+
+[node name="Jump Sounds" type="AudioStreamPlayer3D" parent="."]
+volume_db = -8.094
+script = ExtResource("4_j4jnu")
+sound_array = Array[AudioStream]([ExtResource("13_w36n1"), ExtResource("14_0sq5x"), ExtResource("15_45j6n")])
+
+[node name="Land Sounds" type="AudioStreamPlayer3D" parent="."]
+volume_db = -7.007
+script = ExtResource("4_j4jnu")
+sound_array = Array[AudioStream]([ExtResource("16_s82uu"), ExtResource("17_uvqks"), ExtResource("18_yfh0o")])
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="."]
+
+[connection signal="body_entered" from="Interact" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Interact" to="." method="_on_body_exited"]

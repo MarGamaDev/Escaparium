@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://dnj5dml3k3kyj"]
 
 [ext_resource type="PackedScene" uid="uid://d2f22xai6nwna" path="res://ITEM_MODELS/Tank Cabinet/tankcabinet.glb" id="1_cpdck"]
-[ext_resource type="Script" uid="uid://bifwmda6vr6ma" path="res://ITEM_MODELS/Tank Cabinet/Cabinet.gd" id="2_2tamw"]
+[ext_resource type="Script" uid="uid://bifwmda6vr6ma" path="res://Scripts/Props/Cabinet.gd" id="2_2tamw"]
 [ext_resource type="Script" uid="uid://7h7ka2k743gf" path="res://Scripts/Interactable.gd" id="3_5d7ql"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5d7ql"]
@@ -28,6 +28,16 @@ size = Vector3(5.2182007, 0.34387207, 0.038215637)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2tamw"]
 size = Vector3(4.937805, 6.782776, 0.3223877)
 
+[sub_resource type="Animation" id="Animation_5d7ql"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CABINET DOOR")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
 [sub_resource type="Animation" id="Animation_2tamw"]
 resource_name = "open"
 length = 2.0
@@ -38,16 +48,6 @@ tracks/0/path = NodePath("CABINET DOOR")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 2, 1, 0, 0.8519875, 0, 0.5235622)
-
-[sub_resource type="Animation" id="Animation_5d7ql"]
-length = 0.001
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CABINET DOOR")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7bq8r"]
 _data = {

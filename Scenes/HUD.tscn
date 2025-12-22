@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgqd2kekjo8bh"]
 
-[ext_resource type="Script" uid="uid://c3cmgnckbaxil" path="res://Scenes/GameUI.gd" id="1_jo1ms"]
+[ext_resource type="Script" uid="uid://c3cmgnckbaxil" path="res://Scripts/Management/GameUI.gd" id="1_jo1ms"]
 [ext_resource type="Texture2D" uid="uid://b12waemxqsyiu" path="res://UI/emptymeter.png" id="2_psnte"]
 [ext_resource type="Texture2D" uid="uid://daevl74r7i1qc" path="res://UI/fullmeter.png" id="3_s3jbq"]
 

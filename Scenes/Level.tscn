@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://ccgfl0nfuq3qv"]
 
-[ext_resource type="Script" uid="uid://4dk0o0fcc8o5" path="res://Scenes/GameManager.gd" id="1_or7tv"]
+[ext_resource type="Script" uid="uid://4dk0o0fcc8o5" path="res://Scripts/Management/GameManager.gd" id="1_or7tv"]
 [ext_resource type="PackedScene" uid="uid://dwj6a3qcbnxfa" path="res://MAINROOM.tscn" id="1_vonw3"]
 [ext_resource type="PackedScene" uid="uid://ddjov2hg4femu" path="res://Props/Screwdriver.tscn" id="3_oi3di"]
 [ext_resource type="PackedScene" uid="uid://bqc0nv6tmwjo" path="res://Cat/CATPLEASEWORKWALK.glb" id="4_0b4ue"]
@@ -20,16 +20,16 @@ lives = 3
 
 [node name="BEDROOM" parent="." instance=ExtResource("1_vonw3")]
 
-[node name="Screwdriver" parent="." instance=ExtResource("3_oi3di")]
+[node name="Screwdriver" parent="." groups=["screwdriver"] instance=ExtResource("3_oi3di")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2629749, 0.39299726, 3.6766212)
 
-[node name="Screwdriver2" parent="." instance=ExtResource("3_oi3di")]
+[node name="Screwdriver2" parent="." groups=["screwdriver"] instance=ExtResource("3_oi3di")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5259498, 0.7859945, 7.3532424)
 
-[node name="Screwdriver3" parent="." instance=ExtResource("3_oi3di")]
+[node name="Screwdriver3" parent="." groups=["screwdriver"] instance=ExtResource("3_oi3di")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7889247, 1.1789918, 11.029863)
 
-[node name="Screwdriver4" parent="." instance=ExtResource("3_oi3di")]
+[node name="Screwdriver4" parent="." groups=["screwdriver"] instance=ExtResource("3_oi3di")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8491845, 1.571989, 2.0337687)
 
 [node name="CATPLEASEWORKWALK" parent="." instance=ExtResource("4_0b4ue")]

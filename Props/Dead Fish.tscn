@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhyo4ay5myd40"]
 
-[ext_resource type="Script" uid="uid://7h7ka2k743gf" path="res://Scripts/Interactable.gd" id="1_lxw4t"]
-[ext_resource type="PackedScene" uid="uid://ctqryb6cltbbx" path="res://Player/fishtopher_no_animations.glb" id="1_qjk8w"]
+[ext_resource type="Script" uid="uid://7h7ka2k743gf" path="res://Scripts/Interactable.gd" id="1_yn7hs"]
+[ext_resource type="PackedScene" uid="uid://ctqryb6cltbbx" path="res://Player/fishtopher_no_animations.glb" id="2_3gstt"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qjk8w"]
 margin = 0.01
@@ -12,10 +12,10 @@ disable_mode = 1
 collision_layer = 6
 collision_mask = 7
 freeze = true
-script = ExtResource("1_lxw4t")
+script = ExtResource("1_yn7hs")
 grab_target = NodePath(".")
 
-[node name="fishtopher_no_animations" parent="." instance=ExtResource("1_qjk8w")]
+[node name="fishtopher_no_animations" parent="." instance=ExtResource("2_3gstt")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)

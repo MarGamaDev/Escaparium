@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctwovco0yuh0d"]
 
-[ext_resource type="Script" uid="uid://br2y47n54dx5g" path="res://Scenes/MainMenu.gd" id="1_hcxxy"]
+[ext_resource type="Script" uid="uid://br2y47n54dx5g" path="res://Scripts/Management/MainMenu.gd" id="1_hcxxy"]
 [ext_resource type="AudioStream" uid="uid://f0spafnil45b" path="res://Sounds/MAINMENU-ROLLCREDITS.mp3" id="1_totuj"]
 
 [node name="Main Menu" type="Control"]

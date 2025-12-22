@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dspj3skrttcbw"
+path="res://.godot/imported/CAT EAT 1.mp3-58c3a1f629a18a7b99fb5721b8cb373c.mp3str"
+
+[deps]
+
+source_file="res://Sounds/INTERACTION/CAT EAT 1.mp3"
+dest_files=["res://.godot/imported/CAT EAT 1.mp3-58c3a1f629a18a7b99fb5721b8cb373c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://byjq0i1k2doa4"
+path="res://.godot/imported/SPLASH 5.mp3-d6af6e64d64be7f0f11e2177fbe25133.mp3str"
+
+[deps]
+
+source_file="res://Sounds/INTERACTION/SPLASH 5.mp3"
+dest_files=["res://.godot/imported/SPLASH 5.mp3-d6af6e64d64be7f0f11e2177fbe25133.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

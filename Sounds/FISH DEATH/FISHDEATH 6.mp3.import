@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://baw583o206r3s"
+path="res://.godot/imported/FISHDEATH 6.mp3-d06b5799005672a001e63bfd5acc3d22.mp3str"
+
+[deps]
+
+source_file="res://Sounds/FISH DEATH/FISHDEATH 6.mp3"
+dest_files=["res://.godot/imported/FISHDEATH 6.mp3-d06b5799005672a001e63bfd5acc3d22.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b5xk5mln2twmx"
+path="res://.godot/imported/FISHDEATH 1.wav-b9cc336f59f5b70d2a36067f34f1a46e.sample"
+
+[deps]
+
+source_file="res://Sounds/FISH DEATH/FISHDEATH 1.wav"
+dest_files=["res://.godot/imported/FISHDEATH 1.wav-b9cc336f59f5b70d2a36067f34f1a46e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

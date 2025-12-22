@@ -56,6 +56,7 @@ func go_to_playing_state() -> void:
 	breath_timer = breath_max_time;
 	fish_tank.reset_animation();
 	_switch_game_state(GameState.PLAYING);
+	_spawn_player();
 
 func go_to_fishtank_state() -> void:
 	_switch_game_state(GameState.FISHTANK);

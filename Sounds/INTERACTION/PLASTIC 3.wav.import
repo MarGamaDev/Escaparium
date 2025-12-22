@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cxlhaafue4bi2"
+path="res://.godot/imported/PLASTIC 3.wav-bc2993c8f4e9c1c937edf099f7dfc79c.sample"
+
+[deps]
+
+source_file="res://Sounds/INTERACTION/PLASTIC 3.wav"
+dest_files=["res://.godot/imported/PLASTIC 3.wav-bc2993c8f4e9c1c937edf099f7dfc79c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

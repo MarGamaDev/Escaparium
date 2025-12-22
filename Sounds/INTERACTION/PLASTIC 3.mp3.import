@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c5ig3v8ifs2jw"
+path="res://.godot/imported/PLASTIC 3.mp3-48af6da932a7a9705a33529d0eb9e795.mp3str"
+
+[deps]
+
+source_file="res://Sounds/INTERACTION/PLASTIC 3.mp3"
+dest_files=["res://.godot/imported/PLASTIC 3.mp3-48af6da932a7a9705a33529d0eb9e795.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

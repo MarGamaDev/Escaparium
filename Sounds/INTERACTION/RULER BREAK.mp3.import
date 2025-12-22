@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbynmy7ijw8ew"
+path="res://.godot/imported/RULER BREAK.mp3-af939d4c2b06c69c1d4c4237738d0f90.mp3str"
+
+[deps]
+
+source_file="res://Sounds/INTERACTION/RULER BREAK.mp3"
+dest_files=["res://.godot/imported/RULER BREAK.mp3-af939d4c2b06c69c1d4c4237738d0f90.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

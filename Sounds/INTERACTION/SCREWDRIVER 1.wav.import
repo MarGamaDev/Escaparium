@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dq1h1r8fhxmml"
+path="res://.godot/imported/SCREWDRIVER 1.wav-c5475f59ccf21a61a1c9f77856864bec.sample"
+
+[deps]
+
+source_file="res://Sounds/INTERACTION/SCREWDRIVER 1.wav"
+dest_files=["res://.godot/imported/SCREWDRIVER 1.wav-c5475f59ccf21a61a1c9f77856864bec.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

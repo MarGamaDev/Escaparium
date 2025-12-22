@@ -17,7 +17,7 @@ advance_on_start = true
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_rf1gl"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_4wtfm"]
-graph_offset = Vector2(-599.6693, -6.869049)
+graph_offset = Vector2(-586.7418, -12.616116)
 nodes/output/position = Vector2(480, 140)
 "nodes/Anim Move/node" = SubResource("AnimationNodeAnimation_rf1gl")
 "nodes/Anim Move/position" = Vector2(-500, 360)
@@ -34,11 +34,11 @@ node_connections = [&"output", 0, &"Jump Oneshot", &"Move Blend", 0, &"Anim Stil
 [node name="Fishtopher Model" instance=ExtResource("1_4wtfm")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(-0.06062366, -0.004028919, -0.46627748)
-bones/0/rotation = Quaternion(-0.33184832, -0.062852815, 0.072758675, 0.9384202)
-bones/1/position = Vector3(-0.060623664, -0.0040289005, -0.46627748)
-bones/1/rotation = Quaternion(0.7326674, 0.15984185, 0.6615048, -0.0077790627)
-bones/2/rotation = Quaternion(0.026699297, 0.037500225, 0.26645437, 0.96274763)
+bones/0/position = Vector3(0, 0, 0)
+bones/0/rotation = Quaternion(0, 0, 0, 1)
+bones/1/position = Vector3(0, 0, 0)
+bones/1/rotation = Quaternion(0.7359046, 0.07347681, 0.6682046, -0.08092118)
+bones/2/rotation = Quaternion(0.04649608, -2.7369333e-08, -0.0018748125, 0.99891675)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = SubResource("AnimationNodeBlendTree_4wtfm")

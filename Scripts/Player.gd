@@ -146,7 +146,6 @@ func _apply_movement(delta: float) -> void:
 	if is_sprinting:
 		rotated_movement *= sprint_multiplier;
 	
-	
 	#apply movement
 	velocity += Vector3(rotated_movement.x, 0, rotated_movement.z);
 

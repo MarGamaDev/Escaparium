@@ -1,13 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctwovco0yuh0d"]
+[gd_scene load_steps=4 format=3 uid="uid://ctwovco0yuh0d"]
 
 [ext_resource type="Script" uid="uid://br2y47n54dx5g" path="res://Scripts/Management/MainMenu.gd" id="1_hcxxy"]
 [ext_resource type="AudioStream" uid="uid://f0spafnil45b" path="res://Sounds/MAINMENU-ROLLCREDITS.mp3" id="1_totuj"]
+[ext_resource type="Texture2D" uid="uid://dsqcqev3ckyw5" path="res://Sprites/UI/buttonunpressed.png" id="3_eotax"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_hcxxy")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
@@ -24,6 +29,7 @@ offset_bottom = 75.0
 text = "MAIN MENU"
 
 [node name="Play Button" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 158.0
 offset_top = 133.0
@@ -31,4 +37,15 @@ offset_right = 224.0
 offset_bottom = 164.0
 text = "BE FISH"
 
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 115.0
+offset_right = 1720.0
+offset_bottom = 1008.0
+scale = Vector2(0.07, 0.07)
+texture_normal = ExtResource("3_eotax")
+stretch_mode = 0
+
 [connection signal="button_up" from="Play Button" to="." method="on_play_button_pressed"]
+[connection signal="button_up" from="TextureButton" to="." method="on_play_button_pressed"]

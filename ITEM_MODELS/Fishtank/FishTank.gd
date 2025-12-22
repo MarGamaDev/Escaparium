@@ -12,3 +12,6 @@ func on_animation_finished() -> void:
 
 func reset_animation() -> void:
 	animation_player.play("RESET");
+
+func update_lives(amount: int) -> void:
+	pass

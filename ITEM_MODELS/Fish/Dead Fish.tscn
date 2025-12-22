@@ -1,7 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhyo4ay5myd40"]
+[gd_scene load_steps=4 format=3 uid="uid://bhyo4ay5myd40"]
 
+[ext_resource type="Script" uid="uid://7h7ka2k743gf" path="res://Scripts/Interactable.gd" id="1_lxw4t"]
 [ext_resource type="PackedScene" uid="uid://ctqryb6cltbbx" path="res://Player/fishtopher_no_animations.glb" id="1_qjk8w"]
 
-[node name="Dead Fish" type="Node3D"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qjk8w"]
+margin = 0.01
+points = PackedVector3Array(0.1, 0, 0, 0.07, -0.205, 0, -0.05, -0.24, 0, -0.12, 0, 0, -0.02, 0.205, 0, 0.04, 0.205, 0, 0.1, 0, -0.1, 0.07, -0.205, -0.1, -0.05, -0.24, -0.1, -0.12, 0, -0.1, -0.02, 0.205, -0.1, 0.04, 0.205, -0.1)
+
+[node name="Dead Fish" type="RigidBody3D" node_paths=PackedStringArray("grab_target") groups=["fish"]]
+disable_mode = 1
+collision_layer = 6
+collision_mask = 7
+freeze = true
+script = ExtResource("1_lxw4t")
+grab_target = NodePath(".")
 
 [node name="fishtopher_no_animations" parent="." instance=ExtResource("1_qjk8w")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_qjk8w")

@@ -31,23 +31,24 @@ points = PackedVector3Array(0.1, 0, 0, 0.07, -0.205, 0, -0.05, -0.24, 0, -0.12, 
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_3qydi")
 flop_force = 8.0
 jump_force = 8.0
 max_speed = 4.0
 fish_mass = 2.0
 fish_drag = 0.8
-yeet_force = 0.5
+yeet_force = 20.0
 
 [node name="Fishtopher Model" parent="." instance=ExtResource("3_tok1r")]
 
 [node name="Camera Pivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19812611, 0)
 script = ExtResource("2_q3lat")
 mouse_sensitivity = 0.01
-max_vertical_angle = 0.0
+max_vertical_angle = 90.0
 
-[node name="Camera Arm" type="SpringArm3D" parent="Camera Pivot"]
+[node name="Camera Arm" type="SpringArm3D" parent="Camera Pivot" groups=["fish"]]
 shape = SubResource("SphereShape3D_tok1r")
 spring_length = 2.5
 margin = 0.1

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgqd2kekjo8bh"]
+[gd_scene load_steps=4 format=3 uid="uid://bgqd2kekjo8bh"]
 
 [ext_resource type="Script" uid="uid://c3cmgnckbaxil" path="res://Scenes/GameUI.gd" id="1_jo1ms"]
-[ext_resource type="Texture2D" uid="uid://cvly0i6s1mx8c" path="res://icon.svg" id="2_psnte"]
+[ext_resource type="Texture2D" uid="uid://b12waemxqsyiu" path="res://UI/emptymeter.png" id="2_psnte"]
+[ext_resource type="Texture2D" uid="uid://daevl74r7i1qc" path="res://UI/fullmeter.png" id="3_s3jbq"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -10,19 +11,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 1
 script = ExtResource("1_jo1ms")
 
 [node name="Breath Timer" type="TextureProgressBar" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -103.0
-offset_top = 9.0
-offset_right = 103.0
-offset_bottom = 26.0
-grow_horizontal = 2
-value = 100.0
-nine_patch_stretch = true
-texture_progress = ExtResource("2_psnte")
+layout_mode = 0
+offset_left = 147.0
+offset_right = 1299.0
+offset_bottom = 893.0
+scale = Vector2(0.065, 0.065)
+value = 50.0
+texture_under = ExtResource("2_psnte")
+texture_progress = ExtResource("3_s3jbq")

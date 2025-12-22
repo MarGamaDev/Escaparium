@@ -10,6 +10,7 @@ extends Node
 
 signal update_timer(time: float);
 signal update_game_state(game_state: GameState);
+signal out_of_breath;
 
 enum GameState {
 	FISHTANK,
@@ -51,7 +52,7 @@ func _run_playing_state(delta: float) -> void:
 	breath_timer -= delta;
 	update_timer.emit(breath_timer / breath_max_time);
 	if breath_timer <= 0:
-		kill_player();
+		out_of_breath.emit();
 
 func _switch_game_state(state: GameState) -> void:
 	current_game_state = state;
@@ -60,8 +61,12 @@ func _switch_game_state(state: GameState) -> void:
 func _spawn_player() -> void:
 	player = player_scene.instantiate();
 	player.position = spawn_point.position;
+	player.rotation = spawn_point.rotation;
+	
 	player.add_flags(global_flags);
 	player.player_death.connect(kill_player);
+	out_of_breath.connect(player.die);
+	
 	add_child(player);
 
 func go_to_playing_state() -> void:
@@ -84,13 +89,17 @@ func kill_player() -> void:
 	if !player:
 		return;
 	
+	#spawn corpse
 	var corpse: RigidBody3D = dead_fish_scene.instantiate();
 	corpse.position = player.position;
 	corpse.rotation = player.model.rotation;
 	corpse.freeze = false;
 	add_child(corpse);
+	(corpse.find_child("body") as DeadFish). do_dying_thing();
 	
+	#despawn player
 	player.player_death.disconnect(kill_player);
+	out_of_breath.disconnect(player.die);
 	remove_child(player);
 	player.queue_free();
 	player = null;

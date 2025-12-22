@@ -4,13 +4,13 @@
 [ext_resource type="Script" uid="uid://csd3tk4xyn8yg" path="res://Scripts/Props/Screwdriver.gd" id="2_gpjhr"]
 [ext_resource type="Script" uid="uid://7h7ka2k743gf" path="res://Scripts/Interactable.gd" id="3_nr8so"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_gpjhr"]
-height = 0.68530273
-radius = 0.14
-
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_nr8so"]
 height = 0.68533325
 radius = 0.05
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gpjhr"]
+height = 0.68530273
+radius = 0.14
 
 [node name="Screwdriver" type="RigidBody3D" node_paths=PackedStringArray("grab_target") groups=["screwdriver"]]
 collision_layer = 5
@@ -19,15 +19,18 @@ continuous_cd = true
 script = ExtResource("3_nr8so")
 grab_target = NodePath(".")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024212599, 0.45739746, 0)
-shape = SubResource("CylinderShape3D_gpjhr")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030369043, 1.1076813, 0)
-shape = SubResource("CylinderShape3D_nr8so")
-
 [node name="SCREWDRIVER" parent="." instance=ExtResource("1_k67wx")]
+transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0, 0, 0)
 script = ExtResource("2_gpjhr")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0.030368946, 1.5415251e-05, -1.1063067)
+shape = SubResource("CylinderShape3D_nr8so")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0.024212558, 0.0007535964, -0.45916218)
+shape = SubResource("CylinderShape3D_gpjhr")
+
 [connection signal="interact_triggered" from="." to="SCREWDRIVER" method="_on_interact"]
+
+[editable path="SCREWDRIVER"]

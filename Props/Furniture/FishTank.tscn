@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://chj024exmu62m"]
+[gd_scene load_steps=17 format=3 uid="uid://chj024exmu62m"]
 
 [ext_resource type="Script" uid="uid://bcm6jr3slbvka" path="res://Scripts/Props/FishTank.gd" id="1_6nntu"]
 [ext_resource type="PackedScene" uid="uid://bhyo4ay5myd40" path="res://Props/Dead Fish.tscn" id="1_qmsf3"]
@@ -7,6 +7,11 @@
 [ext_resource type="AudioStream" uid="uid://dk60ppm2epprh" path="res://Sounds/LAND 2.mp3" id="4_6nntu"]
 [ext_resource type="AudioStream" uid="uid://crc7oetd26tcj" path="res://Sounds/LAND 3.mp3" id="5_artvx"]
 [ext_resource type="PackedScene" uid="uid://bycrl8t5qtlud" path="res://ITEM_MODELS/Fishtank/fishtank.glb" id="7_artvx"]
+[ext_resource type="AudioStream" uid="uid://ca4a6c4102gvw" path="res://Sounds/INTERACTION/SPLASH 1.mp3" id="8_nbl62"]
+[ext_resource type="AudioStream" uid="uid://b5xrsjn5jjt3d" path="res://Sounds/INTERACTION/SPLASH 2.mp3" id="9_vsy16"]
+[ext_resource type="AudioStream" uid="uid://dqx8e3uf7h57n" path="res://Sounds/INTERACTION/SPLASH 3.mp3" id="10_kgaco"]
+[ext_resource type="AudioStream" uid="uid://bvihxgoxckfk0" path="res://Sounds/INTERACTION/SPLASH 4.mp3" id="11_57bn8"]
+[ext_resource type="AudioStream" uid="uid://byjq0i1k2doa4" path="res://Sounds/INTERACTION/SPLASH 5.mp3" id="12_ftsmm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ejtpv"]
 size = Vector3(3.2184067, 3.2192268, 4.4992065)
@@ -16,14 +21,14 @@ length = 0.001
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Dead Fish")
+tracks/0/path = NodePath("Animated Dead Fish")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, -0.70710677, 0.70710677)
 tracks/1/type = "position_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Dead Fish")
+tracks/1/path = NodePath("Animated Dead Fish")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.9, 0)
@@ -34,14 +39,14 @@ length = 1.2667
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Dead Fish")
+tracks/0/path = NodePath("Animated Dead Fish")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, -0.70710677, 0.70710677, 0.06666667, 1, -0.71247286, 0.08535207, -0.08753724, 0.69096625, 0.36666667, 1, -0.71247286, 0.08535207, -0.08753724, 0.69096625, 0.53333336, 1, 0.25847226, -0.6623673, 0.6737632, -0.20125811)
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SmartSoundArrayPlayer")
+tracks/1/path = NodePath("Land Audio Player")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -55,7 +60,7 @@ tracks/1/keys = {
 tracks/2/type = "position_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Dead Fish")
+tracks/2/path = NodePath("Animated Dead Fish")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 0, 0.9, 0, 0.33333334, 1, 1.3971272, 3.881167, 0, 0.56666666, 1, 1.6430771, 3.8926067, 0, 1.2667, 1, 4.7625384, -4.7683, 0)
@@ -73,6 +78,20 @@ tracks/3/keys = {
 "method": &"on_animation_finished"
 }]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Jump Sound Player")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.19),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_random_from_array"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6nntu"]
 _data = {
@@ -88,18 +107,25 @@ metadata/_custom_type_script = "uid://bcm6jr3slbvka"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0041160583, 1.6130466, 0.18771362)
 shape = SubResource("BoxShape3D_ejtpv")
 
-[node name="Dead Fish" parent="." instance=ExtResource("1_qmsf3")]
-transform = Transform3D(-4.3711356e-08, 1, 0, -0.9999993, -4.371139e-08, 0, 0, 0, 0.9999999, 0, 0.9, 0)
+[node name="Animated Dead Fish" parent="." instance=ExtResource("1_qmsf3")]
+transform = Transform3D(-4.371136e-08, 1, 0, -0.99999934, -4.371139e-08, 0, 0, 0, 0.9999999, 0, 0.9, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_6nntu")
 }
 
-[node name="SmartSoundArrayPlayer" type="AudioStreamPlayer3D" parent="."]
+[node name="Land Audio Player" type="AudioStreamPlayer3D" parent="."]
+bus = &"SFX"
 script = ExtResource("2_78bak")
 sound_array = Array[AudioStream]([ExtResource("3_20i7j"), ExtResource("4_6nntu"), ExtResource("5_artvx")])
 metadata/_custom_type_script = "uid://ctc0gkf64cmms"
 
 [node name="fishtank" parent="." instance=ExtResource("7_artvx")]
 transform = Transform3D(-6.9938224e-08, 0, -1.6, 0, 1.6, 0, 1.6, 0, -6.9938224e-08, 0, -0.018704563, -0.27675152)
+
+[node name="Jump Sound Player" type="AudioStreamPlayer3D" parent="."]
+bus = &"SFX"
+script = ExtResource("2_78bak")
+sound_array = Array[AudioStream]([ExtResource("8_nbl62"), ExtResource("9_vsy16"), ExtResource("10_kgaco"), ExtResource("11_57bn8"), ExtResource("12_ftsmm")])
+metadata/_custom_type_script = "uid://ctc0gkf64cmms"

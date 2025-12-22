@@ -1,7 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhyo4ay5myd40"]
+[gd_scene load_steps=14 format=3 uid="uid://bhyo4ay5myd40"]
 
 [ext_resource type="Script" uid="uid://7h7ka2k743gf" path="res://Scripts/Interactable.gd" id="1_yn7hs"]
 [ext_resource type="PackedScene" uid="uid://ctqryb6cltbbx" path="res://Player/fishtopher_no_animations.glb" id="2_3gstt"]
+[ext_resource type="Script" uid="uid://b0q0s60rejwoe" path="res://Scripts/Props/DeadFish.gd" id="3_3gstt"]
+[ext_resource type="Script" uid="uid://ctc0gkf64cmms" path="res://Scripts/SmartSoundArrayPlayer.gd" id="4_ixcll"]
+[ext_resource type="AudioStream" uid="uid://3wvpo5q4s2g4" path="res://Sounds/FISH DEATH/FISHDEATH 1.mp3" id="5_4hu2x"]
+[ext_resource type="AudioStream" uid="uid://lb0dlwgbinln" path="res://Sounds/FISH DEATH/FISHDEATH 2.mp3" id="6_vx43p"]
+[ext_resource type="AudioStream" uid="uid://dnvk2ieyw1b61" path="res://Sounds/FISH DEATH/FISHDEATH 3.mp3" id="7_gkgsk"]
+[ext_resource type="AudioStream" uid="uid://blghi2g3onwf8" path="res://Sounds/FISH DEATH/FISHDEATH 4.mp3" id="8_dgkel"]
+[ext_resource type="AudioStream" uid="uid://dhaxa4r1sboqc" path="res://Sounds/FISH DEATH/FISHDEATH 5.mp3" id="9_75dy0"]
+[ext_resource type="AudioStream" uid="uid://baw583o206r3s" path="res://Sounds/FISH DEATH/FISHDEATH 6.mp3" id="10_m378m"]
+[ext_resource type="AudioStream" uid="uid://buc24xr7s5bvc" path="res://Sounds/FISH DEATH/FISHDEATH 7.mp3" id="11_xxba4"]
+[ext_resource type="AudioStream" uid="uid://canytvvpasyf" path="res://Sounds/FISH DEATH/FISHDEATH 8.mp3" id="12_8tvw8"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qjk8w"]
 margin = 0.01
@@ -15,8 +25,15 @@ freeze = true
 script = ExtResource("1_yn7hs")
 grab_target = NodePath(".")
 
-[node name="fishtopher_no_animations" parent="." instance=ExtResource("2_3gstt")]
+[node name="body" parent="." instance=ExtResource("2_3gstt")]
+script = ExtResource("3_3gstt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_qjk8w")
+
+[node name="SmartSoundArrayPlayer" type="AudioStreamPlayer3D" parent="."]
+bus = &"SFX"
+script = ExtResource("4_ixcll")
+sound_array = Array[AudioStream]([ExtResource("5_4hu2x"), ExtResource("6_vx43p"), ExtResource("7_gkgsk"), ExtResource("8_dgkel"), ExtResource("9_75dy0"), ExtResource("10_m378m"), ExtResource("11_xxba4"), ExtResource("12_8tvw8")])
+metadata/_custom_type_script = "uid://ctc0gkf64cmms"

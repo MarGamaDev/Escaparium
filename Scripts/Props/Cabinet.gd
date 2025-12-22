@@ -8,3 +8,4 @@ func on_interact() -> void:
 	print("opening")
 	animation_player.play("open");
 	interactable.prerequisite_strings.append("already_triggered");
+	

@@ -73,24 +73,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60093176, 0)
 
 [node name="Step Sounds" type="AudioStreamPlayer3D" parent="."]
 volume_db = -9.343
+bus = &"SFX"
 script = ExtResource("4_j4jnu")
 sound_array = Array[AudioStream]([ExtResource("5_er7tb"), ExtResource("6_0nil6"), ExtResource("7_sclr1"), ExtResource("8_eg7ex"), ExtResource("9_2kj04"), ExtResource("10_qkxx1"), ExtResource("11_st3eb"), ExtResource("12_3hro2")])
 
 [node name="Jump Sounds" type="AudioStreamPlayer3D" parent="."]
 volume_db = -8.094
+bus = &"SFX"
 script = ExtResource("4_j4jnu")
 sound_array = Array[AudioStream]([ExtResource("13_w36n1"), ExtResource("14_0sq5x"), ExtResource("15_45j6n")])
 
 [node name="Land Sounds" type="AudioStreamPlayer3D" parent="."]
 volume_db = -7.007
+bus = &"SFX"
 script = ExtResource("4_j4jnu")
 sound_array = Array[AudioStream]([ExtResource("16_s82uu"), ExtResource("17_uvqks"), ExtResource("18_yfh0o")])
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-
-[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
-
-[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="."]
 
 [connection signal="body_entered" from="Interact" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="Interact" to="." method="_on_body_exited"]

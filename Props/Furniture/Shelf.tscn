@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://di34543g8ec07"]
+[gd_scene load_steps=13 format=3 uid="uid://di34543g8ec07"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://bb0gr2d1ph68c" path="res://Materials/Physics Materials/shelf_physics_material.tres" id="1_4tnyb"]
 [ext_resource type="Script" uid="uid://cjhoapx5n6ar" path="res://Scripts/Props/Shelf.gd" id="1_pp8bi"]
 [ext_resource type="PackedScene" uid="uid://1a48rhir6bfv" path="res://ITEM_MODELS/Shelf/SHELF.glb" id="1_vn0rq"]
 [ext_resource type="Texture2D" uid="uid://cdksyapcb7stk" path="res://Sprites/WALLBRACKET.png" id="2_ebcx3"]
 [ext_resource type="Script" uid="uid://dgqn2dy6bqrry" path="res://Scripts/Props/Hinge.gd" id="2_ow5ay"]
+[ext_resource type="Script" uid="uid://ctc0gkf64cmms" path="res://Scripts/SmartSoundArrayPlayer.gd" id="6_p0yjl"]
+[ext_resource type="AudioStream" uid="uid://c12iuwcl0k5gq" path="res://Sounds/INTERACTION/SCREWDRIVER 1.mp3" id="7_osdu8"]
+[ext_resource type="AudioStream" uid="uid://su566vowq20u" path="res://Sounds/INTERACTION/SCREWDRIVER 2.mp3" id="8_ww1dy"]
+[ext_resource type="AudioStream" uid="uid://chy21l3i2nu5c" path="res://Sounds/INTERACTION/SCREWDRIVER LONG 1.mp3" id="9_rqxqn"]
+[ext_resource type="AudioStream" uid="uid://cimxa4dvw7eku" path="res://Sounds/INTERACTION/SCREWDRIVER LONG 2.mp3" id="10_omcbr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ebcx3"]
 size = Vector3(6.071167, 0.34143066, 2.0073547)
@@ -66,6 +71,12 @@ texture = ExtResource("2_ebcx3")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Right Joint/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.40194702)
 shape = SubResource("BoxShape3D_pp8bi")
+
+[node name="Screwdriver Player" type="AudioStreamPlayer3D" parent="."]
+bus = &"SFX"
+script = ExtResource("6_p0yjl")
+sound_array = Array[AudioStream]([ExtResource("7_osdu8"), ExtResource("8_ww1dy"), ExtResource("9_rqxqn"), ExtResource("10_omcbr")])
+metadata/_custom_type_script = "uid://ctc0gkf64cmms"
 
 [connection signal="hinge_unscrewed" from="Left Join" to="." method="_on_hinge_unscrewed"]
 [connection signal="body_entered" from="Left Join/Area3D" to="Left Join" method="_on_area_3d_body_entered"]

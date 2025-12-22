@@ -30,11 +30,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2629749, 0.39299726, 3.676
 stream = ExtResource("5_f2txt")
 volume_db = 3.636
 autoplay = true
+bus = &"SFX"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_1ainy")
 volume_db = -20.363
 autoplay = true
+bus = &"Music"
 
 [node name="Spawn Cam" type="Camera3D" parent="."]
 transform = Transform3D(-3.61241e-08, 0.56305003, -0.8264228, 2.4611692e-08, 0.8264228, 0.56305003, 1, 1.0658141e-14, -4.3711395e-08, 4.5827017, 11.772966, -0.15250003)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://dnj5dml3k3kyj"]
+[gd_scene load_steps=16 format=3 uid="uid://dnj5dml3k3kyj"]
 
 [ext_resource type="PackedScene" uid="uid://d2f22xai6nwna" path="res://ITEM_MODELS/Tank Cabinet/tankcabinet.glb" id="1_cpdck"]
 [ext_resource type="Script" uid="uid://bifwmda6vr6ma" path="res://Scripts/Props/Cabinet.gd" id="2_2tamw"]
 [ext_resource type="Script" uid="uid://7h7ka2k743gf" path="res://Scripts/Interactable.gd" id="3_5d7ql"]
+[ext_resource type="AudioStream" uid="uid://dx0idii33o337" path="res://Sounds/DOOR OPEN.wav" id="4_wvkqa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5d7ql"]
 size = Vector3(5.250061, 0.06640625, 4.9053345)
@@ -40,14 +41,28 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_2tamw"]
 resource_name = "open"
-length = 2.0
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("CABINET DOOR")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 2, 1, 0, 0.8519875, 0, 0.5235622)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 1, 0, 0.8519875, 0, 0.5235622)
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_wvkqa")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7bq8r"]
 _data = {
@@ -113,5 +128,9 @@ shape = SubResource("BoxShape3D_2tamw")
 libraries = {
 &"": SubResource("AnimationLibrary_7bq8r")
 }
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="3"]
+volume_db = 2.0
+bus = &"SFX"
 
 [connection signal="interact_triggered" from="CABINET DOOR/AnimatableBody3D" to="." method="on_interact"]

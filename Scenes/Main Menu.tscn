@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctwovco0yuh0d"]
+[gd_scene load_steps=7 format=3 uid="uid://ctwovco0yuh0d"]
 
 [ext_resource type="Script" uid="uid://br2y47n54dx5g" path="res://Scripts/Management/MainMenu.gd" id="1_hcxxy"]
 [ext_resource type="AudioStream" uid="uid://f0spafnil45b" path="res://Sounds/MAINMENU-ROLLCREDITS.mp3" id="1_totuj"]
 [ext_resource type="Texture2D" uid="uid://dsqcqev3ckyw5" path="res://Sprites/UI/buttonunpressed.png" id="3_eotax"]
+[ext_resource type="AudioStream" uid="uid://d16cx23gxe477" path="res://Sounds/ROOM AMBIENCE.mp3" id="3_mjet1"]
 [ext_resource type="Texture2D" uid="uid://dcydta8sq2wtn" path="res://Sprites/UI/buttonpressed.png" id="4_udm2q"]
 [ext_resource type="BitMap" uid="uid://dbva6rtth7dl0" path="res://Sprites/UI/button_mask.png" id="5_udm2q"]
 
@@ -19,8 +20,15 @@ script = ExtResource("1_hcxxy")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_totuj")
-volume_db = -5.818
+volume_db = -9.88
 autoplay = true
+bus = &"Music"
+
+[node name="Ambiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mjet1")
+volume_db = 2.0
+autoplay = true
+bus = &"SFX"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

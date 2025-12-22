@@ -17,7 +17,7 @@ advance_on_start = true
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_rf1gl"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_4wtfm"]
-graph_offset = Vector2(-586.7418, -12.616116)
+graph_offset = Vector2(-543.5495, 92.38693)
 nodes/output/position = Vector2(480, 140)
 "nodes/Anim Move/node" = SubResource("AnimationNodeAnimation_rf1gl")
 "nodes/Anim Move/position" = Vector2(-500, 360)
@@ -43,7 +43,7 @@ bones/2/rotation = Quaternion(0.04649608, -2.7369333e-08, -0.0018748125, 0.99891
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = SubResource("AnimationNodeBlendTree_4wtfm")
 anim_player = NodePath("../AnimationPlayer")
-"parameters/Move Blend/blend_amount" = 1.0
+"parameters/Move Blend/blend_amount" = 0.0
 "parameters/Jump Oneshot/active" = false
 "parameters/Jump Oneshot/internal_active" = false
 "parameters/Jump Oneshot/request" = 0

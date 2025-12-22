@@ -37,6 +37,7 @@ jump_force = 8.0
 max_speed = 4.0
 fish_mass = 2.0
 fish_drag = 0.8
+yeet_force = 0.5
 
 [node name="Fishtopher Model" parent="." instance=ExtResource("3_tok1r")]
 

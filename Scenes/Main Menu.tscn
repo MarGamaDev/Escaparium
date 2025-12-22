@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctwovco0yuh0d"]
+[gd_scene load_steps=6 format=3 uid="uid://ctwovco0yuh0d"]
 
 [ext_resource type="Script" uid="uid://br2y47n54dx5g" path="res://Scripts/Management/MainMenu.gd" id="1_hcxxy"]
 [ext_resource type="AudioStream" uid="uid://f0spafnil45b" path="res://Sounds/MAINMENU-ROLLCREDITS.mp3" id="1_totuj"]
 [ext_resource type="Texture2D" uid="uid://dsqcqev3ckyw5" path="res://Sprites/UI/buttonunpressed.png" id="3_eotax"]
+[ext_resource type="Texture2D" uid="uid://dcydta8sq2wtn" path="res://Sprites/UI/buttonpressed.png" id="4_udm2q"]
+[ext_resource type="BitMap" uid="uid://dbva6rtth7dl0" path="res://Sprites/UI/button_mask.png" id="5_udm2q"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -45,6 +47,8 @@ offset_right = 1720.0
 offset_bottom = 1008.0
 scale = Vector2(0.07, 0.07)
 texture_normal = ExtResource("3_eotax")
+texture_hover = ExtResource("4_udm2q")
+texture_click_mask = ExtResource("5_udm2q")
 stretch_mode = 0
 
 [connection signal="button_up" from="Play Button" to="." method="on_play_button_pressed"]

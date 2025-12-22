@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dbva6rtth7dl0"
+path="res://.godot/imported/button_mask.png-a1695fbd93a314b4ab78cab72ec148d6.res"
+
+[deps]
+
+source_file="res://Sprites/UI/button_mask.png"
+dest_files=["res://.godot/imported/button_mask.png-a1695fbd93a314b4ab78cab72ec148d6.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

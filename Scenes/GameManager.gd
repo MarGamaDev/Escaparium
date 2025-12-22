@@ -6,18 +6,27 @@ extends Node
 @onready var fish_tank: FishTank = $Furniture/Fishtank;
 
 @export var breath_max_time: float = 30;
+@export var lives: int = 5;
 
 signal update_timer(time: float);
 signal update_game_state(game_state: GameState);
 
 enum GameState {
 	FISHTANK,
-	PLAYING
+	PLAYING,
+	OVER
+}
+
+enum EndState {
+	ESCAPE,
+	BROKEN,
+	EMPTY
 }
 
 var current_game_state: GameState = GameState.FISHTANK;
 var global_flags: Array[String];
 
+var dead_fish_scene = preload("res://ITEM_MODELS/Fish/Dead Fish.tscn");
 var player_scene = preload("res://Player/Player.tscn");
 var player: PlayerController;
 
@@ -40,7 +49,9 @@ func _run_fishtank_state(_delta: float) -> void:
 
 func _run_playing_state(delta: float) -> void:
 	breath_timer -= delta;
-	update_timer.emit(breath_timer / breath_max_time)
+	update_timer.emit(breath_timer / breath_max_time);
+	if breath_timer <= 0:
+		go_to_fishtank_state();
 
 func _switch_game_state(state: GameState) -> void:
 	current_game_state = state;
@@ -60,6 +71,7 @@ func go_to_playing_state() -> void:
 
 func go_to_fishtank_state() -> void:
 	_switch_game_state(GameState.FISHTANK);
+	kill_player();
 
 func  add_global_flags(flags: Array[String]) -> void:
 	global_flags.append_array(flags);
@@ -67,3 +79,28 @@ func  add_global_flags(flags: Array[String]) -> void:
 func  remove_global_flags(flags: Array[String]) -> void:
 	for flag in flags:
 		global_flags.erase(flag);
+
+func kill_player() -> void:
+	if !player:
+		return;
+	
+	var corpse: RigidBody3D = dead_fish_scene.instantiate();
+	corpse.position = player.position;
+	corpse.rotation = player.model.rotation;
+	corpse.freeze = false;
+	add_child(corpse);
+	
+	remove_child(player);
+	player.queue_free();
+	player = null;
+	
+	lives -= 1;
+	fish_tank.update_lives(lives);
+	if lives <= 0:
+		reach_end_state(EndState.EMPTY);
+
+func reach_end_state(end_state: EndState) -> void:
+	_switch_game_state(GameState.OVER);
+	match end_state:
+		EndState.EMPTY:
+			print("you lost");

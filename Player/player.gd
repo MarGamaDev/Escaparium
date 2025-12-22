@@ -76,7 +76,7 @@ func _physics_process(delta: float) -> void:
 	for i in get_slide_collision_count():
 		var item = get_slide_collision(i);
 		if item.get_collider() is RigidBody3D:
-			(item.get_collider() as RigidBody3D).apply_central_impulse(-(velocity.length() * delta * item.get_normal()));
+			(item.get_collider() as RigidBody3D).apply_central_impulse(-(velocity.length() * item.get_normal()));
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

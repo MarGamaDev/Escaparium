@@ -67,12 +67,6 @@ shape = SubResource("BoxShape3D_bfnok")
 
 [node name="FURNITURE" type="Node3D" parent="."]
 
-[node name="BED" type="CSGBox3D" parent="FURNITURE"]
-transform = Transform3D(-0.031637557, 0, 0.9994994, 0, 1, 0, -0.9994994, 0, -0.031637557, -10.297, 0.462, -8.995)
-use_collision = true
-collision_mask = 3
-size = Vector3(12.6, 7, 7)
-
 [node name="DOOR" type="CSGBox3D" parent="FURNITURE"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.652, 5.068, -15.834)
 use_collision = true

@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://di34543g8ec07"]
+[gd_scene load_steps=8 format=3 uid="uid://di34543g8ec07"]
 
+[ext_resource type="PhysicsMaterial" uid="uid://bb0gr2d1ph68c" path="res://Materials/Physics Materials/shelf_physics_material.tres" id="1_4tnyb"]
 [ext_resource type="Script" uid="uid://cjhoapx5n6ar" path="res://Scripts/Props/Shelf.gd" id="1_pp8bi"]
 [ext_resource type="PackedScene" uid="uid://1a48rhir6bfv" path="res://ITEM_MODELS/Shelf/SHELF.glb" id="1_vn0rq"]
 [ext_resource type="Texture2D" uid="uid://cdksyapcb7stk" path="res://Sprites/WALLBRACKET.png" id="2_ebcx3"]
@@ -13,6 +14,7 @@ size = Vector3(1, 1, 0.86224365)
 
 [node name="Shelf" type="RigidBody3D"]
 mass = 2.0
+physics_material_override = ExtResource("1_4tnyb")
 freeze = true
 script = ExtResource("1_pp8bi")
 

@@ -16,6 +16,7 @@ size = Vector3(1, 1, 0.86224365)
 mass = 2.0
 physics_material_override = ExtResource("1_4tnyb")
 freeze = true
+continuous_cd = true
 script = ExtResource("1_pp8bi")
 
 [node name="SHELF" parent="." instance=ExtResource("1_vn0rq")]

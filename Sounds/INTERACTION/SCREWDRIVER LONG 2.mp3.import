@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cimxa4dvw7eku"
+path="res://.godot/imported/SCREWDRIVER LONG 2.mp3-46616b8b4e78501aac124adcdc251055.mp3str"
+
+[deps]
+
+source_file="res://Sounds/INTERACTION/SCREWDRIVER LONG 2.mp3"
+dest_files=["res://.godot/imported/SCREWDRIVER LONG 2.mp3-46616b8b4e78501aac124adcdc251055.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

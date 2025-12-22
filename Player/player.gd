@@ -8,6 +8,7 @@ extends CharacterBody3D
 @export var max_speed: float = 0.1;
 @export var fish_mass: float = 1;
 @export var fish_drag: float = 1;
+@export var yeet_force: float = 1;
 
 @onready var camera_arm: ThirdPersonCamera =$"Camera Pivot";
 @onready var camera: Camera3D = $"Camera Pivot/Camera Arm/Camera3D";
@@ -44,7 +45,10 @@ func _process(delta: float) -> void:
 			animation_tree.set("parameters/Jump Oneshot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE);
 	
 	if Input.is_action_just_pressed("Interact"):
-		_try_interact()
+		if held_item != null:
+			_try_interact();
+		else:
+			_throw_item();
 
 func _physics_process(delta: float) -> void:
 	if is_aerial:
@@ -72,7 +76,7 @@ func _physics_process(delta: float) -> void:
 	for i in get_slide_collision_count():
 		var item = get_slide_collision(i);
 		if item.get_collider() is RigidBody3D:
-			(item.get_collider() as RigidBody3D).apply_central_impulse(-(1 * delta * item.get_normal()));
+			(item.get_collider() as RigidBody3D).apply_central_impulse(-(velocity.length() * delta * item.get_normal()));
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -157,9 +161,9 @@ func _try_interact() -> void:
 	
 	if !held_item:
 		if closest_interactable.can_grab():
-			grab_item(closest_interactable.grab());
+			_grab_item(closest_interactable.grab());
 
-func grab_item(item: Node3D) -> void:
+func _grab_item(item: Node3D) -> void:
 	if item is RigidBody3D:
 		(item as RigidBody3D).freeze = true;
 	
@@ -167,11 +171,13 @@ func grab_item(item: Node3D) -> void:
 	item.reparent(held_item_point);
 	held_item = item;
 
-func drop_item() -> void:
+func _throw_item() -> void:
 	if held_item is RigidBody3D:
 		(held_item as RigidBody3D).freeze = false;
 	
 	held_item.reparent(get_tree().root)
+	#var yeet_vector: Vector3 = yeet_force * camera.
+	#(held_item as RigidBody3D).apply_central_impulse()
 
 func add_flags(flags: Array[String]) -> void:
 	interact_flags.append_array(flags)

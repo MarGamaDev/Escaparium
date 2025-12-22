@@ -48,7 +48,7 @@ script = ExtResource("2_q3lat")
 mouse_sensitivity = 0.01
 max_vertical_angle = 90.0
 
-[node name="Camera Arm" type="SpringArm3D" parent="Camera Pivot"]
+[node name="Camera Arm" type="SpringArm3D" parent="Camera Pivot" groups=["fish"]]
 shape = SubResource("SphereShape3D_tok1r")
 spring_length = 2.5
 margin = 0.1

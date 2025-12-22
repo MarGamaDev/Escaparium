@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwj6a3qcbnxfa"]
+[gd_scene load_steps=8 format=3 uid="uid://dwj6a3qcbnxfa"]
 
 [ext_resource type="Texture2D" uid="uid://csyomuo27ab3u" path="res://Textures/BASIC/wooffloor1.png" id="1_d32n0"]
 [ext_resource type="Texture2D" uid="uid://6wnj2p22l36d" path="res://Textures/BASIC/WALL3.png" id="2_v0pxm"]
-[ext_resource type="PackedScene" uid="uid://d2f22xai6nwna" path="res://ITEM_MODELS/Tank Cabinet/tankcabinet.glb" id="3_iys6k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0pxm"]
 albedo_texture = ExtResource("1_d32n0")
@@ -104,14 +103,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.649, 8.96, -0.532)
 use_collision = true
 collision_mask = 3
 size = Vector3(2.1, 0.7, 7)
-
-[node name="tankcabinet" parent="FURNITURE" instance=ExtResource("3_iys6k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0406263, 0.12145932, -0.5805884)
-
-[node name="CABINET" parent="FURNITURE/tankcabinet" index="0"]
-transform = Transform3D(-4.371139e-08, 0.059306372, -0.99823976, 0, 0.99823976, 0.059306372, 1, 2.5923639e-09, -4.3634444e-08, 9.890387, 0, 0)
-
-[node name="CABINET DOOR" parent="FURNITURE/tankcabinet" index="1"]
-transform = Transform3D(0.4162491, 0, -0.9092506, 0, 1, 0, 0.9092506, 0, 0.4162491, 6.4128237, 3.0580735, 2.2393475)
-
-[editable path="FURNITURE/tankcabinet"]

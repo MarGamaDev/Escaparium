@@ -1,0 +1,117 @@
+[gd_scene load_steps=15 format=3 uid="uid://dnj5dml3k3kyj"]
+
+[ext_resource type="PackedScene" uid="uid://d2f22xai6nwna" path="res://ITEM_MODELS/Tank Cabinet/tankcabinet.glb" id="1_cpdck"]
+[ext_resource type="Script" uid="uid://bifwmda6vr6ma" path="res://ITEM_MODELS/Tank Cabinet/Cabinet.gd" id="2_2tamw"]
+[ext_resource type="Script" uid="uid://7h7ka2k743gf" path="res://Scripts/Interactable.gd" id="3_5d7ql"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5d7ql"]
+size = Vector3(5.250061, 0.06640625, 4.9053345)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7bq8r"]
+size = Vector3(4.9509277, 0.45684814, 4.516083)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tm0it"]
+size = Vector3(5.240906, 0.35053253, 4.8952637)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kt8cd"]
+size = Vector3(0.008636475, 7.230713, 4.9434204)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wdos7"]
+size = Vector3(5.2570953, 7.209717, 0.012512207)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hvsd8"]
+size = Vector3(0.25732422, 7.2224274, 0.028274536)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_82dx2"]
+size = Vector3(5.2182007, 0.34387207, 0.038215637)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2tamw"]
+size = Vector3(4.937805, 6.782776, 0.3223877)
+
+[sub_resource type="Animation" id="Animation_2tamw"]
+resource_name = "open"
+length = 2.0
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CABINET DOOR")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 2, 1, 0, 0.8519875, 0, 0.5235622)
+
+[sub_resource type="Animation" id="Animation_5d7ql"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CABINET DOOR")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7bq8r"]
+_data = {
+&"RESET": SubResource("Animation_5d7ql"),
+&"open": SubResource("Animation_2tamw")
+}
+
+[node name="Tank Cabinet" instance=ExtResource("1_cpdck")]
+script = ExtResource("2_2tamw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CABINET" index="0"]
+
+[node name="Floor" type="CollisionShape3D" parent="CABINET/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0039978027, 0.028320313, 0.002532959)
+shape = SubResource("BoxShape3D_5d7ql")
+
+[node name="Shelf" type="CollisionShape3D" parent="CABINET/StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011352539, 3.382588, -0.17951965)
+shape = SubResource("BoxShape3D_7bq8r")
+
+[node name="Top" type="CollisionShape3D" parent="CABINET/StaticBody3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0026550293, 7.053585, 0.0018310547)
+shape = SubResource("BoxShape3D_tm0it")
+
+[node name="Left Wall" type="CollisionShape3D" parent="CABINET/StaticBody3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6236115, 3.623413, -0.0077209473)
+shape = SubResource("BoxShape3D_kt8cd")
+
+[node name="Right Wall" type="CollisionShape3D" parent="CABINET/StaticBody3D" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6233356, 3.623413, -0.0077209473)
+shape = SubResource("BoxShape3D_kt8cd")
+
+[node name="Back Wall" type="CollisionShape3D" parent="CABINET/StaticBody3D" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0011978149, 3.6219482, -2.443634)
+shape = SubResource("BoxShape3D_wdos7")
+
+[node name="Right Edge" type="CollisionShape3D" parent="CABINET/StaticBody3D" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4952564, 3.614564, 2.4343185)
+shape = SubResource("BoxShape3D_hvsd8")
+
+[node name="Left Edge" type="CollisionShape3D" parent="CABINET/StaticBody3D" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4973311, 3.614564, 2.4343185)
+shape = SubResource("BoxShape3D_hvsd8")
+
+[node name="Bottom Edge" type="CollisionShape3D" parent="CABINET/StaticBody3D" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005706787, 0.18792725, 2.4430122)
+shape = SubResource("BoxShape3D_82dx2")
+
+[node name="CABINET DOOR" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4658785, 3.5808, 2.4307137)
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="CABINET DOOR" index="0"]
+collision_layer = 5
+collision_mask = 5
+sync_to_physics = false
+script = ExtResource("3_5d7ql")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CABINET DOOR/AnimatableBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45932, -0.00064086914, 0.0012817383)
+shape = SubResource("BoxShape3D_2tamw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": SubResource("AnimationLibrary_7bq8r")
+}
+
+[connection signal="interact_triggered" from="CABINET DOOR/AnimatableBody3D" to="." method="on_interact"]

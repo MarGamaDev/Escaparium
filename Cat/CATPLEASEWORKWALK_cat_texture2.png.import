@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://brngytw5l44hu"
-path.s3tc="res://.godot/imported/CATPLEASEWORKWALK_cat_texture2.png-71f3c45cdd0a086064bc85c94fd59f80.s3tc.ctex"
+path.s3tc="res://.godot/imported/CATPLEASEWORKWALK_cat_texture2.png-22b944ef2bbd9b4a35a13da723372460.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://cat/CATPLEASEWORKWALK_cat_texture2.png"
-dest_files=["res://.godot/imported/CATPLEASEWORKWALK_cat_texture2.png-71f3c45cdd0a086064bc85c94fd59f80.s3tc.ctex"]
+source_file="res://Cat/CATPLEASEWORKWALK_cat_texture2.png"
+dest_files=["res://.godot/imported/CATPLEASEWORKWALK_cat_texture2.png-22b944ef2bbd9b4a35a13da723372460.s3tc.ctex"]
 
 [params]
 

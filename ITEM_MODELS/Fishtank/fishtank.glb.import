@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bqc0nv6tmwjo"
-path="res://.godot/imported/CATPLEASEWORKWALK.glb-9aaade44646b18ef6b1b16cfedf6b77b.scn"
+uid="uid://bycrl8t5qtlud"
+path="res://.godot/imported/fishtank.glb-737da5c1f9d0fc96517843853a261c57.scn"
 
 [deps]
 
-source_file="res://Cat/CATPLEASEWORKWALK.glb"
-dest_files=["res://.godot/imported/CATPLEASEWORKWALK.glb-9aaade44646b18ef6b1b16cfedf6b77b.scn"]
+source_file="res://ITEM_MODELS/Fishtank/fishtank.glb"
+dest_files=["res://.godot/imported/fishtank.glb-737da5c1f9d0fc96517843853a261c57.scn"]
 
 [params]
 

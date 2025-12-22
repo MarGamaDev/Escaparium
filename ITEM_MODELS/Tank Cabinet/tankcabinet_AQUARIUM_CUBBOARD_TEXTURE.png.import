@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brngytw5l44hu"
-path.s3tc="res://.godot/imported/CATPLEASEWORKWALK_cat_texture2.png-71f3c45cdd0a086064bc85c94fd59f80.s3tc.ctex"
+uid="uid://bqcushte8rkla"
+path.s3tc="res://.godot/imported/tankcabinet_AQUARIUM_CUBBOARD_TEXTURE.png-28962387f0fb51f0187dab547ed6a0c5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "67ca5ec1060f488e8c6bae106d65bc0d"
+"md5": "b9ea1cd4deb8de92fc3c5f821fd6a1f0"
 }
 
 [deps]
 
-source_file="res://cat/CATPLEASEWORKWALK_cat_texture2.png"
-dest_files=["res://.godot/imported/CATPLEASEWORKWALK_cat_texture2.png-71f3c45cdd0a086064bc85c94fd59f80.s3tc.ctex"]
+source_file="res://ITEM_MODELS/Tank Cabinet/tankcabinet_AQUARIUM_CUBBOARD_TEXTURE.png"
+dest_files=["res://.godot/imported/tankcabinet_AQUARIUM_CUBBOARD_TEXTURE.png-28962387f0fb51f0187dab547ed6a0c5.s3tc.ctex"]
 
 [params]
 

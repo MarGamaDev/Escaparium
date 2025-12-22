@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bqc0nv6tmwjo"
-path="res://.godot/imported/CATPLEASEWORKWALK.glb-2bafbc1000b9d764586ffbd55963bba9.scn"
+uid="uid://d2f22xai6nwna"
+path="res://.godot/imported/tankcabinet.glb-b7a8aa3c97f3d3877ebaedd09d2f443c.scn"
 
 [deps]
 
-source_file="res://cat/CATPLEASEWORKWALK.glb"
-dest_files=["res://.godot/imported/CATPLEASEWORKWALK.glb-2bafbc1000b9d764586ffbd55963bba9.scn"]
+source_file="res://ITEM_MODELS/Tank Cabinet/tankcabinet.glb"
+dest_files=["res://.godot/imported/tankcabinet.glb-b7a8aa3c97f3d3877ebaedd09d2f443c.scn"]
 
 [params]
 
@@ -17,7 +17,7 @@ nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
-nodes/root_scale=1.0
+nodes/root_scale=2.5
 nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true

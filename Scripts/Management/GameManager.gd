@@ -145,7 +145,7 @@ func pry_down(body: Node) -> void:
 		
 	print("prying fishtank down");
 	fork.disconnect("body_entered", pry_down);
-	animation_player.play("pry_down");
+	animation_player.play("pry_down_fishtank");
 
 func release_fork() -> void:
 	print("fork released");

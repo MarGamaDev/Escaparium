@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ccgfl0nfuq3qv"]
+[gd_scene load_steps=27 format=3 uid="uid://ccgfl0nfuq3qv"]
 
 [ext_resource type="Script" uid="uid://4dk0o0fcc8o5" path="res://Scripts/Management/GameManager.gd" id="1_or7tv"]
 [ext_resource type="PackedScene" uid="uid://dwj6a3qcbnxfa" path="res://MAINROOM.tscn" id="1_vonw3"]
@@ -20,9 +20,88 @@
 [ext_resource type="PackedScene" uid="uid://jll65jh8r7qx" path="res://ITEM_MODELS/Fan/fan.glb" id="19_q24aw"]
 [ext_resource type="PackedScene" uid="uid://biqgi4sceqbsv" path="res://ITEM_MODELS/Perfect Lamp/lamp.glb" id="20_32npc"]
 [ext_resource type="PackedScene" uid="uid://buxxeh4m5q3wf" path="res://Props/Skateboard.tscn" id="20_yyp3s"]
+[ext_resource type="Script" uid="uid://w3rojc3jygsq" path="res://Scripts/InteractSnapPoint.gd" id="21_yyp3s"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_32npc"]
 radius = 2.2487152
+
+[sub_resource type="Animation" id="Animation_yyp3s"]
+resource_name = "pry_down_fishtank"
+length = 1.2333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fishtank Pry Point:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(8.129375, 7.4668508, 0), Vector3(8.073276, 7.2920237, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fishtank Pry Point:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.5050284, -1.5707964, 2.4165827e-08), Vector3(-0.23436284, -1.5707964, 1.2150107e-08)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"release_fork"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Furniture/Fishtank:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.70275676, 0.7633393, 0.8521936, 1.2333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(10.395266, 7.2147493, 0.12627697), Vector3(10.395266, 7.2147493, 0.12627697), Vector3(8.323451, 7.412936, 0.12627697), Vector3(6.814401, 7.166525, 0.12627697), Vector3(5.9028044, 0.44075966, 0.12627697)]
+}
+
+[sub_resource type="Animation" id="Animation_g4pvc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Furniture/Fishtank:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(10.395266, 7.2147493, 0.12627697)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ifohm"]
+_data = {
+&"RESET": SubResource("Animation_g4pvc"),
+&"pry_down_fishtank": SubResource("Animation_yyp3s")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4pvc"]
+size = Vector3(0.96868896, 1.503479, 4.161255)
 
 [node name="Level" type="Node3D" groups=["gamemanager"]]
 script = ExtResource("1_or7tv")
@@ -55,7 +134,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.984297, 4.290952, 12.8265
 collision_mask = 3
 
 [node name="Fishtank" parent="Furniture" instance=ExtResource("6_tj5wv")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10.306438, 7.2281785, 0.1872468)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10.395266, 7.2147493, 0.12627697)
 
 [node name="Tank Cabinet" parent="Furniture" instance=ExtResource("10_133si")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11.136, 0.01, 0)
@@ -121,6 +200,23 @@ shape = SubResource("SphereShape3D_32npc")
 debug_color = Color(0.9492838, 6.3532593e-06, 0.57661045, 0.41960785)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ifohm")
+}
+
+[node name="Fishtank Pry Point" type="Node3D" parent="."]
+transform = Transform3D(-3.201918e-08, 0.4838323, -0.87516063, 2.1148981e-08, 0.87516063, 0.4838323, 1, -3.0168434e-09, -3.8254484e-08, 8.129375, 7.4668508, 0)
+script = ExtResource("21_yyp3s")
+item_group = "fork"
+
+[node name="Area3D" type="Area3D" parent="Fishtank Pry Point"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fishtank Pry Point/Area3D"]
+transform = Transform3D(-3.825449e-08, 2.1148981e-08, 1, 0.4838323, 0.87516075, -7.775593e-16, -0.87516075, 0.4838323, -4.371149e-08, 0.007873519, 0.085826874, -0.35638976)
+shape = SubResource("BoxShape3D_g4pvc")
+debug_color = Color(0.9629546, 6.738305e-07, 0.5043789, 0.41960785)
+
+[node name="Fork" parent="Fishtank Pry Point" instance=ExtResource("15_nrlyp")]
 
 [connection signal="jump_out_of_tank" from="." to="Furniture/Fishtank" method="play_jump_animation"]
 [connection signal="jump_out_of_tank" from="." to="CanvasLayer/HUD" method="fade_out_prompt"]
@@ -131,3 +227,5 @@ debug_color = Color(0.9492838, 6.3532593e-06, 0.57661045, 0.41960785)
 [connection signal="set_up_ramp" from="Furniture/Desk" to="." method="add_global_flag"]
 [connection signal="body_entered" from="Skateboard fishtank Area" to="." method="_on_skateboard_fishtank_area_body_entered"]
 [connection signal="body_exited" from="Skateboard fishtank Area" to="." method="_on_skateboard_fishtank_area_body_exited"]
+[connection signal="snap_point_filled" from="Fishtank Pry Point" to="." method="_on_fork_point_filled"]
+[connection signal="body_entered" from="Fishtank Pry Point/Area3D" to="Fishtank Pry Point" method="_on_area_3d_body_entered"]

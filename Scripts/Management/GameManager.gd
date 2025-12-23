@@ -1,7 +1,7 @@
 class_name GameManager
 extends Node
 
-@onready var spawn_cam: Camera3D = $"Spawn Cam";
+@onready var spawn_cam: Camera3D = $"Furniture/Fishtank/Spawn Cam";
 @onready var spawn_point: RayCast3D = $"Furniture/Fishtank/Player Spawn Point";
 @onready var fish_tank: FishTank = $Furniture/Fishtank;
 @onready var animation_player: AnimationPlayer = $AnimationPlayer;
@@ -13,7 +13,7 @@ signal update_timer(time: float);
 signal update_game_state(game_state: GameState);
 signal out_of_breath;
 signal jump_out_of_tank;
-signal prying_done;
+signal prying_done(tank: Node3D);
 
 var fork: RigidBody3D;
 
@@ -137,7 +137,7 @@ func _on_skateboard_fishtank_area_body_exited(body: Node3D) -> void:
 func finish_prying() -> void:
 	print("finished prying")
 	if global_flags.has("skateboard"):
-		prying_done.emit();
+		prying_done.emit(fish_tank);
 	else:
 		reach_end_state(EndState.BROKEN);
 

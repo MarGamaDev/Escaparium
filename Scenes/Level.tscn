@@ -127,9 +127,6 @@ volume_db = -20.363
 autoplay = true
 bus = &"Music"
 
-[node name="Spawn Cam" type="Camera3D" parent="."]
-transform = Transform3D(-3.61241e-08, 0.56305003, -0.8264228, 2.4611692e-08, 0.8264228, 0.56305003, 1, 1.0658141e-14, -4.3711395e-08, 4.5827017, 11.772966, -0.15250003)
-
 [node name="Furniture" type="Node3D" parent="."]
 
 [node name="PcTower" parent="Furniture" instance=ExtResource("6_5rrr5")]
@@ -143,6 +140,9 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10.3
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 3.8108816, 3.2215662, 0.1262773)
 target_position = Vector3(0, -18.195, 0)
 hit_from_inside = true
+
+[node name="Spawn Cam" type="Camera3D" parent="Furniture/Fishtank"]
+transform = Transform3D(1.2354687e-07, -0.56305003, 0.8264228, 2.4611692e-08, 0.8264228, 0.56305003, -1, -4.922341e-08, 1.1595957e-07, 5.812564, 4.558217, 0.2787775)
 
 [node name="Tank Cabinet" parent="Furniture" instance=ExtResource("10_133si")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11.136, 0.01, 0)
@@ -195,7 +195,7 @@ visible = false
 transform = Transform3D(0.78521967, 0, -0.61921734, 0, 1, 0, 0.61921734, 0, 0.78521967, -4.2189646, 0.41812587, -8.160702)
 
 [node name="Skateboard" parent="Skateboard home" instance=ExtResource("20_yyp3s")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.0879851, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0879851, 0)
 
 [node name="Skateboard fishtank Area" type="Area3D" parent="."]
 
@@ -223,6 +223,8 @@ debug_color = Color(0.9629546, 6.738305e-07, 0.5043789, 0.41960785)
 
 [connection signal="jump_out_of_tank" from="." to="Furniture/Fishtank" method="play_jump_animation"]
 [connection signal="jump_out_of_tank" from="." to="CanvasLayer/HUD" method="fade_out_prompt"]
+[connection signal="prying_done" from="." to="Furniture/Fishtank" method="switch_spawn_animation"]
+[connection signal="prying_done" from="." to="Skateboard home/Skateboard" method="acquire_fishtank"]
 [connection signal="update_game_state" from="." to="CanvasLayer/HUD" method="toggle_game_ui"]
 [connection signal="update_timer" from="." to="CanvasLayer/HUD" method="update_breath_timer"]
 [connection signal="animation_finished" from="Furniture/Fishtank" to="." method="go_to_playing_state"]

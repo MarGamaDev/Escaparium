@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://chj024exmu62m"]
+[gd_scene load_steps=18 format=3 uid="uid://chj024exmu62m"]
 
 [ext_resource type="Script" uid="uid://bcm6jr3slbvka" path="res://Scripts/Props/FishTank.gd" id="1_6nntu"]
 [ext_resource type="PackedScene" uid="uid://bhyo4ay5myd40" path="res://Props/Dead Fish.tscn" id="1_qmsf3"]
@@ -93,16 +93,83 @@ tracks/4/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_nbl62"]
+resource_name = "send_off_to_war_short"
+length = 0.7417
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animated Dead Fish")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, -0.70710677, 0.70710677, 0.06666667, 1, -0.71247286, 0.08535207, -0.08753724, 0.69096625, 0.36666667, 1, -0.71247286, 0.08535207, -0.08753724, 0.69096625, 0.53333336, 1, 0.25847226, -0.6623673, 0.6737632, -0.20125811)
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Land Audio Player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.73333335),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_random_from_array"
+}]
+}
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Animated Dead Fish")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0.9, 0, 0.33333334, 1, 1.3971272, 3.881167, 0, 0.56666666, 1, 1.6430771, 3.8926067, 0, 0.73333335, 1, 3.1821082, -0.38037586, 0)
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.73333335),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_animation_finished"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Jump Sound Player")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.19),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_random_from_array"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6nntu"]
 _data = {
 &"RESET": SubResource("Animation_20i7j"),
-&"send_off_to_war": SubResource("Animation_wwt6d")
+&"send_off_to_war": SubResource("Animation_wwt6d"),
+&"send_off_to_war_short": SubResource("Animation_nbl62")
 }
 
-[node name="Fishtank" type="AnimatableBody3D"]
+[node name="Fishtank" type="RigidBody3D"]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 0, 0, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+freeze_mode = 1
 script = ExtResource("1_6nntu")
-metadata/_custom_type_script = "uid://bcm6jr3slbvka"
 
 [node name="Cube Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0041160583, 1.6130466, 0.18771362)

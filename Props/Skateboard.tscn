@@ -23,24 +23,31 @@ circumference = 7.0
 drag = 0.95
 
 [node name="skateboard" parent="." instance=ExtResource("1_1mmgt")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_4wbar")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.803905, -0.12172536, -0.0021972656)
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, -1.60781, -0.24345072, -0.0043945313)
 shape = SubResource("CylinderShape3D_22t37")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.7800623, -0.12172536, -0.0021972656)
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 1.5601246, -0.24345072, -0.0043945313)
 shape = SubResource("CylinderShape3D_22t37")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.780983, -0.013061523, -0.0008544922)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.561966, -0.026123047, -0.0017089844)
 shape = SubResource("BoxShape3D_4wbar")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8089541, -0.013061523, -0.0008544922)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.6179082, -0.026123047, -0.0017089844)
 shape = SubResource("BoxShape3D_4wbar")
+
+[node name="Fishtank Point" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.6328485, 0.2666309, 0)
+
+[node name="Fan Point" type="Node3D" parent="."]
 
 [editable path="skateboard"]

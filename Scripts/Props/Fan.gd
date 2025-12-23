@@ -15,4 +15,4 @@ func get_picked_up() -> void:
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Interactable:
 		print("attempt to win");
-		attempt_win.emit();
+		attempt_win.emit.call_deferred()

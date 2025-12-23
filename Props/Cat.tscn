@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://djip5plnss3xu"]
-
-[ext_resource type="PackedScene" uid="uid://d0k2pigo1obqd" path="res://Cat/CATFULLANIMATIONPACK.glb" id="1_whqmr"]
-
-[node name="Cat" type="Node3D"]
-
-[node name="CATFULLANIMATIONPACK" parent="." instance=ExtResource("1_whqmr")]

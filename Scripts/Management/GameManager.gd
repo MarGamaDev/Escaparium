@@ -1,9 +1,9 @@
 class_name GameManager
 extends Node
 
-@onready var spawn_cam: Camera3D = $"Furniture/Fishtank/Spawn Cam";
-@onready var spawn_point: RayCast3D = $"Furniture/Fishtank/Player Spawn Point";
-@onready var fish_tank: FishTank = $Furniture/Fishtank;
+@onready var spawn_cam: Camera3D = $"NavigationRegion3D/Furniture/Fishtank/Spawn Cam";
+@onready var spawn_point: RayCast3D = $"NavigationRegion3D/Furniture/Fishtank/Player Spawn Point";
+@onready var fish_tank: FishTank = $NavigationRegion3D/Furniture/Fishtank;
 @onready var animation_player: AnimationPlayer = $AnimationPlayer;
 
 @export var breath_max_time: float = 30;

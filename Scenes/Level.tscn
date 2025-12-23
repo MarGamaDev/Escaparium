@@ -55,7 +55,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.984297, 4.290952, 12.8265
 collision_mask = 3
 
 [node name="Fishtank" parent="Furniture" instance=ExtResource("6_tj5wv")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10.960291, 7.2427654, -0.0113453865)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10.306438, 7.2281785, 0.1872468)
 
 [node name="Tank Cabinet" parent="Furniture" instance=ExtResource("10_133si")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11.136, 0.01, 0)
@@ -111,13 +111,16 @@ visible = false
 transform = Transform3D(0.78521967, 0, -0.61921734, 0, 1, 0, 0.61921734, 0, 0.78521967, -4.2189646, 0.41812587, -8.160702)
 
 [node name="Skateboard" parent="Skateboard home" instance=ExtResource("20_yyp3s")]
-transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, 0, -0.13676041, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.0879851, 0)
 
 [node name="Skateboard fishtank Area" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Skateboard fishtank Area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1983166, 0, 0)
 shape = SubResource("SphereShape3D_32npc")
+debug_color = Color(0.9492838, 6.3532593e-06, 0.57661045, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="jump_out_of_tank" from="." to="Furniture/Fishtank" method="play_jump_animation"]
 [connection signal="jump_out_of_tank" from="." to="CanvasLayer/HUD" method="fade_out_prompt"]

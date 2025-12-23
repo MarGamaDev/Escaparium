@@ -4,6 +4,7 @@ extends Node
 @onready var spawn_cam: Camera3D = $"Spawn Cam";
 @onready var spawn_point: Node3D = $"Player Spawn Point";
 @onready var fish_tank: FishTank = $Furniture/Fishtank;
+@onready var animation_player: AnimationPlayer = $AnimationPlayer;
 
 @export var breath_max_time: float = 30;
 @export var lives: int = 5;
@@ -12,6 +13,9 @@ signal update_timer(time: float);
 signal update_game_state(game_state: GameState);
 signal out_of_breath;
 signal jump_out_of_tank;
+signal prying_done;
+
+var fork: RigidBody3D;
 
 enum GameState {
 	FISHTANK,
@@ -117,14 +121,34 @@ func reach_end_state(end_state: EndState) -> void:
 		EndState.EMPTY:
 			print("you lost");
 
-
 func _on_skateboard_fishtank_area_body_entered(body: Node3D) -> void:
 	if body is Skateboard:
 		print("skateboard in position")
 		add_global_flag("skateboard");
 
-
 func _on_skateboard_fishtank_area_body_exited(body: Node3D) -> void:
 	if body is Skateboard:
 		print("skateboard out of position")
 		add_global_flag("skateboard");
+
+func finish_prying() -> void:
+	prying_done.emit();
+
+func _on_fork_point_filled(body: Node3D) -> void:
+	print("fork placed");
+	fork = (body as RigidBody3D);
+	fork.connect("body_entered", pry_down);
+
+func pry_down(body: Node) -> void:
+	if !body is Interactable:
+		return
+		
+	print("prying fishtank down");
+	fork.disconnect("body_entered", pry_down);
+	animation_player.play("pry_down");
+
+func release_fork() -> void:
+	print("fork released");
+	fork.reparent(get_tree().root);
+	fork.grabbable = true;
+	fork.freeze = false;

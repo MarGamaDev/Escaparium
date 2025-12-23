@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://buxxeh4m5q3wf"]
+[gd_scene load_steps=6 format=3 uid="uid://buxxeh4m5q3wf"]
 
 [ext_resource type="PackedScene" uid="uid://b67ybpss7h1ws" path="res://ITEM_MODELS/Skateboard/skateboard.glb" id="1_1mmgt"]
 [ext_resource type="Script" uid="uid://wi5o3s36osxs" path="res://Scripts/Props/Skateboard.gd" id="1_4wbar"]
@@ -9,6 +9,9 @@ points = PackedVector3Array(-1.0893713, -0.058795244, -0.45249528, -1.1800811, -
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_22t37"]
 height = 1.2954102
 radius = 0.1459961
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4wbar"]
+size = Vector3(0.28528595, 0.21704102, 0.9069824)
 
 [node name="Skateboard" type="CharacterBody3D" node_paths=PackedStringArray("rollables") groups=["skateboard"]]
 axis_lock_angular_x = true
@@ -31,5 +34,13 @@ shape = SubResource("CylinderShape3D_22t37")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.7800623, -0.12172536, -0.0021972656)
 shape = SubResource("CylinderShape3D_22t37")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.780983, -0.013061523, -0.0008544922)
+shape = SubResource("BoxShape3D_4wbar")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8089541, -0.013061523, -0.0008544922)
+shape = SubResource("BoxShape3D_4wbar")
 
 [editable path="skateboard"]

@@ -2,7 +2,7 @@ class_name GameManager
 extends Node
 
 @onready var spawn_cam: Camera3D = $"Spawn Cam";
-@onready var spawn_point: Node3D = $"Player Spawn Point";
+@onready var spawn_point: RayCast3D = $"Furniture/Fishtank/Player Spawn Point";
 @onready var fish_tank: FishTank = $Furniture/Fishtank;
 @onready var animation_player: AnimationPlayer = $AnimationPlayer;
 
@@ -64,8 +64,9 @@ func _switch_game_state(state: GameState) -> void:
 	update_game_state.emit(current_game_state);
 
 func _spawn_player() -> void:
+	var hit_point: Vector3 = spawn_point.get_collision_point();
 	player = player_scene.instantiate();
-	player.position = spawn_point.position;
+	player.position = hit_point;
 	player.rotation = spawn_point.rotation;
 	
 	player.add_flags(global_flags);

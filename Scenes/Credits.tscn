@@ -1,11 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://s21a05lipq88"]
+[gd_scene load_steps=14 format=3 uid="uid://s21a05lipq88"]
 
+[ext_resource type="Script" uid="uid://bf18ppjewjcgf" path="res://Scripts/Credits.gd" id="1_cmrso"]
 [ext_resource type="Texture2D" uid="uid://dktcsv3mhboyq" path="res://Sprites/UI/FREAKNESTCREDITICON.png" id="1_iynit"]
 [ext_resource type="Texture2D" uid="uid://b0ihs2ay64o0u" path="res://Sprites/UI/us/MILKTOAST_CREDIT_FISH.PNG" id="2_f64u0"]
 [ext_resource type="Texture2D" uid="uid://c3wo7jpfqnkbd" path="res://Sprites/UI/us/skravenscreditsfish.png" id="3_lpub1"]
 [ext_resource type="Texture2D" uid="uid://dokilbapttyjw" path="res://Sprites/UI/us/fablinkcreditfish.png" id="4_640q4"]
 [ext_resource type="Texture2D" uid="uid://bs6hvurjmuod8" path="res://Sprites/UI/us/kingbaddabingcreditimage.png" id="5_5qoai"]
 [ext_resource type="Script" uid="uid://q40k40x0jd6p" path="res://Scripts/NickInflation.gd" id="6_f64u0"]
+[ext_resource type="Texture2D" uid="uid://saitni3v32h8" path="res://Sprites/UI/quitbuttonunpressed.png" id="7_jpdlp"]
+[ext_resource type="Texture2D" uid="uid://d3lje1hesjkkr" path="res://Sprites/UI/QUITBUTTONPRESSED.png" id="8_cmrso"]
+[ext_resource type="BitMap" uid="uid://dbva6rtth7dl0" path="res://Sprites/UI/button_mask.png" id="9_3hr06"]
+[ext_resource type="Script" uid="uid://c3y5vpu6qy7h6" path="res://Scripts/FishButton.gd" id="10_6n0gi"]
+[ext_resource type="AudioStream" uid="uid://f0spafnil45b" path="res://Sounds/MAINMENU-ROLLCREDITS.mp3" id="12_6n0gi"]
+[ext_resource type="AudioStream" uid="uid://d16cx23gxe477" path="res://Sounds/ROOM AMBIENCE.mp3" id="13_u6j5g"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -14,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cmrso")
 
 [node name="Title" type="TextureRect" parent="."]
 layout_mode = 1
@@ -88,3 +96,30 @@ texture = ExtResource("5_5qoai")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_f64u0")
+
+[node name="Quit Button" type="TextureButton" parent="."]
+layout_mode = 1
+offset_left = -5.0
+offset_right = 81.0
+offset_bottom = 46.0
+texture_normal = ExtResource("7_jpdlp")
+texture_hover = ExtResource("8_cmrso")
+texture_click_mask = ExtResource("9_3hr06")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("10_6n0gi")
+bob_speed = 2.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_6n0gi")
+volume_db = -9.88
+autoplay = true
+bus = &"Music"
+
+[node name="Ambiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_u6j5g")
+volume_db = 2.0
+autoplay = true
+bus = &"SFX"
+
+[connection signal="button_up" from="Quit Button" to="." method="on_quit"]

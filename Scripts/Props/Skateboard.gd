@@ -30,4 +30,4 @@ func _physics_process(delta: float) -> void:
 	position.z = last_position.z;
 
 func apply_force(force: Vector3) -> void:
-	velocity += force;
+	velocity += Vector3(force.x, 0, force.z);

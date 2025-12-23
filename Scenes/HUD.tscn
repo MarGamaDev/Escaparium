@@ -18,9 +18,10 @@ script = ExtResource("1_jo1ms")
 
 [node name="Breath Timer" type="TextureProgressBar" parent="."]
 layout_mode = 0
-offset_left = 147.0
-offset_right = 1299.0
-offset_bottom = 893.0
+offset_left = 6.0
+offset_top = 162.0
+offset_right = 1158.0
+offset_bottom = 1055.0
 scale = Vector2(0.065, 0.065)
 value = 50.0
 texture_under = ExtResource("2_psnte")

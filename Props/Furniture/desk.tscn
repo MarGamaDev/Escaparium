@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmuexnk85c7i6"]
+[gd_scene load_steps=13 format=3 uid="uid://bmuexnk85c7i6"]
 
 [ext_resource type="PackedScene" uid="uid://dmcr3vgewdnce" path="res://ITEM_MODELS/Computer_Desk_And_Drawers/desk.glb" id="1_1r5t1"]
 [ext_resource type="Script" uid="uid://cy2dnd7my0rl4" path="res://Scripts/Props/Desk.gd" id="1_t8snj"]
+[ext_resource type="Script" uid="uid://w3rojc3jygsq" path="res://Scripts/InteractSnapPoint.gd" id="3_xuif5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t8snj"]
 size = Vector3(0.29666138, 0.032196045, 0.31993866)
@@ -27,67 +28,70 @@ size = Vector3(3.3971558, 1.1929932, 0.053560257)
 [sub_resource type="BoxShape3D" id="BoxShape3D_j6p6g"]
 size = Vector3(0.768589, 3.7724304, 0.05565262)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gswoc"]
+size = Vector3(3.4328575, 1.4649048, 1)
+
 [node name="Desk" type="StaticBody3D"]
 script = ExtResource("1_t8snj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[node name="desk2" parent="." instance=ExtResource("1_1r5t1")]
+[node name="model" parent="." instance=ExtResource("1_1r5t1")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
-[node name="desk" parent="desk2" index="0"]
+[node name="desk" parent="model" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.22766994)
 
-[node name="cabinet" parent="desk2/desk" index="0"]
+[node name="cabinet" parent="model/desk" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003661573, -0.0030688345, 0.02701731)
 
-[node name="BOTTOMDRAWER" parent="desk2/desk/cabinet" index="0"]
+[node name="BOTTOMDRAWER" parent="model/desk/cabinet" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0009238124, -0.22289889, -0.002788186)
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="desk2/desk/cabinet/BOTTOMDRAWER" index="0"]
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="model/desk/cabinet/BOTTOMDRAWER" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="desk2/desk/cabinet/BOTTOMDRAWER/AnimatableBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="model/desk/cabinet/BOTTOMDRAWER/AnimatableBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39286804, 0.2822723, 0.46139145)
 shape = SubResource("BoxShape3D_t8snj")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="desk2/desk/cabinet/BOTTOMDRAWER/AnimatableBody3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="model/desk/cabinet/BOTTOMDRAWER/AnimatableBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.53361744, 0.32140326, 0.46242046)
 shape = SubResource("BoxShape3D_xuif5")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="desk2/desk/cabinet/BOTTOMDRAWER/AnimatableBody3D"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="model/desk/cabinet/BOTTOMDRAWER/AnimatableBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25086573, 0.3213226, 0.46308136)
 shape = SubResource("BoxShape3D_xuif5")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="desk2/desk/cabinet/BOTTOMDRAWER/AnimatableBody3D"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="model/desk/cabinet/BOTTOMDRAWER/AnimatableBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3918457, 0.32116315, 0.30892944)
 shape = SubResource("BoxShape3D_knxvx")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="desk2/desk/cabinet/BOTTOMDRAWER/AnimatableBody3D"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="model/desk/cabinet/BOTTOMDRAWER/AnimatableBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3925476, 0.32094574, 0.6102373)
 shape = SubResource("BoxShape3D_n5rqm")
 
-[node name="TOPDRAWER" parent="desk2/desk/cabinet" index="1"]
+[node name="TOPDRAWER" parent="model/desk/cabinet" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0011700392, 0.22430347, -0.004678905)
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="desk2/desk/cabinet/TOPDRAWER" index="0"]
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="model/desk/cabinet/TOPDRAWER" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="desk2/desk/cabinet/TOPDRAWER/AnimatableBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="model/desk/cabinet/TOPDRAWER/AnimatableBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39199832, 0.056302562, 0.46704295)
 shape = SubResource("BoxShape3D_t8snj")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="desk2/desk/cabinet/TOPDRAWER/AnimatableBody3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="model/desk/cabinet/TOPDRAWER/AnimatableBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5336175, 0.09543355, 0.46750262)
 shape = SubResource("BoxShape3D_xuif5")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="desk2/desk/cabinet/TOPDRAWER/AnimatableBody3D"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="model/desk/cabinet/TOPDRAWER/AnimatableBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2508657, 0.09535287, 0.4680653)
 shape = SubResource("BoxShape3D_xuif5")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="desk2/desk/cabinet/TOPDRAWER/AnimatableBody3D"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="model/desk/cabinet/TOPDRAWER/AnimatableBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39184573, 0.0951934, 0.31391338)
 shape = SubResource("BoxShape3D_knxvx")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="desk2/desk/cabinet/TOPDRAWER/AnimatableBody3D"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="model/desk/cabinet/TOPDRAWER/AnimatableBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39254764, 0.09497596, 0.6152214)
 shape = SubResource("BoxShape3D_n5rqm")
 
@@ -115,4 +119,15 @@ shape = SubResource("BoxShape3D_j6p6g")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6932783, 2.0433807, 3.9690251)
 shape = SubResource("BoxShape3D_j6p6g")
 
-[editable path="desk2"]
+[node name="Fork Point" type="Node3D" parent="."]
+transform = Transform3D(-0.032469552, 0.76829004, -0.639278, -0.99910825, -0.042224415, 0, -0.026993135, 0.63870776, 0.76897573, -5.878234, 0.9387481, 4.427182)
+script = ExtResource("3_xuif5")
+
+[node name="Area3D" type="Area3D" parent="Fork Point"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fork Point/Area3D"]
+transform = Transform3D(-0.03246955, -0.99910796, -0.026993133, 0.7682899, -0.042224403, 0.63870776, -0.6392778, -1.8626447e-09, 0.7689758, -0.07762647, 1.2382791, -1.6285157)
+shape = SubResource("BoxShape3D_gswoc")
+debug_color = Color(0.92905486, 3.1862557e-05, 0.66422683, 0.41960785)
+
+[editable path="model"]

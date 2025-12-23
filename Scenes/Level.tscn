@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ccgfl0nfuq3qv"]
+[gd_scene load_steps=19 format=3 uid="uid://ccgfl0nfuq3qv"]
 
 [ext_resource type="Script" uid="uid://4dk0o0fcc8o5" path="res://Scripts/Management/GameManager.gd" id="1_or7tv"]
 [ext_resource type="PackedScene" uid="uid://dwj6a3qcbnxfa" path="res://MAINROOM.tscn" id="1_vonw3"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://d0k2pigo1obqd" path="res://Cat/CATFULLANIMATIONPACK.glb" id="14_bktio"]
 [ext_resource type="PackedScene" uid="uid://dgbjth6ura5xo" path="res://Props/Fork.tscn" id="15_nrlyp"]
 [ext_resource type="PackedScene" uid="uid://clrkhspy125jv" path="res://Props/Tennisball.tscn" id="16_44tr1"]
+[ext_resource type="PackedScene" uid="uid://b67ybpss7h1ws" path="res://ITEM_MODELS/Skateboard/skateboard.glb" id="17_gs5q7"]
 [ext_resource type="PackedScene" uid="uid://u6e5cg4yu4b3" path="res://Props/Window.tscn" id="17_pmxqn"]
 
 [node name="Level" type="Node3D"]
@@ -73,7 +74,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.4
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.4859395, -0.15982816, 15.008742)
 
 [node name="Player Spawn Point" type="Node3D" parent="."]
-transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 6.584384, 0, 0)
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 6.584384, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -84,7 +85,9 @@ follow_viewport_enabled = true
 transform = Transform3D(-0.70587164, 0, -0.70833975, 0, 1, 0, 0.70833975, 0, -0.70587164, 8.2098675, 1.8716722, 10.043214)
 
 [node name="Fork" parent="." instance=ExtResource("15_nrlyp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9616332, 6.726142, 4.5401344)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9616332, 0.37419796, 4.5401344)
+
+[node name="skateboard" parent="Fork" instance=ExtResource("17_gs5q7")]
 
 [node name="Tennisball" parent="." instance=ExtResource("16_44tr1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 10, 3)
@@ -93,6 +96,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 10, 3)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.594242, 0)
 omni_range = 4096.0
 
+[connection signal="jump_out_of_tank" from="." to="Furniture/Fishtank" method="play_jump_animation"]
+[connection signal="jump_out_of_tank" from="." to="CanvasLayer/HUD" method="fade_out_prompt"]
 [connection signal="update_game_state" from="." to="CanvasLayer/HUD" method="toggle_game_ui"]
 [connection signal="update_timer" from="." to="CanvasLayer/HUD" method="update_breath_timer"]
 [connection signal="animation_finished" from="Furniture/Fishtank" to="." method="go_to_playing_state"]

@@ -11,6 +11,7 @@ extends Node
 signal update_timer(time: float);
 signal update_game_state(game_state: GameState);
 signal out_of_breath;
+signal jump_out_of_tank;
 
 enum GameState {
 	FISHTANK,
@@ -45,7 +46,7 @@ func _process(delta: float) -> void:
 
 func _run_fishtank_state(_delta: float) -> void:
 	if Input.is_action_just_pressed("Jump"):
-		fish_tank.play_jump_animation();
+		jump_out_of_tank.emit();
 		current_game_state = GameState.PLAYING;
 
 func _run_playing_state(delta: float) -> void:

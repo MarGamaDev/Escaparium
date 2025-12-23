@@ -76,9 +76,11 @@ func _physics_process(delta: float) -> void:
 	#pushing physics
 	for i in get_slide_collision_count():
 		var item = get_slide_collision(i);
+		var impulse: Vector3 = -(velocity.length() * item.get_normal());
 		if item.get_collider() is RigidBody3D:
-			var impulse: Vector3 = -(velocity.length() * item.get_normal());
 			(item.get_collider() as RigidBody3D).apply_central_impulse(impulse);
+		if item.get_collider() is Skateboard:
+			(item.get_collider() as Skateboard).apply_force(impulse)
 	
 	#safeguard falling
 	if position.y <= -0.1:

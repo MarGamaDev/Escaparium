@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ccgfl0nfuq3qv"]
+[gd_scene load_steps=22 format=3 uid="uid://ccgfl0nfuq3qv"]
 
 [ext_resource type="Script" uid="uid://4dk0o0fcc8o5" path="res://Scripts/Management/GameManager.gd" id="1_or7tv"]
 [ext_resource type="PackedScene" uid="uid://dwj6a3qcbnxfa" path="res://MAINROOM.tscn" id="1_vonw3"]
@@ -20,6 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://jll65jh8r7qx" path="res://ITEM_MODELS/Fan/fan.glb" id="19_q24aw"]
 [ext_resource type="PackedScene" uid="uid://biqgi4sceqbsv" path="res://ITEM_MODELS/Perfect Lamp/lamp.glb" id="20_32npc"]
 [ext_resource type="PackedScene" uid="uid://buxxeh4m5q3wf" path="res://Props/Skateboard.tscn" id="20_yyp3s"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_32npc"]
+radius = 2.2487152
 
 [node name="Level" type="Node3D" groups=["gamemanager"]]
 script = ExtResource("1_or7tv")
@@ -98,15 +101,23 @@ omni_range = 4096.0
 
 [node name="fan" parent="." instance=ExtResource("19_q24aw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0006033161, 0.79763687, -0.6934467)
+visible = false
 
 [node name="lamp" parent="." instance=ExtResource("20_32npc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0742419, 0.71684664, 4.3542643)
+visible = false
 
 [node name="Skateboard home" type="Node3D" parent="."]
-transform = Transform3D(0.46575353, 0, -0.8849145, 0, 1, 0, 0.8849145, 0, 0.46575353, -4.6053677, 0.4181249, -5.5288844)
+transform = Transform3D(0.78521967, 0, -0.61921734, 0, 1, 0, 0.61921734, 0, 0.78521967, -4.2189646, 0.41812587, -8.160702)
 
 [node name="Skateboard" parent="Skateboard home" instance=ExtResource("20_yyp3s")]
 transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, 0, -0.13676041, 0)
+
+[node name="Skateboard fishtank Area" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skateboard fishtank Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1983166, 0, 0)
+shape = SubResource("SphereShape3D_32npc")
 
 [connection signal="jump_out_of_tank" from="." to="Furniture/Fishtank" method="play_jump_animation"]
 [connection signal="jump_out_of_tank" from="." to="CanvasLayer/HUD" method="fade_out_prompt"]
@@ -115,3 +126,5 @@ transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, 0, -0.13676
 [connection signal="animation_finished" from="Furniture/Fishtank" to="." method="go_to_playing_state"]
 [connection signal="hit_glass" from="Furniture/Computer Monitor" to="Furniture/Window" method="shatter"]
 [connection signal="set_up_ramp" from="Furniture/Desk" to="." method="add_global_flag"]
+[connection signal="body_entered" from="Skateboard fishtank Area" to="." method="_on_skateboard_fishtank_area_body_entered"]
+[connection signal="body_exited" from="Skateboard fishtank Area" to="." method="_on_skateboard_fishtank_area_body_exited"]

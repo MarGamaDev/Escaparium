@@ -116,3 +116,15 @@ func reach_end_state(end_state: EndState) -> void:
 	match end_state:
 		EndState.EMPTY:
 			print("you lost");
+
+
+func _on_skateboard_fishtank_area_body_entered(body: Node3D) -> void:
+	if body is Skateboard:
+		print("skateboard in position")
+		add_global_flag("skateboard");
+
+
+func _on_skateboard_fishtank_area_body_exited(body: Node3D) -> void:
+	if body is Skateboard:
+		print("skateboard out of position")
+		add_global_flag("skateboard");

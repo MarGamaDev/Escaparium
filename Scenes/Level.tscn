@@ -59,11 +59,14 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.7),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.7, 1.2290611),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"release_fork"
+}, {
+"args": [],
+"method": &"finish_prying"
 }]
 }
 tracks/3/type = "value"
@@ -215,8 +218,6 @@ item_group = "fork"
 transform = Transform3D(-3.825449e-08, 2.1148981e-08, 1, 0.4838323, 0.87516075, -7.775593e-16, -0.87516075, 0.4838323, -4.371149e-08, 0.007873519, 0.085826874, -0.35638976)
 shape = SubResource("BoxShape3D_g4pvc")
 debug_color = Color(0.9629546, 6.738305e-07, 0.5043789, 0.41960785)
-
-[node name="Fork" parent="Fishtank Pry Point" instance=ExtResource("15_nrlyp")]
 
 [connection signal="jump_out_of_tank" from="." to="Furniture/Fishtank" method="play_jump_animation"]
 [connection signal="jump_out_of_tank" from="." to="CanvasLayer/HUD" method="fade_out_prompt"]

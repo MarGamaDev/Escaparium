@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://s21a05lipq88"]
+
+[ext_resource type="Texture2D" uid="uid://dktcsv3mhboyq" path="res://Sprites/UI/FREAKNESTCREDITICON.png" id="1_iynit"]
+[ext_resource type="Texture2D" uid="uid://b0ihs2ay64o0u" path="res://Sprites/UI/us/MILKTOAST_CREDIT_FISH.PNG" id="2_f64u0"]
+[ext_resource type="Texture2D" uid="uid://c3wo7jpfqnkbd" path="res://Sprites/UI/us/skravenscreditsfish.png" id="3_lpub1"]
+[ext_resource type="Texture2D" uid="uid://dokilbapttyjw" path="res://Sprites/UI/us/fablinkcreditfish.png" id="4_640q4"]
+[ext_resource type="Texture2D" uid="uid://bs6hvurjmuod8" path="res://Sprites/UI/us/kingbaddabingcreditimage.png" id="5_5qoai"]
+[ext_resource type="Script" uid="uid://q40k40x0jd6p" path="res://Scripts/NickInflation.gd" id="6_f64u0"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = -9.0
+offset_right = 120.0
+offset_bottom = 95.0
+grow_horizontal = 2
+texture = ExtResource("1_iynit")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Milktoast" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.0
+offset_top = 121.0
+offset_right = -0.37254333
+offset_bottom = 216.0
+grow_horizontal = 2
+texture = ExtResource("2_f64u0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Skravens" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 21.304352
+offset_top = 149.0
+offset_right = 121.13043
+offset_bottom = 231.0
+grow_horizontal = 2
+texture = ExtResource("3_lpub1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Fablink" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -201.0
+offset_top = 76.0
+offset_right = -92.65218
+offset_bottom = 165.0
+grow_horizontal = 2
+texture = ExtResource("4_640q4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="King Badabing" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -47.0
+offset_right = -2.1519165
+offset_bottom = 70.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("5_5qoai")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("6_f64u0")

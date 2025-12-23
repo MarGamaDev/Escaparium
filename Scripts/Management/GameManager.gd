@@ -120,6 +120,8 @@ func reach_end_state(end_state: EndState) -> void:
 	match end_state:
 		EndState.EMPTY:
 			print("you lost");
+		EndState.BROKEN:
+			print("you broke the tank");
 
 func _on_skateboard_fishtank_area_body_entered(body: Node3D) -> void:
 	if body is Skateboard:
@@ -132,7 +134,11 @@ func _on_skateboard_fishtank_area_body_exited(body: Node3D) -> void:
 		add_global_flag("skateboard");
 
 func finish_prying() -> void:
-	prying_done.emit();
+	print("finished prying")
+	if global_flags.has("skateboard"):
+		prying_done.emit();
+	else:
+		reach_end_state(EndState.BROKEN);
 
 func _on_fork_point_filled(body: Node3D) -> void:
 	print("fork placed");

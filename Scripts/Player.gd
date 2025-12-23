@@ -172,10 +172,9 @@ func _try_interact() -> void:
 	
 	if closest_interactable.can_interact(interact_flags):
 		closest_interactable._interact();
-	
-	if !held_item:
-		if closest_interactable.can_grab():
-			_grab_item(closest_interactable.grab());
+		if !held_item:
+			if closest_interactable.can_grab():
+				_grab_item(closest_interactable.grab());
 
 func _grab_item(item: Node3D) -> void:
 	if item is RigidBody3D:

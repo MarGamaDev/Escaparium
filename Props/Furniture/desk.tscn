@@ -122,6 +122,7 @@ shape = SubResource("BoxShape3D_j6p6g")
 [node name="Fork Point" type="Node3D" parent="."]
 transform = Transform3D(-0.032469552, 0.76829004, -0.639278, -0.99910825, -0.042224415, 0, -0.026993135, 0.63870776, 0.76897573, -5.878234, 0.9387481, 4.427182)
 script = ExtResource("3_xuif5")
+item_group = "fork"
 
 [node name="Area3D" type="Area3D" parent="Fork Point"]
 
@@ -129,5 +130,20 @@ script = ExtResource("3_xuif5")
 transform = Transform3D(-0.03246955, -0.99910796, -0.026993133, 0.7682899, -0.042224403, 0.63870776, -0.6392778, -1.8626447e-09, 0.7689758, -0.07762647, 1.2382791, -1.6285157)
 shape = SubResource("BoxShape3D_gswoc")
 debug_color = Color(0.92905486, 3.1862557e-05, 0.66422683, 0.41960785)
+
+[node name="Fork Point2" type="Node3D" parent="."]
+transform = Transform3D(-0.032469552, 0.76829004, -0.639278, -0.99910825, -0.042224415, 0, -0.026993135, 0.63870776, 0.76897573, -5.878234, 3.1311338, 4.427182)
+script = ExtResource("3_xuif5")
+item_group = "fork"
+
+[node name="Area3D" type="Area3D" parent="Fork Point2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fork Point2/Area3D"]
+transform = Transform3D(-0.03246955, -0.99910796, -0.026993133, 0.7682899, -0.042224403, 0.63870776, -0.6392778, -1.8626447e-09, 0.7689758, -0.07762647, 1.2382791, -1.6285157)
+shape = SubResource("BoxShape3D_gswoc")
+debug_color = Color(0.92905486, 3.1862557e-05, 0.66422683, 0.41960785)
+
+[connection signal="body_entered" from="Fork Point/Area3D" to="Fork Point" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Fork Point2/Area3D" to="Fork Point2" method="_on_area_3d_body_entered"]
 
 [editable path="model"]

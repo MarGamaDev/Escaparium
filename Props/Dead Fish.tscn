@@ -19,8 +19,7 @@ points = PackedVector3Array(0.1, 0, 0, 0.07, -0.205, 0, -0.05, -0.24, 0, -0.12, 
 
 [node name="Dead Fish" type="RigidBody3D" node_paths=PackedStringArray("grab_target") groups=["fish"]]
 disable_mode = 1
-collision_layer = 6
-collision_mask = 7
+collision_layer = 5
 freeze = true
 script = ExtResource("1_yn7hs")
 grab_target = NodePath(".")

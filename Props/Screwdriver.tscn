@@ -14,7 +14,6 @@ radius = 0.14
 
 [node name="Screwdriver" type="RigidBody3D" node_paths=PackedStringArray("grab_target") groups=["screwdriver"]]
 collision_layer = 5
-collision_mask = 5
 continuous_cd = true
 script = ExtResource("3_nr8so")
 grab_target = NodePath(".")

@@ -4,11 +4,17 @@ extends AnimatableBody3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer;
 @export var hit_amount: int = 3;
 
-signal on_hits_achieved;
+signal hit_target_reached;
+signal hit_glass;
 
-func on_body_entered(body: Node3D) -> void:
+func on_body_entered(_body: Node3D) -> void:
 	hit_amount -= 1;
-	animation_player.play("hit");
 	
 	if hit_amount == 0:
-		on_hits_achieved.emit();
+		hit_target_reached.emit();
+		animation_player.play("yeet");
+	else:
+		animation_player.play("hit");
+
+func reach_glass() -> void:
+	hit_glass.emit();

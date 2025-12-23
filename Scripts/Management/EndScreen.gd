@@ -9,6 +9,9 @@ extends Control
 var index: int = 0;
 var timer: float = 0;
 
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED;
+
 func _process(delta: float) -> void:
 	timer += delta;
 	

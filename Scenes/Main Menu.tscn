@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctwovco0yuh0d"]
+[gd_scene load_steps=14 format=3 uid="uid://ctwovco0yuh0d"]
 
 [ext_resource type="Script" uid="uid://br2y47n54dx5g" path="res://Scripts/Management/MainMenu.gd" id="1_hcxxy"]
 [ext_resource type="AudioStream" uid="uid://f0spafnil45b" path="res://Sounds/MAINMENU-ROLLCREDITS.mp3" id="1_totuj"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://c3y5vpu6qy7h6" path="res://Scripts/FishButton.gd" id="7_vuees"]
 [ext_resource type="Texture2D" uid="uid://dyds0qu33m764" path="res://Sprites/UI/creditsbuttonpressed.png" id="8_vuees"]
 [ext_resource type="Texture2D" uid="uid://d3lje1hesjkkr" path="res://Sprites/UI/QUITBUTTONPRESSED.png" id="8_wib81"]
+[ext_resource type="BitMap" uid="uid://chx1n18k7k2l" path="res://Sprites/UI/credits_button_mask.png" id="10_3hb06"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -52,7 +53,7 @@ texture_click_mask = ExtResource("5_udm2q")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("7_vuees")
-bob_speed = 1.6400000000000001
+bob_speed = 1.64
 
 [node name="Credits Button" type="TextureButton" parent="."]
 layout_mode = 1
@@ -69,7 +70,7 @@ grow_horizontal = 0
 grow_vertical = 0
 texture_normal = ExtResource("7_tbdrc")
 texture_hover = ExtResource("8_vuees")
-texture_click_mask = ExtResource("5_udm2q")
+texture_click_mask = ExtResource("10_3hb06")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("7_vuees")

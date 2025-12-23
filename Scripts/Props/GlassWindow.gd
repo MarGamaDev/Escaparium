@@ -9,9 +9,10 @@ extends Node3D
 @export var shard_lifetime: float = 5;
 
 signal shatter_glass(origin: Vector3, force: float, lifetime:float);
+signal raise_window_flag(flag: String);
 
 func shatter() -> void:
-	print("shatter")
 	glass_pane.visible = false;
 	shards_parent.visible = true;
 	shatter_glass.emit(shatter_origin.global_position, shatter_force, shard_lifetime);
+	raise_window_flag.emit("window")

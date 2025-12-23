@@ -8,6 +8,7 @@ extends Node
 
 @export var breath_max_time: float = 30;
 @export var lives: int = 5;
+@export var win_flags: Array[String];
 
 signal update_timer(time: float);
 signal update_game_state(game_state: GameState);
@@ -24,9 +25,9 @@ enum GameState {
 }
 
 enum EndState {
-	ESCAPE,
 	BROKEN,
-	EMPTY
+	EMPTY,
+	WIN
 }
 
 var current_game_state: GameState = GameState.FISHTANK;
@@ -120,9 +121,14 @@ func reach_end_state(end_state: EndState) -> void:
 	_switch_game_state(GameState.OVER);
 	match end_state:
 		EndState.EMPTY:
-			print("you lost");
+			print("you ran out of fish");
+			get_tree().change_scene_to_file("res://Scenes/Defeat Empty.tscn");
 		EndState.BROKEN:
 			print("you broke the tank");
+			get_tree().change_scene_to_file("res://Scenes/Defeat Broken.tscn");
+		EndState.WIN:
+			print("CONGRATS YIPPEEEEEE");
+			get_tree().change_scene_to_file("res://Scenes/Win.tscn");
 
 func _on_skateboard_fishtank_area_body_entered(body: Node3D) -> void:
 	if body is Skateboard:
@@ -138,6 +144,7 @@ func finish_prying() -> void:
 	print("finished prying")
 	if global_flags.has("skateboard"):
 		prying_done.emit(fish_tank);
+		add_global_flag("fishtank");
 	else:
 		reach_end_state(EndState.BROKEN);
 
@@ -159,3 +166,13 @@ func release_fork() -> void:
 	fork.reparent(get_tree().root);
 	fork.grabbable = true;
 	fork.freeze = false;
+
+func check_if_win() -> void:
+	for flag in global_flags:
+		if win_flags.has(flag):
+			win_flags.erase(flag);
+	
+	if win_flags.is_empty():
+		reach_end_state(EndState.WIN);
+	else:
+		reach_end_state(EndState.BROKEN);

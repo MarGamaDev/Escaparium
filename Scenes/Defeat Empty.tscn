@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cvcyhhbxqo5sy"]
 
-[ext_resource type="Script" uid="uid://7gtl3ao0100x" path="res://Scripts/EndScreen.gd" id="1_ftvk8"]
+[ext_resource type="Script" uid="uid://7gtl3ao0100x" path="res://Scripts/Management/EndScreen.gd" id="1_ftvk8"]
 [ext_resource type="Texture2D" uid="uid://b4qrjal8ym4sh" path="res://SPLASHES YAY/DEFEAT/DEFEAT1.png" id="1_sxyme"]
 [ext_resource type="Texture2D" uid="uid://cuifc5xttuhmi" path="res://SPLASHES YAY/DEFEAT/DEFEAT2.png" id="3_hf521"]
 [ext_resource type="Texture2D" uid="uid://dsqcqev3ckyw5" path="res://Sprites/UI/buttonunpressed.png" id="4_igh61"]

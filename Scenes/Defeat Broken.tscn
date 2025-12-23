@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://dmqgst5he20at"]
+
+[ext_resource type="Script" uid="uid://7gtl3ao0100x" path="res://Scripts/Management/EndScreen.gd" id="1_huav3"]
+[ext_resource type="Texture2D" uid="uid://b4qrjal8ym4sh" path="res://SPLASHES YAY/DEFEAT/DEFEAT1.png" id="2_osv8q"]
+[ext_resource type="Texture2D" uid="uid://cuifc5xttuhmi" path="res://SPLASHES YAY/DEFEAT/DEFEAT2.png" id="3_huqd2"]
+[ext_resource type="Texture2D" uid="uid://dsqcqev3ckyw5" path="res://Sprites/UI/buttonunpressed.png" id="4_r4s0b"]
+[ext_resource type="Texture2D" uid="uid://dcydta8sq2wtn" path="res://Sprites/UI/buttonpressed.png" id="5_tg1ly"]
+[ext_resource type="BitMap" uid="uid://dbva6rtth7dl0" path="res://Sprites/UI/button_mask.png" id="6_m8wt2"]
+[ext_resource type="Script" uid="uid://c3y5vpu6qy7h6" path="res://Scripts/FishButton.gd" id="7_msb84"]
+[ext_resource type="Texture2D" uid="uid://saitni3v32h8" path="res://Sprites/UI/quitbuttonunpressed.png" id="8_5yjn4"]
+[ext_resource type="Texture2D" uid="uid://d3lje1hesjkkr" path="res://Sprites/UI/QUITBUTTONPRESSED.png" id="9_6uma5"]
+[ext_resource type="AudioStream" uid="uid://f0spafnil45b" path="res://Sounds/MAINMENU-ROLLCREDITS.mp3" id="10_bvxeg"]
+[ext_resource type="AudioStream" uid="uid://d16cx23gxe477" path="res://Sounds/ROOM AMBIENCE.mp3" id="11_tubul"]
+
+[node name="Defeat 1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -384.0
+offset_bottom = -216.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_huav3")
+textures = Array[Texture2D]([ExtResource("2_osv8q"), ExtResource("3_huqd2")])
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 216.0
+texture = ExtResource("2_osv8q")
+
+[node name="New Game" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 103.0
+offset_right = 165.75475
+offset_bottom = 180.0
+texture_normal = ExtResource("4_r4s0b")
+texture_hover = ExtResource("5_tg1ly")
+texture_click_mask = ExtResource("6_m8wt2")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("7_msb84")
+bob_speed = 1.2
+bob_intensity = 2.0
+
+[node name="Quit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 161.0
+offset_right = 103.921616
+offset_bottom = 206.0
+texture_normal = ExtResource("8_5yjn4")
+texture_hover = ExtResource("9_6uma5")
+texture_click_mask = ExtResource("6_m8wt2")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("7_msb84")
+bob_speed = 2.8
+bob_intensity = 1.2
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_bvxeg")
+volume_db = -9.88
+autoplay = true
+bus = &"Music"
+
+[node name="Ambiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_tubul")
+volume_db = 2.0
+autoplay = true
+bus = &"SFX"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 73.0
+offset_right = 202.0
+offset_bottom = 96.0
+text = "BROKEN"
+
+[connection signal="button_up" from="New Game" to="." method="on_new_game"]
+[connection signal="button_up" from="Quit" to="." method="on_quit"]

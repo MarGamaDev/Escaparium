@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqu4xeiouelql"]
+
+[ext_resource type="PackedScene" uid="uid://jll65jh8r7qx" path="res://ITEM_MODELS/Fan/fan.glb" id="1_aq5l5"]
+[ext_resource type="Script" uid="uid://bsquebs1c36o0" path="res://Scripts/Props/Fan.gd" id="1_r61k3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_aq5l5"]
+height = 0.39282227
+radius = 1.1728516
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r61k3"]
+height = 2.4611816
+radius = 0.17138672
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1qpm1"]
+height = 1.2302246
+radius = 0.4555664
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_oxh7f"]
+height = 0.3713379
+radius = 1.2509766
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_33htc"]
+height = 0.17175293
+radius = 0.20117188
+
+[node name="Fan" type="RigidBody3D"]
+mass = 5.0
+script = ExtResource("1_r61k3")
+
+[node name="fan" parent="." instance=ExtResource("1_aq5l5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8006848, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18688965, 0)
+shape = SubResource("CylinderShape3D_aq5l5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5006104, 0)
+shape = SubResource("CylinderShape3D_r61k3")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0032607317, 2.3401005, -0.03967285)
+shape = SubResource("CylinderShape3D_1qpm1")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.008038044, 2.3714883, 0.6636963)
+shape = SubResource("CylinderShape3D_oxh7f")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019687414, 0.8433686, 0.19195414)
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.0010559857, 0.010559797, 0.0004272461)
+shape = SubResource("CylinderShape3D_33htc")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+
+[editable path="fan"]

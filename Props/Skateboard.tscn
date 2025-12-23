@@ -46,8 +46,9 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.6179082, -0.026123047, -0.
 shape = SubResource("BoxShape3D_4wbar")
 
 [node name="Fishtank Point" type="Node3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.6328485, 0.2666309, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.8669671, 0.2666309, 0)
 
 [node name="Fan Point" type="Node3D" parent="."]
+transform = Transform3D(0.0038048476, 0, 0.99999285, 0, 1, 0, -0.99999285, 0, 0.0038048476, 2.1432235, 0.31755912, 0)
 
 [editable path="skateboard"]

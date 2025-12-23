@@ -100,6 +100,7 @@ _data = {
 }
 
 [node name="Fishtank" type="AnimatableBody3D"]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_6nntu")
 metadata/_custom_type_script = "uid://bcm6jr3slbvka"
 

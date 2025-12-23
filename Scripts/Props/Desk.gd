@@ -6,8 +6,12 @@ extends StaticBody3D
 @onready var upper_fork_snap_point: SnapPoint = $"Upper Fork Point";
 @onready var lower_fork_snap_point: SnapPoint = $"Lower Fork Point";
 
+var open_drawers: int = 0;
 var upper_fork: RigidBody3D;
 var lower_fork: RigidBody3D;
+
+signal set_up_ramp(flag: String);
+var flag: String = "ramp";
 
 func on_upper_fork_placed(body: Node3D) -> void:
 	print("upper fork placed");
@@ -45,17 +49,15 @@ func open_upper_drawer(body: Node) -> void:
 	upper_fork.disconnect("body_entered", open_upper_drawer);
 	animation_player.play("open_upper_drawer");
 
-func activate_upper_shelf_snap_point() -> void:
-	pass
-	
-func activate_lower_shelf_snap_point() -> void:
-	pass
+func count_open_drawer() -> void:
+	open_drawers += 1;
+	if open_drawers == 2:
+		lower_shelf_snap_point.snap_point_active = true;
 
 func on_lower_shelf_placed(_body: Node3D) -> void:
 	upper_shelf_snap_point.snap_point_active = true;
 	lower_shelf_snap_point.snap_point_active = false;
-	pass
 
 func on_upper_shelf_placed(_body: Node3D) -> void:
-	# something something change global preqs
-	pass
+	upper_shelf_snap_point.snap_point_active = false;
+	set_up_ramp.emit(flag);

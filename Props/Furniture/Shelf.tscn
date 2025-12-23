@@ -17,7 +17,7 @@ size = Vector3(6.071167, 0.34143066, 2.0073547)
 [sub_resource type="BoxShape3D" id="BoxShape3D_pp8bi"]
 size = Vector3(1, 1, 0.86224365)
 
-[node name="Shelf" type="RigidBody3D"]
+[node name="Shelf" type="RigidBody3D" groups=["shelf"]]
 mass = 2.0
 physics_material_override = ExtResource("1_4tnyb")
 freeze = true
@@ -73,6 +73,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.40194702)
 shape = SubResource("BoxShape3D_pp8bi")
 
 [node name="Screwdriver Player" type="AudioStreamPlayer3D" parent="."]
+volume_db = 9.863
 bus = &"SFX"
 script = ExtResource("6_p0yjl")
 sound_array = Array[AudioStream]([ExtResource("7_osdu8"), ExtResource("8_ww1dy"), ExtResource("9_rqxqn"), ExtResource("10_omcbr")])

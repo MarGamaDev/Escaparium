@@ -112,4 +112,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0742419, 0.71684664, 4.3542
 [connection signal="update_timer" from="." to="CanvasLayer/HUD" method="update_breath_timer"]
 [connection signal="animation_finished" from="Furniture/Fishtank" to="." method="go_to_playing_state"]
 [connection signal="hit_glass" from="Furniture/Computer Monitor" to="Furniture/Window" method="shatter"]
-[connection signal="set_up_ramp" from="Furniture/Desk" to="." method="add_global_flag"]

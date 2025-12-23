@@ -79,12 +79,11 @@ func go_to_playing_state() -> void:
 func go_to_fishtank_state() -> void:
 	_switch_game_state(GameState.FISHTANK);
 
-func  add_global_flags(flags: Array[String]) -> void:
-	global_flags.append_array(flags);
+func  add_global_flag(flag: String) -> void:
+	global_flags.append(flag);
 
-func  remove_global_flags(flags: Array[String]) -> void:
-	for flag in flags:
-		global_flags.erase(flag);
+func  remove_global_flag(flag: String) -> void:
+	global_flags.erase(flag);
 
 func kill_player() -> void:
 	if !player:

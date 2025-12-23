@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmuexnk85c7i6"]
+[gd_scene load_steps=18 format=3 uid="uid://bmuexnk85c7i6"]
 
 [ext_resource type="PackedScene" uid="uid://dmcr3vgewdnce" path="res://ITEM_MODELS/Computer_Desk_And_Drawers/desk.glb" id="1_1r5t1"]
 [ext_resource type="Script" uid="uid://cy2dnd7my0rl4" path="res://Scripts/Props/Desk.gd" id="1_t8snj"]
@@ -117,7 +117,7 @@ tracks/3/keys = {
 "method": &"release_upper_fork"
 }, {
 "args": [],
-"method": &"activate_upper_shelf_snap_point"
+"method": &"count_open_drawer"
 }]
 }
 
@@ -169,7 +169,7 @@ tracks/3/keys = {
 "method": &"release_lower_fork"
 }, {
 "args": [],
-"method": &"activate_lower_shelf_snap_point"
+"method": &"count_open_drawer"
 }]
 }
 
@@ -206,6 +206,9 @@ size = Vector3(0.768589, 3.7724304, 0.05565262)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gswoc"]
 size = Vector3(3.4328575, 1.4649048, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_knxvx"]
+radius = 2.1723726
 
 [node name="Desk" type="StaticBody3D"]
 script = ExtResource("1_t8snj")
@@ -301,7 +304,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6932783, 2.0433807, 3.9690
 shape = SubResource("BoxShape3D_j6p6g")
 
 [node name="Lower Fork Point" type="Node3D" parent="."]
-transform = Transform3D(-0.032469537, 0.7682899, -0.6392777, -0.99910784, -0.042224407, -7.089754e-10, -0.026993124, 0.63870764, 0.7689756, -5.878234, 0.9387481, 4.427182)
+transform = Transform3D(-0.032469537, 0.7682899, -0.6392777, -0.9991078, -0.042224407, -7.089754e-10, -0.026993122, 0.63870764, 0.7689756, -5.878234, 0.9387481, 4.427182)
 script = ExtResource("3_xuif5")
 item_group = "fork"
 
@@ -313,7 +316,7 @@ shape = SubResource("BoxShape3D_gswoc")
 debug_color = Color(0.92905486, 3.1862557e-05, 0.66422683, 0.41960785)
 
 [node name="Upper Fork Point" type="Node3D" parent="."]
-transform = Transform3D(-0.03246954, 0.7682898, -0.6392778, -0.99910796, -0.0422244, -7.0897543e-10, -0.026993126, 0.6387075, 0.7689757, -5.878234, 3.1311338, 4.427182)
+transform = Transform3D(-0.03246954, 0.76828974, -0.63927776, -0.9991079, -0.0422244, -7.0897543e-10, -0.026993126, 0.6387075, 0.7689757, -5.878234, 3.1311338, 4.427182)
 script = ExtResource("3_xuif5")
 item_group = "fork"
 
@@ -325,18 +328,36 @@ shape = SubResource("BoxShape3D_gswoc")
 debug_color = Color(0.92905486, 3.1862557e-05, 0.66422683, 0.41960785)
 
 [node name="Lower Shelf Point" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, -3.5555593e-15, 1, 0.22804499, 0.97365063, 9.968167e-09, -0.97365063, 0.22804499, -4.255962e-08, -3.930903, 1.0801816, 9.5531025)
 script = ExtResource("3_xuif5")
 item_group = "shelf"
 snap_point_active = false
 
+[node name="Area3D" type="Area3D" parent="Lower Shelf Point"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lower Shelf Point/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 2.1316282e-14, 5.3290705e-15, 1, 2.7443886, -1.2471938, 7.1525574e-07)
+shape = SubResource("SphereShape3D_knxvx")
+
 [node name="Upper Shelf Point" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1.8953444e-15, 1, 0.5852125, 0.81088006, 2.5580446e-08, -0.81088006, 0.5852125, -3.54447e-08, -3.938043, 3.4861028, 5.6251044)
 script = ExtResource("3_xuif5")
 item_group = "shelf"
 snap_point_active = false
+
+[node name="Area3D" type="Area3D" parent="Upper Shelf Point"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Upper Shelf Point/Area3D"]
+transform = Transform3D(0.9229684, 0.38487533, -3.3671483e-09, -0.38487533, 0.9229684, -1.6823423e-08, -3.3671448e-09, 1.6823435e-08, 1, -2.540139, -1.8595676, 0.0071406364)
+shape = SubResource("SphereShape3D_knxvx")
 
 [connection signal="snap_point_filled" from="Lower Fork Point" to="." method="on_lower_fork_placed"]
 [connection signal="body_entered" from="Lower Fork Point/Area3D" to="Lower Fork Point" method="_on_area_3d_body_entered"]
 [connection signal="snap_point_filled" from="Upper Fork Point" to="." method="on_upper_fork_placed"]
 [connection signal="body_entered" from="Upper Fork Point/Area3D" to="Upper Fork Point" method="_on_area_3d_body_entered"]
+[connection signal="snap_point_filled" from="Lower Shelf Point" to="." method="on_lower_shelf_placed"]
+[connection signal="body_entered" from="Lower Shelf Point/Area3D" to="Lower Shelf Point" method="_on_area_3d_body_entered"]
+[connection signal="snap_point_filled" from="Upper Shelf Point" to="." method="on_upper_shelf_placed"]
+[connection signal="body_entered" from="Upper Shelf Point/Area3D" to="Upper Shelf Point" method="_on_area_3d_body_entered"]
 
 [editable path="model"]

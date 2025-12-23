@@ -1,8 +1,185 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmuexnk85c7i6"]
+[gd_scene load_steps=18 format=3 uid="uid://bmuexnk85c7i6"]
 
 [ext_resource type="PackedScene" uid="uid://dmcr3vgewdnce" path="res://ITEM_MODELS/Computer_Desk_And_Drawers/desk.glb" id="1_1r5t1"]
 [ext_resource type="Script" uid="uid://cy2dnd7my0rl4" path="res://Scripts/Props/Desk.gd" id="1_t8snj"]
 [ext_resource type="Script" uid="uid://w3rojc3jygsq" path="res://Scripts/InteractSnapPoint.gd" id="3_xuif5"]
+[ext_resource type="PackedScene" uid="uid://dgbjth6ura5xo" path="res://Props/Fork.tscn" id="4_knxvx"]
+
+[sub_resource type="Animation" id="Animation_n5rqm"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("model/desk/cabinet/BOTTOMDRAWER")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.0009238124, -0.22289889, -0.002788186)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Lower Fork Point:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-5.878234, 0.9387481, 4.427182)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Lower Fork Point:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(7.0897554e-10, -0.6935588, -1.6130333)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Upper Fork Point:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-5.878234, 3.1311338, 4.427182)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Upper Fork Point:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(7.0897554e-10, -0.6935588, -1.6130333)]
+}
+tracks/5/type = "position_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("model/desk/cabinet/TOPDRAWER")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 0.0011700392, 0.22430347, -0.004678905)
+
+[sub_resource type="Animation" id="Animation_l3xc0"]
+resource_name = "open_upper_drawer"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Upper Fork Point:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.297687),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-5.878234, 3.1311338, 4.427182), Vector3(-5.909261, 3.1311338, 4.330419), Vector3(-5.9180584, 3.1311338, 4.3029838), Vector3(-5.9221783, 3.1311338, 4.290136)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Upper Fork Point:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.297687),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(7.0897554e-10, -0.6935588, -1.6130333), Vector3(3.6952081e-09, -0.8531429, -1.6130333), Vector3(4.541888e-09, -0.89838946, -1.6130333), Vector3(4.938396e-09, -0.91957885, -1.6130333)]
+}
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("model/desk/cabinet/TOPDRAWER")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.0011700392, 0.22430347, -0.004678905, 0.3, 1, 0.0011700392, 0.22430347, -0.004678905, 0.5, 1, 0.0011700392, 0.22430347, 0.112991884)
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"release_upper_fork"
+}, {
+"args": [],
+"method": &"activate_upper_shelf_snap_point"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_knxvx"]
+resource_name = "open_lower_shelf"
+length = 0.5
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("model/desk/cabinet/BOTTOMDRAWER")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.0009238124, -0.22289889, -0.002788186, 0.1333, 1, -0.0009238124, -0.22289889, -0.002788186, 0.5, 1, -0.0009238124, -0.22289889, 0.28349316)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Lower Fork Point:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.039352804, 0.09916907),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-5.878234, 0.9387481, 4.427182), Vector3(-5.878234, 0.9387481, 4.294611), Vector3(-5.878234, 0.9387481, 4.194841)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Lower Fork Point:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.039352804, 0.09916907),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(7.0897554e-10, -0.6935588, -1.6130333), Vector3(6.799381e-09, -0.90449923, -1.6130333), Vector3(8.161859e-09, -1.0360622, -1.6130333)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.13333334, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"release_lower_fork"
+}, {
+"args": [],
+"method": &"activate_lower_shelf_snap_point"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n5rqm"]
+_data = {
+&"RESET": SubResource("Animation_n5rqm"),
+&"open_lower_drawer": SubResource("Animation_knxvx"),
+&"open_upper_drawer": SubResource("Animation_l3xc0")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t8snj"]
 size = Vector3(0.29666138, 0.032196045, 0.31993866)
@@ -35,6 +212,9 @@ size = Vector3(3.4328575, 1.4649048, 1)
 script = ExtResource("1_t8snj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_n5rqm")
+}
 
 [node name="model" parent="." instance=ExtResource("1_1r5t1")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
@@ -119,31 +299,45 @@ shape = SubResource("BoxShape3D_j6p6g")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6932783, 2.0433807, 3.9690251)
 shape = SubResource("BoxShape3D_j6p6g")
 
-[node name="Fork Point" type="Node3D" parent="."]
-transform = Transform3D(-0.032469552, 0.76829004, -0.639278, -0.99910825, -0.042224415, 0, -0.026993135, 0.63870776, 0.76897573, -5.878234, 0.9387481, 4.427182)
+[node name="Lower Fork Point" type="Node3D" parent="."]
+transform = Transform3D(-0.03246954, 0.7682899, -0.63927776, -0.9991079, -0.042224407, -7.0897543e-10, -0.026993126, 0.63870764, 0.7689757, -5.878234, 0.9387481, 4.427182)
 script = ExtResource("3_xuif5")
 item_group = "fork"
 
-[node name="Area3D" type="Area3D" parent="Fork Point"]
+[node name="Area3D" type="Area3D" parent="Lower Fork Point"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fork Point/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lower Fork Point/Area3D"]
 transform = Transform3D(-0.03246955, -0.99910796, -0.026993133, 0.7682899, -0.042224403, 0.63870776, -0.6392778, -1.8626447e-09, 0.7689758, -0.07762647, 1.2382791, -1.6285157)
 shape = SubResource("BoxShape3D_gswoc")
 debug_color = Color(0.92905486, 3.1862557e-05, 0.66422683, 0.41960785)
 
-[node name="Fork Point2" type="Node3D" parent="."]
-transform = Transform3D(-0.032469552, 0.76829004, -0.639278, -0.99910825, -0.042224415, 0, -0.026993135, 0.63870776, 0.76897573, -5.878234, 3.1311338, 4.427182)
+[node name="Fork" parent="Lower Fork Point" instance=ExtResource("4_knxvx")]
+
+[node name="Upper Fork Point" type="Node3D" parent="."]
+transform = Transform3D(-0.032469545, 0.76828986, -0.6392778, -0.999108, -0.042224403, -7.089755e-10, -0.026993128, 0.6387076, 0.76897573, -5.878234, 3.1311338, 4.427182)
 script = ExtResource("3_xuif5")
 item_group = "fork"
 
-[node name="Area3D" type="Area3D" parent="Fork Point2"]
+[node name="Area3D" type="Area3D" parent="Upper Fork Point"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fork Point2/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Upper Fork Point/Area3D"]
 transform = Transform3D(-0.03246955, -0.99910796, -0.026993133, 0.7682899, -0.042224403, 0.63870776, -0.6392778, -1.8626447e-09, 0.7689758, -0.07762647, 1.2382791, -1.6285157)
 shape = SubResource("BoxShape3D_gswoc")
 debug_color = Color(0.92905486, 3.1862557e-05, 0.66422683, 0.41960785)
 
-[connection signal="body_entered" from="Fork Point/Area3D" to="Fork Point" method="_on_area_3d_body_entered"]
-[connection signal="body_entered" from="Fork Point2/Area3D" to="Fork Point2" method="_on_area_3d_body_entered"]
+[node name="Fork" parent="Upper Fork Point" instance=ExtResource("4_knxvx")]
+
+[node name="Lower Shelf Point" type="Node3D" parent="."]
+script = ExtResource("3_xuif5")
+item_group = "shelf"
+snap_point_active = false
+
+[node name="Upper Shelf Point" type="Node3D" parent="."]
+script = ExtResource("3_xuif5")
+item_group = "shelf"
+snap_point_active = false
+
+[connection signal="body_entered" from="Lower Fork Point/Area3D" to="Lower Fork Point" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Upper Fork Point/Area3D" to="Upper Fork Point" method="_on_area_3d_body_entered"]
 
 [editable path="model"]

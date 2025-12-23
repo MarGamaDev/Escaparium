@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://jll65jh8r7qx" path="res://ITEM_MODELS/Fan/fan.glb" id="19_q24aw"]
 [ext_resource type="PackedScene" uid="uid://biqgi4sceqbsv" path="res://ITEM_MODELS/Perfect Lamp/lamp.glb" id="20_32npc"]
 
-[node name="Level" type="Node3D"]
+[node name="Level" type="Node3D" groups=["gamemanager"]]
 script = ExtResource("1_or7tv")
 lives = 3
 

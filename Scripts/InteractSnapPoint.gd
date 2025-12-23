@@ -11,6 +11,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		return;
 	
 	if body.get_groups().has(item_group):
+		snap_point_active = false;
 		if body is RigidBody3D:
 			(body as RigidBody3D).freeze = true;
 			

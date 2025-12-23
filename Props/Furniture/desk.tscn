@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://bmuexnk85c7i6"]
+[gd_scene load_steps=17 format=3 uid="uid://bmuexnk85c7i6"]
 
 [ext_resource type="PackedScene" uid="uid://dmcr3vgewdnce" path="res://ITEM_MODELS/Computer_Desk_And_Drawers/desk.glb" id="1_1r5t1"]
 [ext_resource type="Script" uid="uid://cy2dnd7my0rl4" path="res://Scripts/Props/Desk.gd" id="1_t8snj"]
 [ext_resource type="Script" uid="uid://w3rojc3jygsq" path="res://Scripts/InteractSnapPoint.gd" id="3_xuif5"]
-[ext_resource type="PackedScene" uid="uid://dgbjth6ura5xo" path="res://Props/Fork.tscn" id="4_knxvx"]
 
 [sub_resource type="Animation" id="Animation_n5rqm"]
 length = 0.001
@@ -229,6 +228,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003661573, -0.0030688345, 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0009238124, -0.22289889, -0.002788186)
 
 [node name="AnimatableBody3D" type="AnimatableBody3D" parent="model/desk/cabinet/BOTTOMDRAWER" index="0"]
+sync_to_physics = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="model/desk/cabinet/BOTTOMDRAWER/AnimatableBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39286804, 0.2822723, 0.46139145)
@@ -254,6 +254,7 @@ shape = SubResource("BoxShape3D_n5rqm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0011700392, 0.22430347, -0.004678905)
 
 [node name="AnimatableBody3D" type="AnimatableBody3D" parent="model/desk/cabinet/TOPDRAWER" index="0"]
+sync_to_physics = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="model/desk/cabinet/TOPDRAWER/AnimatableBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39199832, 0.056302562, 0.46704295)
@@ -300,7 +301,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6932783, 2.0433807, 3.9690
 shape = SubResource("BoxShape3D_j6p6g")
 
 [node name="Lower Fork Point" type="Node3D" parent="."]
-transform = Transform3D(-0.03246954, 0.7682899, -0.63927776, -0.9991079, -0.042224407, -7.0897543e-10, -0.026993126, 0.63870764, 0.7689757, -5.878234, 0.9387481, 4.427182)
+transform = Transform3D(-0.032469537, 0.7682899, -0.6392777, -0.99910784, -0.042224407, -7.089754e-10, -0.026993124, 0.63870764, 0.7689756, -5.878234, 0.9387481, 4.427182)
 script = ExtResource("3_xuif5")
 item_group = "fork"
 
@@ -311,10 +312,8 @@ transform = Transform3D(-0.03246955, -0.99910796, -0.026993133, 0.7682899, -0.04
 shape = SubResource("BoxShape3D_gswoc")
 debug_color = Color(0.92905486, 3.1862557e-05, 0.66422683, 0.41960785)
 
-[node name="Fork" parent="Lower Fork Point" instance=ExtResource("4_knxvx")]
-
 [node name="Upper Fork Point" type="Node3D" parent="."]
-transform = Transform3D(-0.032469545, 0.76828986, -0.6392778, -0.999108, -0.042224403, -7.089755e-10, -0.026993128, 0.6387076, 0.76897573, -5.878234, 3.1311338, 4.427182)
+transform = Transform3D(-0.03246954, 0.7682898, -0.6392778, -0.99910796, -0.0422244, -7.0897543e-10, -0.026993126, 0.6387075, 0.7689757, -5.878234, 3.1311338, 4.427182)
 script = ExtResource("3_xuif5")
 item_group = "fork"
 
@@ -324,8 +323,6 @@ item_group = "fork"
 transform = Transform3D(-0.03246955, -0.99910796, -0.026993133, 0.7682899, -0.042224403, 0.63870776, -0.6392778, -1.8626447e-09, 0.7689758, -0.07762647, 1.2382791, -1.6285157)
 shape = SubResource("BoxShape3D_gswoc")
 debug_color = Color(0.92905486, 3.1862557e-05, 0.66422683, 0.41960785)
-
-[node name="Fork" parent="Upper Fork Point" instance=ExtResource("4_knxvx")]
 
 [node name="Lower Shelf Point" type="Node3D" parent="."]
 script = ExtResource("3_xuif5")
@@ -337,7 +334,9 @@ script = ExtResource("3_xuif5")
 item_group = "shelf"
 snap_point_active = false
 
+[connection signal="snap_point_filled" from="Lower Fork Point" to="." method="on_lower_fork_placed"]
 [connection signal="body_entered" from="Lower Fork Point/Area3D" to="Lower Fork Point" method="_on_area_3d_body_entered"]
+[connection signal="snap_point_filled" from="Upper Fork Point" to="." method="on_upper_fork_placed"]
 [connection signal="body_entered" from="Upper Fork Point/Area3D" to="Upper Fork Point" method="_on_area_3d_body_entered"]
 
 [editable path="model"]

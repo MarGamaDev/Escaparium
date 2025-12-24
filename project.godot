@@ -14,7 +14,8 @@ config/name="Aquescape"
 config/version="0.5"
 run/main_scene="uid://ctwovco0yuh0d"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.1341686, 0.1344141, 0.19501182, 1)
+config/icon="uid://drsk8mf0paftu"
 
 [display]
 

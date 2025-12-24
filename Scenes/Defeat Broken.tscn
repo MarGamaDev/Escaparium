@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://dmqgst5he20at"]
 
 [ext_resource type="Script" uid="uid://7gtl3ao0100x" path="res://Scripts/Management/EndScreen.gd" id="1_huav3"]
-[ext_resource type="Texture2D" uid="uid://b4qrjal8ym4sh" path="res://SPLASHES YAY/DEFEAT/DEFEAT1.png" id="2_osv8q"]
-[ext_resource type="Texture2D" uid="uid://cuifc5xttuhmi" path="res://SPLASHES YAY/DEFEAT/DEFEAT2.png" id="3_huqd2"]
+[ext_resource type="Texture2D" uid="uid://bv3tanoj40ewh" path="res://SPLASHES YAY/BROKEN/tank destroyed_F1.png" id="2_huav3"]
+[ext_resource type="Texture2D" uid="uid://48ktsj1oqntj" path="res://SPLASHES YAY/BROKEN/tank destroyed_F2.png" id="3_osv8q"]
 [ext_resource type="Texture2D" uid="uid://dsqcqev3ckyw5" path="res://Sprites/UI/buttonunpressed.png" id="4_r4s0b"]
 [ext_resource type="Texture2D" uid="uid://dcydta8sq2wtn" path="res://Sprites/UI/buttonpressed.png" id="5_tg1ly"]
 [ext_resource type="BitMap" uid="uid://dbva6rtth7dl0" path="res://Sprites/UI/button_mask.png" id="6_m8wt2"]
@@ -22,20 +22,21 @@ offset_bottom = -216.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_huav3")
-textures = Array[Texture2D]([ExtResource("2_osv8q"), ExtResource("3_huqd2")])
+textures = Array[Texture2D]([ExtResource("2_huav3"), ExtResource("3_osv8q")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 384.0
 offset_bottom = 216.0
-texture = ExtResource("2_osv8q")
+texture = ExtResource("2_huav3")
+expand_mode = 1
 
 [node name="New Game" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 29.0
-offset_top = 103.0
-offset_right = 165.75475
-offset_bottom = 180.0
+offset_left = -5.0
+offset_top = -7.0
+offset_right = 131.75475
+offset_bottom = 70.0
 texture_normal = ExtResource("4_r4s0b")
 texture_hover = ExtResource("5_tg1ly")
 texture_click_mask = ExtResource("6_m8wt2")
@@ -47,10 +48,10 @@ bob_intensity = 2.0
 
 [node name="Quit" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 161.0
-offset_right = 103.921616
-offset_bottom = 206.0
+offset_left = 2.0
+offset_top = 63.0
+offset_right = 81.921616
+offset_bottom = 108.0
 texture_normal = ExtResource("8_5yjn4")
 texture_hover = ExtResource("9_6uma5")
 texture_click_mask = ExtResource("6_m8wt2")

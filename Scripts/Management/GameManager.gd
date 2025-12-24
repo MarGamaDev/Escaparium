@@ -101,7 +101,8 @@ func kill_player() -> void:
 	corpse.rotation = player.model.rotation;
 	corpse.freeze = false;
 	add_child(corpse);
-	(corpse.find_child("body") as DeadFish). do_dying_thing();
+	(corpse.find_child("body") as DeadFish).do_dying_thing();
+	corpse.add_to_group("fish");
 	
 	#despawn player
 	player.player_death.disconnect(kill_player);

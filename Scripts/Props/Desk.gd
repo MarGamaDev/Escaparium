@@ -30,7 +30,7 @@ func release_lower_fork() -> void:
 
 func release_upper_fork() -> void:
 	upper_fork.reparent(get_tree().root);
-	lower_fork.grabbable = true;
+	upper_fork.grabbable = true;
 	upper_fork.freeze = false;
 
 func open_lower_drawer(body: Node) -> void:

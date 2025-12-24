@@ -29,9 +29,9 @@ points = PackedVector3Array(0.1, 0, 0, 0.07, -0.205, 0, -0.05, -0.24, 0, -0.12, 
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8g4oa"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["fish"]]
 collision_layer = 2
-collision_mask = 3
+collision_mask = 131
 safe_margin = 0.005
 script = ExtResource("1_ugq8o")
 flop_force = 8.0
@@ -49,7 +49,7 @@ script = ExtResource("3_t0o3b")
 mouse_sensitivity = 0.01
 max_vertical_angle = 90.0
 
-[node name="Camera Arm" type="SpringArm3D" parent="Camera Pivot" groups=["fish"]]
+[node name="Camera Arm" type="SpringArm3D" parent="Camera Pivot"]
 shape = SubResource("SphereShape3D_tok1r")
 spring_length = 2.5
 margin = 0.1

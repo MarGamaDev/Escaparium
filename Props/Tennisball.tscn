@@ -8,7 +8,7 @@
 radius = 0.32241684
 
 [node name="Tennisball" type="RigidBody3D" node_paths=PackedStringArray("grab_target") groups=["tennisball"]]
-collision_layer = 5
+collision_layer = 133
 physics_material_override = ExtResource("1_22w6w")
 script = ExtResource("2_7s765")
 grab_target = NodePath(".")

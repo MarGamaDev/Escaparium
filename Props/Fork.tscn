@@ -15,7 +15,7 @@ points = PackedVector3Array(-0.14366603, -0.018757619, 1.3511827, 0.13607651, 0.
 
 [node name="Fork" type="RigidBody3D" node_paths=PackedStringArray("grab_target") groups=["fork"]]
 collision_layer = 261
-collision_mask = 257
+collision_mask = 385
 freeze_mode = 1
 continuous_cd = true
 contact_monitor = true

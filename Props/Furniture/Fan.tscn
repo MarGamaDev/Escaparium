@@ -24,6 +24,7 @@ height = 0.17175293
 radius = 0.20117188
 
 [node name="Fan" type="RigidBody3D"]
+collision_mask = 129
 mass = 5.0
 script = ExtResource("1_r61k3")
 

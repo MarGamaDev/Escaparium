@@ -73,13 +73,5 @@ volume_db = 2.0
 autoplay = true
 bus = &"SFX"
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 162.0
-offset_top = 73.0
-offset_right = 202.0
-offset_bottom = 96.0
-text = "BROKEN"
-
 [connection signal="button_up" from="New Game" to="." method="on_new_game"]
 [connection signal="button_up" from="Quit" to="." method="on_quit"]

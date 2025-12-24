@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwj6a3qcbnxfa"]
+[gd_scene load_steps=12 format=3 uid="uid://dwj6a3qcbnxfa"]
 
 [ext_resource type="Texture2D" uid="uid://csyomuo27ab3u" path="res://Textures/BASIC/wooffloor1.png" id="1_d32n0"]
 [ext_resource type="Texture2D" uid="uid://6wnj2p22l36d" path="res://Textures/BASIC/WALL3.png" id="2_v0pxm"]
+[ext_resource type="Texture2D" uid="uid://bt1ls70ssqu5k" path="res://plaster_seamless_texture_4342_2.jpg" id="3_iys6k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0pxm"]
 albedo_texture = ExtResource("1_d32n0")
@@ -21,6 +22,14 @@ uv1_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bfnok"]
 size = Vector3(1, 17.408142, 31.492)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bfnok"]
+albedo_texture = ExtResource("3_iys6k")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ejtpv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iys6k"]
+size = Vector3(28.359589, 1, 31.542114)
 
 [node name="BEDROOM" type="StaticBody3D"]
 
@@ -72,3 +81,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.652, 5.068, -15.834)
 use_collision = true
 collision_mask = 3
 size = Vector3(8.435, 17.08, 2.8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(15, 0, 0, 0, -15, 2.264937e-06, 0, -2.264937e-06, -15, 0, 16.090439, 0)
+material_override = SubResource("StandardMaterial3D_bfnok")
+mesh = SubResource("PlaneMesh_ejtpv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.086257935, 16.884394, -0.053771973)
+shape = SubResource("BoxShape3D_iys6k")

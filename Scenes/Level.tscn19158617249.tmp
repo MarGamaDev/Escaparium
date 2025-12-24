@@ -241,7 +241,7 @@ transform = Transform3D(0.78521967, 0, -0.61921734, 0, 1, 0, 0.61921734, 0, 0.78
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0879851, 0)
 
 [node name="Noodle" parent="." node_paths=PackedStringArray("fork") instance=ExtResource("24_17mqb")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.758637, 4.9549856, 11.175354)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.758637, 4.9549856, 11.175354)
 fork = NodePath("../Fork")
 
 [connection signal="jump_out_of_tank" from="." to="NavigationRegion3D/Furniture/Fishtank" method="play_jump_animation"]

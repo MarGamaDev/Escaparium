@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b0ihs2ay64o0u" path="res://Sprites/UI/us/MILKTOAST_CREDIT_FISH.PNG" id="2_f64u0"]
 [ext_resource type="Texture2D" uid="uid://c3wo7jpfqnkbd" path="res://Sprites/UI/us/skravenscreditsfish.png" id="3_lpub1"]
 [ext_resource type="Texture2D" uid="uid://dokilbapttyjw" path="res://Sprites/UI/us/fablinkcreditfish.png" id="4_640q4"]
-[ext_resource type="Texture2D" uid="uid://bs6hvurjmuod8" path="res://Sprites/UI/us/kingbaddabingcreditimage.png" id="5_5qoai"]
+[ext_resource type="Texture2D" uid="uid://bi1sqw3t3yo43" path="res://Sprites/UI/us/KING_BADDABING_CREDIT_FISH.PNG" id="6_6n0gi"]
 [ext_resource type="Script" uid="uid://q40k40x0jd6p" path="res://Scripts/NickInflation.gd" id="6_f64u0"]
 [ext_resource type="Texture2D" uid="uid://saitni3v32h8" path="res://Sprites/UI/quitbuttonunpressed.png" id="7_jpdlp"]
 [ext_resource type="Texture2D" uid="uid://d3lje1hesjkkr" path="res://Sprites/UI/QUITBUTTONPRESSED.png" id="8_cmrso"]
@@ -42,10 +42,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -114.0
-offset_top = 121.0
-offset_right = -0.37254333
-offset_bottom = 216.0
+offset_left = -185.0
+offset_top = 69.0
+offset_right = -71.37254
+offset_bottom = 164.0
 grow_horizontal = 2
 texture = ExtResource("2_f64u0")
 expand_mode = 1
@@ -70,10 +70,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -201.0
-offset_top = 76.0
-offset_right = -92.65218
-offset_bottom = 165.0
+offset_left = -99.0
+offset_top = 141.0
+offset_right = 4.0
+offset_bottom = 223.0
 grow_horizontal = 2
 texture = ExtResource("4_640q4")
 expand_mode = 1
@@ -86,13 +86,13 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -131.0
-offset_top = -47.0
-offset_right = -2.1519165
-offset_bottom = 70.0
+offset_left = -134.0
+offset_top = -38.0
+offset_right = -5.1519165
+offset_bottom = 79.0
 grow_horizontal = 0
 grow_vertical = 2
-texture = ExtResource("5_5qoai")
+texture = ExtResource("6_6n0gi")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_f64u0")

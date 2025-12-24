@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cja0jrjctmyp3"]
+[gd_scene load_steps=14 format=3 uid="uid://cja0jrjctmyp3"]
 
 [ext_resource type="Script" uid="uid://7gtl3ao0100x" path="res://Scripts/Management/EndScreen.gd" id="1_35k6n"]
 [ext_resource type="Texture2D" uid="uid://b4qrjal8ym4sh" path="res://SPLASHES YAY/DEFEAT/DEFEAT1.png" id="2_6o0bo"]
 [ext_resource type="Texture2D" uid="uid://cuifc5xttuhmi" path="res://SPLASHES YAY/DEFEAT/DEFEAT2.png" id="3_q85nr"]
+[ext_resource type="Texture2D" uid="uid://dt5dh8geem0k1" path="res://SPLASHES YAY/ESCAPED/escaped1.png" id="4_q85nr"]
 [ext_resource type="Texture2D" uid="uid://dsqcqev3ckyw5" path="res://Sprites/UI/buttonunpressed.png" id="4_sc314"]
+[ext_resource type="Texture2D" uid="uid://d2oelb4nacxkw" path="res://SPLASHES YAY/ESCAPED/escaped2.png" id="5_sc314"]
 [ext_resource type="Texture2D" uid="uid://dcydta8sq2wtn" path="res://Sprites/UI/buttonpressed.png" id="5_y6o4t"]
 [ext_resource type="BitMap" uid="uid://dbva6rtth7dl0" path="res://Sprites/UI/button_mask.png" id="6_o6xvn"]
 [ext_resource type="Script" uid="uid://c3y5vpu6qy7h6" path="res://Scripts/FishButton.gd" id="7_bt77o"]
@@ -22,20 +24,21 @@ offset_bottom = -216.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_35k6n")
-textures = Array[Texture2D]([ExtResource("2_6o0bo"), ExtResource("3_q85nr")])
+textures = Array[Texture2D]([ExtResource("2_6o0bo"), ExtResource("3_q85nr"), ExtResource("4_q85nr"), ExtResource("5_sc314")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 384.0
 offset_bottom = 216.0
-texture = ExtResource("2_6o0bo")
+texture = ExtResource("4_q85nr")
+expand_mode = 1
 
 [node name="New Game" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 29.0
-offset_top = 103.0
-offset_right = 165.75475
-offset_bottom = 180.0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 146.75475
+offset_bottom = 84.0
 texture_normal = ExtResource("4_sc314")
 texture_hover = ExtResource("5_y6o4t")
 texture_click_mask = ExtResource("6_o6xvn")
@@ -47,10 +50,10 @@ bob_intensity = 2.0
 
 [node name="Quit" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 161.0
-offset_right = 103.921616
-offset_bottom = 206.0
+offset_left = 288.0
+offset_top = 156.0
+offset_right = 367.92163
+offset_bottom = 201.0
 texture_normal = ExtResource("8_svw77")
 texture_hover = ExtResource("9_qayrs")
 texture_click_mask = ExtResource("6_o6xvn")

@@ -126,16 +126,6 @@ func _take_input(delta: float) -> void:
 			_try_interact();
 		else:
 			_throw_item();
-	
-	if Input.is_action_pressed("Reset"):
-		reset_timer += delta;
-		
-	if Input.is_action_just_released("Reset"):
-		reset_timer = 0;
-	
-	if reset_timer >= time_to_reset:
-		reset_timer = -1000;
-		die();
 
 func _apply_movement(delta: float) -> void:
 	var cam_translated_forward := Vector3(camera.global_position.x - global_position.x, 0, camera.global_position.z - global_position.z).normalized();

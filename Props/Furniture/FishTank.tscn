@@ -160,7 +160,7 @@ _data = {
 &"send_off_to_war_short": SubResource("Animation_nbl62")
 }
 
-[node name="Fishtank" type="RigidBody3D"]
+[node name="Fishtank" type="RigidBody3D" node_paths=PackedStringArray("fish_array")]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 0, 0, 0)
 axis_lock_linear_x = true
 axis_lock_linear_y = true
@@ -170,6 +170,7 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 freeze_mode = 1
 script = ExtResource("1_6nntu")
+fish_array = [NodePath("Yee Yee ahh fish/Dead Fish"), NodePath("Yee Yee ahh fish/Dead Fish2"), NodePath("Yee Yee ahh fish/Dead Fish3"), NodePath("Yee Yee ahh fish/Dead Fish4"), NodePath("Yee Yee ahh fish/Dead Fish5"), NodePath("Yee Yee ahh fish/Dead Fish6"), NodePath("Yee Yee ahh fish/Dead Fish7"), NodePath("Yee Yee ahh fish/Dead Fish8"), NodePath("Yee Yee ahh fish/Dead Fish9"), NodePath("Yee Yee ahh fish/Dead Fish10")]
 
 [node name="Cube Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0041160583, 1.6130466, 0.18771362)
@@ -197,3 +198,55 @@ bus = &"SFX"
 script = ExtResource("2_78bak")
 sound_array = Array[AudioStream]([ExtResource("8_nbl62"), ExtResource("9_vsy16"), ExtResource("10_kgaco"), ExtResource("11_57bn8"), ExtResource("12_ftsmm")])
 metadata/_custom_type_script = "uid://ctc0gkf64cmms"
+
+[node name="Yee Yee ahh fish" type="Node3D" parent="."]
+
+[node name="Dead Fish" parent="Yee Yee ahh fish" instance=ExtResource("1_qmsf3")]
+transform = Transform3D(-4.3083507e-08, 0.98563576, 0.16888505, -1, -4.371139e-08, 0, 7.3822e-09, -0.16888505, 0.98563576, 0, 2.0260012, 1.254826)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Dead Fish2" parent="Yee Yee ahh fish" instance=ExtResource("1_qmsf3")]
+transform = Transform3D(4.3019877e-08, -0.98418015, -0.17717053, -1, -4.371139e-08, 0, -7.74437e-09, 0.17717053, -0.98418015, 0, 1.3749055, -0.768554)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Dead Fish3" parent="Yee Yee ahh fish" instance=ExtResource("1_qmsf3")]
+transform = Transform3D(1.7938483e-08, -0.41038474, 0.91191256, -1, -4.371139e-08, 0, 3.986096e-08, -0.9119125, -0.4103847, -1.0020107, 1.6315353, 0.5649201)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Dead Fish4" parent="Yee Yee ahh fish" instance=ExtResource("1_qmsf3")]
+transform = Transform3D(-4.922495e-09, 0.1126136, -0.9936389, -1, -4.3711392e-08, 6.719791e-16, -4.343333e-08, 0.9936389, 0.11261362, -0.22063145, 0.5031613, -1.0290083)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Dead Fish5" parent="Yee Yee ahh fish" instance=ExtResource("1_qmsf3")]
+transform = Transform3D(-1.5117831e-09, 0.034585565, -0.99940175, -1, -4.371139e-08, 0, -4.3685237e-08, 0.99940175, 0.034585565, 0.5327335, 0.49022907, -0.025770187)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Dead Fish6" parent="Yee Yee ahh fish" instance=ExtResource("1_qmsf3")]
+transform = Transform3D(2.079489e-08, -0.47573164, 0.87959045, -1, -4.371139e-08, 0, 3.844812e-08, -0.87959045, -0.47573164, 1.1938022, 0.78534436, 1.2765687)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Dead Fish7" parent="Yee Yee ahh fish" instance=ExtResource("1_qmsf3")]
+transform = Transform3D(-3.4883737e-08, 0.79804695, -0.6025953, -1, -4.371139e-08, 0, -2.634028e-08, 0.6025953, 0.79804695, 1.0983568, 1.3268473, 0.94834566)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Dead Fish8" parent="Yee Yee ahh fish" instance=ExtResource("1_qmsf3")]
+transform = Transform3D(-1.0718287e-08, 0.24520583, 0.96947104, -1, -4.371139e-08, 0, 4.2376925e-08, -0.96947104, 0.24520583, 0, 1.9932274, -1.3938274)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Dead Fish9" parent="Yee Yee ahh fish" instance=ExtResource("1_qmsf3")]
+transform = Transform3D(4.370986e-08, -0.9999651, -0.008359963, -1, -4.371139e-08, 0, -3.6542558e-10, 0.008359963, -0.9999651, -0.48041138, 0.49022907, 0.94834566)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Dead Fish10" parent="Yee Yee ahh fish" instance=ExtResource("1_qmsf3")]
+transform = Transform3D(-3.980977e-08, 0.9107414, 0.41297728, -1, -4.371139e-08, 2.7754608e-17, 1.8051809e-08, -0.41297725, 0.9107413, -0.48041138, 2.249368, -0.5315745)
+collision_layer = 0
+collision_mask = 0

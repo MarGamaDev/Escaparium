@@ -55,7 +55,11 @@ func _run_fishtank_state(_delta: float) -> void:
 		current_game_state = GameState.PLAYING;
 
 func _run_playing_state(delta: float) -> void:
-	breath_timer -= delta;
+	if Input.is_action_pressed("Reset"):
+		breath_timer -= delta * 10;
+	else:
+		breath_timer -= delta;
+		
 	update_timer.emit(breath_timer / breath_max_time);
 	if breath_timer <= 0:
 		out_of_breath.emit();

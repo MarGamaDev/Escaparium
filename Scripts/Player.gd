@@ -180,7 +180,7 @@ func _throw_item() -> void:
 	if held_item is RigidBody3D:
 		(held_item as RigidBody3D).freeze = false;
 	
-	held_item.reparent(get_tree().root)
+	held_item.reparent(get_tree().current_scene)
 	
 	var yeet_vector: Vector3 = yeet_force * -camera.global_transform.basis.z.normalized();
 	(held_item as RigidBody3D).apply_central_impulse(yeet_vector);
@@ -190,7 +190,7 @@ func _drop_item() -> void:
 	if held_item is RigidBody3D:
 		(held_item as RigidBody3D).freeze = false;
 	
-	held_item.reparent(get_tree().root)
+	held_item.reparent(get_tree().current_scene)
 	held_item = null;
 
 func add_flags(flags: Array[String]) -> void:

@@ -168,7 +168,7 @@ func pry_down(body: Node) -> void:
 
 func release_fork() -> void:
 	print("fork released");
-	fork.reparent(get_tree().root);
+	fork.reparent(get_tree().current_scene);
 	fork.grabbable = true;
 	fork.freeze = false;
 

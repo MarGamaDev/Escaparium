@@ -15,7 +15,6 @@ extends CharacterBody3D
 
 var timer: float = 0;
 var fish_eaten: int = 0;
-var fish_being_eaten: Node3D;
 var is_going_to_sleep: bool = false;
 
 enum State {
@@ -54,7 +53,8 @@ func _physics_process(delta: float) -> void:
 
 func _turn_towards_target(delta: float):
 	var target_direction = (target.global_position - global_position).normalized();
-	var angle = Vector3(basis.z.x, 0, basis.z.z).angle_to(Vector3(target_direction.x, 0 ));
+	var forward = Vector3(basis.z.x, 0, basis.z.z).rotated(Vector3.UP, 90);
+	var angle = forward.angle_to(Vector3(target_direction.x, 0 , target_direction.z));
 	angle = clampf(angle, -turn_speed * delta, turn_speed * delta);
 	global_rotate(Vector3.UP, angle);
 
@@ -79,19 +79,20 @@ func _determine_target():
 			fish.erase(maybe_target)
 		
 		if fish.is_empty():
-			has_valid_target = true;
+			break;
 
-func _on_moving(delta: float):
+func _on_moving(delta: float) -> void:
 	print("moving");
-	if !target || !navigation_agent_3d.is_target_reachable():
+	print(target)
+	if target == null || !navigation_agent_3d.is_target_reachable():
 		current_state = State.IDLE;
+		target = null;
 		return;
-	
-	var next_position = navigation_agent_3d.get_next_path_position();
-	var direction = (next_position - global_position).normalized();
-	velocity = direction * speed;
-	if target:
-		return;
+	else:
+		navigation_agent_3d.target_position = target.global_position;
+		var next_position = navigation_agent_3d.get_next_path_position();
+		var direction = (next_position - global_position).normalized();
+		velocity = direction * speed;
 		_turn_towards_target(delta);
 
 func _on_idle(delta: float):
@@ -131,7 +132,6 @@ func _on_eating(delta: float):
 	timer += delta;
 	
 	if timer >= eat_time:
-		fish_being_eaten.queue_free();
 		fish_eaten += 1;
 		if fish_eaten == fish_till_sleep:
 			current_state = State.TRANSITIONING;
@@ -169,9 +169,13 @@ func _on_navigation_agent_3d_navigation_finished() -> void:
 		transition_to_state = State.CATNIP;
 		animation_player.play("Catnip");
 	elif target.get_groups().has("player"):
-		pass
+		(target as PlayerController).die();
+		current_state = State.EATING;
+		animation_player.play("Eating");
 	else:
-		fish_being_eaten = target;
+		target.queue_free();
+		current_state = State.EATING;
+		animation_player.play("Eating");
 	target = null;
 
 func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:

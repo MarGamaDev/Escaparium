@@ -24,12 +24,12 @@ func on_lower_fork_placed(body: Node3D) -> void:
 	lower_fork.connect("body_entered", open_lower_drawer);
 
 func release_lower_fork() -> void:
-	lower_fork.reparent(get_tree().root);
+	lower_fork.reparent(get_tree().current_scene);
 	lower_fork.grabbable = true;
 	lower_fork.freeze = false;
 
 func release_upper_fork() -> void:
-	upper_fork.reparent(get_tree().root);
+	upper_fork.reparent(get_tree().current_scene);
 	upper_fork.grabbable = true;
 	upper_fork.freeze = false;
 

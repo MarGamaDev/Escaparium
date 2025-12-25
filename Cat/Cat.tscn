@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b85hievt11q0l"]
+[gd_scene load_steps=4 format=3 uid="uid://b85hievt11q0l"]
 
+[ext_resource type="Script" uid="uid://cgmao05lsjm1q" path="res://Scripts/Cat.gd" id="1_tanje"]
 [ext_resource type="PackedScene" uid="uid://cpoetae6wlfb" path="res://Cat/CATFIXEDcatnip.glb" id="2_msl82"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tanje"]
@@ -10,6 +11,8 @@ height = 5.4
 collision_mask = 3
 axis_lock_angular_x = true
 axis_lock_angular_z = true
+script = ExtResource("1_tanje")
+turn_speed = 12.0
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
@@ -17,28 +20,26 @@ axis_lock_angular_z = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2299588)
 
 [node name="Skeleton3D" parent="CATFIXEDcatnip/Armature" index="0"]
-bones/0/position = Vector3(0.001707986, 0.91907895, 0.42085484)
-bones/0/rotation = Quaternion(0.69149446, 0.50046676, 0.5008509, 0.14323744)
-bones/1/position = Vector3(0.0017075951, 0.91907895, 0.4208547)
+bones/0/position = Vector3(0.0017075817, 1.4221424, 0.42085484)
+bones/1/position = Vector3(0.0017075938, 1.4221424, 0.42085472)
 bones/1/rotation = Quaternion(0.7025831, -0.66263133, 0.08892018, -0.24370062)
-bones/2/rotation = Quaternion(0.29387182, -0.5768826, -0.4202987, 0.6357633)
-bones/3/rotation = Quaternion(-0.055113394, 0.052021123, -0.02256274, 0.9968688)
+bones/3/rotation = Quaternion(0.11316145, 0.0024001915, -0.014986012, 0.9934607)
 bones/4/position = Vector3(0.68879837, 0.743394, -0.3451676)
 bones/4/rotation = Quaternion(0.07780392, 0.3025806, 0.03779197, 0.94919086)
 bones/5/position = Vector3(-0.7612846, 0.7527967, -0.37189195)
-bones/5/rotation = Quaternion(0.36105746, -0.2476439, 0.8953307, -0.08180992)
+bones/5/rotation = Quaternion(0.37018248, -0.03237163, 0.928384, 0.0045060636)
 bones/6/position = Vector3(-0.664991, 0.73687273, -2.5771194)
 bones/6/rotation = Quaternion(0.104834154, 0.38911408, -0.021040916, 0.91496307)
 bones/7/position = Vector3(-0.664991, 0.73687273, -2.5771194)
-bones/7/rotation = Quaternion(0.24350198, 0.21574134, 0.9383095, 0.117208466)
+bones/7/rotation = Quaternion(0.2673445, -0.073134, 0.96001065, 0.039470814)
 bones/8/position = Vector3(-0.76128465, 0.7527966, -0.37189192)
 bones/8/rotation = Quaternion(0.059841312, 0.32401252, 0.0006516116, 0.9441581)
 bones/9/position = Vector3(0.68879837, 0.7433942, -0.34516755)
-bones/9/rotation = Quaternion(-0.048392635, -0.27466482, 0.9603126, 0.004129149)
+bones/9/rotation = Quaternion(-0.04812204, -0.057668015, 0.9971537, -0.006570079)
 bones/10/position = Vector3(0.70883554, 0.704056, -2.5647326)
 bones/10/rotation = Quaternion(-0.017566327, 0.22774765, 0.04382641, 0.9725748)
-bones/11/position = Vector3(0.6676375, 0.8633745, -2.3444061)
-bones/11/rotation = Quaternion(0.5318964, 0.14508562, 0.8332625, 0.041351434)
+bones/11/position = Vector3(0.7088358, 0.70405614, -2.5647328)
+bones/11/rotation = Quaternion(0.53322256, 0.05280256, 0.8441494, -0.017246258)
 
 [node name="AnimationPlayer" parent="CATFIXEDcatnip" index="1"]
 blend_times = [&"Eating", &"STANDING_IDLE", 635.294, &"Eating", &"StandingUpFromSleep", 635.294]
